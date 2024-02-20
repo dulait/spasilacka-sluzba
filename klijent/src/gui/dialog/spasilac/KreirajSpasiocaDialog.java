@@ -129,7 +129,7 @@ public class KreirajSpasiocaDialog extends javax.swing.JDialog {
         Spasilac spasilac = new Spasilac(0, ime, prezime, jmbg);
         if (SpasilacKontroler.getInstanca().kreirajSpasioca(spasilac)) {
             JOptionPane.showMessageDialog(this, "Sistem je kreirao spasioca", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
-            dialog.popuniTabelu();
+            dialog.popuniTabelu(null);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Sistem ne moze da kreira spasioca", "Greska", JOptionPane.ERROR_MESSAGE);

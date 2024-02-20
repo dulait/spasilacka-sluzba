@@ -1,6 +1,9 @@
 package gui.dialog.spasilac;
 
 import domen.Spasilac;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import kontroler.SpasilacKontroler;
@@ -8,14 +11,13 @@ import model.SpasilacTableModel;
 
 public final class SpasilacDialog extends javax.swing.JDialog {
 
-    private List<Spasilac> spasioci;
-
     public SpasilacDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
 
-        popuniTabelu();
+        popuniTabelu(null);
+        dodajOsluskivacNaPretragu();
     }
 
     @SuppressWarnings("unchecked")
@@ -25,6 +27,8 @@ public final class SpasilacDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSpasioci = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txtPretraga = new javax.swing.JTextField();
         btnKreiraj = new javax.swing.JButton();
         btnDetalji = new javax.swing.JButton();
 
@@ -45,21 +49,32 @@ public final class SpasilacDialog extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tblSpasioci);
 
+        jLabel1.setText("Pretraga:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPretraga, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtPretraga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         btnKreiraj.setText("Kreiraj spasioca");
@@ -92,15 +107,15 @@ public final class SpasilacDialog extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(14, 14, 14)
                 .addComponent(btnDetalji)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnKreiraj)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -114,8 +129,10 @@ public final class SpasilacDialog extends javax.swing.JDialog {
         kreirajSpasioca();
     }//GEN-LAST:event_btnKreirajActionPerformed
 
-    protected void popuniTabelu() {
-        spasioci = SpasilacKontroler.getInstanca().ucitajListuSpasioca(spasioci);
+    protected void popuniTabelu(List<Spasilac> spasioci) {
+        if (spasioci == null) {
+            spasioci = SpasilacKontroler.getInstanca().ucitajListuSpasioca(spasioci);
+        }
 
         SpasilacTableModel stm = new SpasilacTableModel(spasioci);
         tblSpasioci.setModel(stm);
@@ -124,9 +141,11 @@ public final class SpasilacDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDetalji;
     private javax.swing.JButton btnKreiraj;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblSpasioci;
+    private javax.swing.JTextField txtPretraga;
     // End of variables declaration//GEN-END:variables
 
     private void ucitajSpasioca() {
@@ -151,5 +170,24 @@ public final class SpasilacDialog extends javax.swing.JDialog {
 
     private void kreirajSpasioca() {
         new KreirajSpasiocaDialog(null, true, this).setVisible(true);
+    }
+
+    private void dodajOsluskivacNaPretragu() {
+
+        txtPretraga.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                List<Spasilac> spasioci = SpasilacKontroler.getInstanca().pretraziSpasioce(txtPretraga.getText());
+
+                if (spasioci.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Sistem ne moze da nadje spasioce po zadatom kriterijumu", "Greska", JOptionPane.ERROR_MESSAGE);
+                    txtPretraga.setText("");
+                    popuniTabelu(null);
+                }
+                popuniTabelu(spasioci);
+            }
+
+        });
+
     }
 }

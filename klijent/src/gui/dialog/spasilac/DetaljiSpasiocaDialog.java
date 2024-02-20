@@ -122,7 +122,7 @@ public class DetaljiSpasiocaDialog extends javax.swing.JDialog {
 
         if (SpasilacKontroler.getInstanca().azurirajSpasioca(spasilac)) {
             JOptionPane.showMessageDialog(this, "Sistem je azurirao spasioca", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
-            dialog.popuniTabelu();
+            dialog.popuniTabelu(null);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Sistem ne moze da azurira spasioca", "Greska", JOptionPane.ERROR_MESSAGE);
