@@ -1,8 +1,8 @@
-## Forkovanje Repozitorijuma
+## 🍴Forkovanje Repozitorijuma
 
 1. Kliknite na dugme "Fork" u gornjem desnom uglu.
 
-## Pravljenje Pull Request-a
+## ✍️Pravljenje Pull Request-a
 
 1. Kada završite sa izmenama na svojoj radnoj grani, idite na stranicu "Pull Requests" u originalnom repozitorijumu.
 
