@@ -13,9 +13,9 @@ Projekat je rađen za potrebe izrade seminarskog rada iz Projektovanja softvera.
 
 ## 📝Funkcionalnosti
 Projekat se sastoji iz 3 dela:
-- **klijent**
-- **server**
-- **zajednicki**
+1. **klijent**
+2. **server**
+3. **zajednicki**
 
 ### 🤵Klijent
 
