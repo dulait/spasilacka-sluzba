@@ -66,5 +66,5 @@ Da biste uspešno pokrenuli celu aplikaciju potrebno je:
 
 ## 🤙Doprinos
 
-Ako želiš da doprineseš razvoju projekta, pogledaj [smernice za doprinos](CONTRIBUTING.md). 
+Ako želiš da doprineseš razvoju projekta, pogledaj [smernice za doprinos](CONTRIBUTING.md).<br>
 Hvala!
