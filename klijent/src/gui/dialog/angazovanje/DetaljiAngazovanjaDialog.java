@@ -4,6 +4,14 @@ import domen.Angazovanje;
 import javax.swing.JOptionPane;
 import kontroler.AngazovanjeKontroler;
 
+/**
+ * Dialog that renders the details of a selected Angazovanje instance.
+ *
+ * Upon loading it renders the selected Angazovanje instance from the
+ * {@code AngazovanjeDialog}
+ *
+ * @author dulait
+ */
 public class DetaljiAngazovanjaDialog extends javax.swing.JDialog {
 
     private final Angazovanje angazovanje;

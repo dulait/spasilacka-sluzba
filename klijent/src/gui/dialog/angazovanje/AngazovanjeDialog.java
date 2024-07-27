@@ -9,6 +9,14 @@ import javax.swing.JOptionPane;
 import kontroler.AngazovanjeKontroler;
 import model.AngazovanjeTableModel;
 
+/**
+ * Dialog that allows users to manipulate the Angazovanje instances.
+ *
+ * Upon loading it renders a list of Angazovanje instances using the
+ * {@code AngazovanjeTableModel}
+ *
+ * @author dulait
+ */
 public final class AngazovanjeDialog extends javax.swing.JDialog {
 
     private List<Angazovanje> angazovanja;

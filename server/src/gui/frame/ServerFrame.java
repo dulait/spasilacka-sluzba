@@ -2,8 +2,6 @@ package gui.frame;
 
 import domen.Koordinator;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +10,11 @@ import java.util.Map;
 import model.KoordinatorTableModel;
 import niti.ServerskaNit;
 
+/**
+ * Frame that displays after a Koordinator successfully logs into his account.
+ *
+ * @author drask
+ */
 public class ServerFrame extends javax.swing.JFrame {
 
     private ServerskaNit serverskaNit;

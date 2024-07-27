@@ -7,6 +7,11 @@ import java.net.Socket;
 import transfer.Odgovor;
 import transfer.Zahtev;
 
+/**
+ * Handler class that opens IO streams between the Client and the Server
+ *
+ * @author dulait
+ */
 public class ServerKontroler {
 
     private Socket socket;

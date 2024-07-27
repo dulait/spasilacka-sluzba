@@ -5,6 +5,14 @@ import java.awt.Frame;
 import javax.swing.JOptionPane;
 import kontroler.SmenaKontroler;
 
+/**
+ * Dialog that allows users to create a new Smena instance.
+ *
+ * Upon loading it renders the selected Smena instance from the
+ * {@code SmenaDialog}
+ *
+ * @author dulait
+ */
 public class KreirajSmenuDialog extends javax.swing.JDialog {
 
     private final SmenaDialog dialog;

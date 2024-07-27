@@ -7,6 +7,14 @@ import javax.swing.JOptionPane;
 import kontroler.IzvestajKontroler;
 import model.IzvestajTableModel;
 
+/**
+ * Dialog that allows users to manipulate the Izvestaj instances.
+ *
+ * Upon loading it renders a list of Izvestaj instances using the
+ * {@code IzvestajTableModel}
+ *
+ * @author dulait
+ */
 public final class IzvestajDialog extends javax.swing.JDialog {
 
     private List<Izvestaj> izvestaji;

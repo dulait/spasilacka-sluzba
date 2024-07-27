@@ -1,12 +1,6 @@
 package niti;
 
-import domen.Angazovanje;
-import domen.Izvestaj;
-import domen.Koordinator;
-import domen.OpstiDomenskiObjekat;
-import domen.Raspored;
-import domen.Smena;
-import domen.Spasilac;
+import domen.*;
 import gui.frame.ServerFrame;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -14,37 +8,76 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.List;
 import konstante.Operacija;
-import kontroleri.AngazovanjeKontroler;
-import kontroleri.IzvestajKontroler;
-import kontroleri.KoordinatorKontroler;
-import kontroleri.RasporedKontroler;
-import kontroleri.SmenaKontroler;
-import kontroleri.SpasilacKontroler;
+import kontroleri.*;
 import transfer.Odgovor;
 import transfer.Zahtev;
 
+/**
+ * The {@code KlijentskaNit} class represents a client thread that handles
+ * communication between the server and a client.
+ * <p>
+ * This class extends {@code Thread} and is responsible for processing client
+ * requests and sending responses back to the client. Each client connection is
+ * managed by a separate instance of {@code KlijentskaNit}.
+ * </p>
+ *
+ * <p>
+ * The class listens for incoming requests from the client, processes these
+ * requests using appropriate controller classes, and sends back the results or
+ * status messages to the client. It also manages the client connection's
+ * lifecycle.
+ * </p>
+ *
+ * @author dulait
+ */
 public class KlijentskaNit extends Thread {
 
     private Socket klijentskiSocket;
     private boolean signal;
     private final ServerFrame frame;
 
+    /**
+     * Constructs a {@code KlijentskaNit} with the specified client socket and
+     * server frame.
+     *
+     * @param klijentskiSocket the socket used to communicate with the client
+     * @param frame the server frame used to update the server's state
+     */
     public KlijentskaNit(Socket klijentskiSocket, ServerFrame frame) {
         this.klijentskiSocket = klijentskiSocket;
         this.frame = frame;
     }
 
+    /**
+     * Gets the client socket used for communication with the client.
+     *
+     * @return the client socket
+     */
     public Socket getKlijentskiSocket() {
         return klijentskiSocket;
     }
 
+    /**
+     * Sets the client socket used for communication with the client.
+     *
+     * @param klijentskiSocket the new client socket
+     */
     public void setKlijentskiSocket(Socket klijentskiSocket) {
         this.klijentskiSocket = klijentskiSocket;
     }
 
+    /**
+     * Executes the thread's main logic to handle client requests and send
+     * responses.
+     * <p>
+     * This method continuously listens for incoming requests from the client
+     * and processes them based on the requested operation. The operations are
+     * handled using appropriate controller classes, and responses are sent back
+     * to the client.
+     * </p>
+     */
     @Override
     public void run() {
-
         signal = true;
 
         while (signal && !isInterrupted()) {
@@ -267,7 +300,6 @@ public class KlijentskaNit extends Thread {
                         System.err.println("ZATVORI_KONEKCIJU: " + ex.getMessage());
                     }
                 }
-
             }
             if (!getKlijentskiSocket().isClosed()) {
                 posaljiOdgovor(o);
@@ -275,6 +307,12 @@ public class KlijentskaNit extends Thread {
         }
     }
 
+    /**
+     * Receives a request from the client.
+     *
+     * @return the received request, or {@code null} if an error occurs or the
+     * client connection is closed
+     */
     public Zahtev primiZahtev() {
         try {
             ObjectInputStream ois = new ObjectInputStream(klijentskiSocket.getInputStream());
@@ -285,6 +323,11 @@ public class KlijentskaNit extends Thread {
         return null;
     }
 
+    /**
+     * Sends a response to the client.
+     *
+     * @param o the response to send
+     */
     public void posaljiOdgovor(Odgovor o) {
         try {
             ObjectOutputStream oos = new ObjectOutputStream(klijentskiSocket.getOutputStream());
@@ -293,5 +336,4 @@ public class KlijentskaNit extends Thread {
             System.err.println("Klijentski socket je zatvoren. Nije moguce slati odgovore.");
         }
     }
-
 }

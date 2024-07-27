@@ -5,6 +5,14 @@ import javax.swing.JOptionPane;
 import kontroler.KoordinatorKontroler;
 import niti.KlijentskaNit;
 
+/**
+ * Frame that displays when a User opens the Client application.
+ *
+ * From here users will be able to login into their accounts and proceed with
+ * using the application.
+ *
+ * @author dulait
+ */
 public class LoginFrame extends javax.swing.JFrame {
 
     private KlijentskaNit kn;

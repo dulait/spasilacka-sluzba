@@ -4,6 +4,14 @@ import domen.Izvestaj;
 import javax.swing.JOptionPane;
 import kontroler.IzvestajKontroler;
 
+/**
+ * Dialog that renders the details of a selected Izvestaj instance.
+ *
+ * Upon loading it renders the selected Izvestaj instance from the
+ * {@code IzvestajDialog}
+ *
+ * @author dulait
+ */
 public class DetaljiIzvestajaDialog extends javax.swing.JDialog {
 
     private final Izvestaj izvestaj;

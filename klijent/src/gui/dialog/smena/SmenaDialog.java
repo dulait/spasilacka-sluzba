@@ -7,6 +7,14 @@ import javax.swing.JOptionPane;
 import kontroler.SmenaKontroler;
 import model.SmenaTableModel;
 
+/**
+ * Dialog that allows users to manipulate the Smena instances.
+ *
+ * Upon loading it renders a list of Smena instances using the
+ * {@code SmenaTableModel}
+ *
+ * @author dulait
+ */
 public final class SmenaDialog extends javax.swing.JDialog {
 
     public SmenaDialog(java.awt.Frame parent, boolean modal) {

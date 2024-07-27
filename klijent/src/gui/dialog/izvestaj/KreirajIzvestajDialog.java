@@ -8,6 +8,14 @@ import javax.swing.JOptionPane;
 import kontroler.AngazovanjeKontroler;
 import kontroler.IzvestajKontroler;
 
+/**
+ * Dialog that allows users to create a new Izvestaj instance.
+ *
+ * Upon loading it renders the selected Izvestaj instance from the
+ * {@code IzvestajDialog}
+ *
+ * @author dulait
+ */
 public class KreirajIzvestajDialog extends javax.swing.JDialog {
 
     private final IzvestajDialog dialog;

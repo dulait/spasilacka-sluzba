@@ -12,6 +12,14 @@ import kontroler.RasporedKontroler;
 import kontroler.SmenaKontroler;
 import kontroler.SpasilacKontroler;
 
+/**
+ * Dialog that allows users to create a new Angazovanje instance.
+ *
+ * Upon loading it renders the selected Angazovanje instance from the
+ * {@code AngazovanjeDialog}
+ *
+ * @author dulait
+ */
 public class KreirajAngazovanjeDialog extends javax.swing.JDialog {
 
     private final AngazovanjeDialog dialog;

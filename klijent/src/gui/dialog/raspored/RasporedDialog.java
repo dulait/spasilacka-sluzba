@@ -8,6 +8,14 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import kontroler.RasporedKontroler;
 
+/**
+ * Dialog that allows users to manipulate the Raspored instances.
+ *
+ * Upon loading it renders a list of Raspored instances using the
+ * {@code RasporedTableModel}
+ *
+ * @author dulait
+ */
 public final class RasporedDialog extends javax.swing.JDialog {
 
     private List<Raspored> rasporedi;

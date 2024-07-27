@@ -3,12 +3,19 @@ package gui.dialog.spasilac;
 import domen.Spasilac;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import kontroler.SpasilacKontroler;
 import model.SpasilacTableModel;
 
+/**
+ * Dialog that allows users to manipulate the Spasilac instances.
+ *
+ * Upon loading it renders a list of Spasilac instances using the
+ * {@code SpasilacTableModel}
+ *
+ * @author dulait
+ */
 public final class SpasilacDialog extends javax.swing.JDialog {
 
     public SpasilacDialog(java.awt.Frame parent, boolean modal) {

@@ -5,6 +5,14 @@ import java.awt.Frame;
 import javax.swing.JOptionPane;
 import kontroler.SpasilacKontroler;
 
+/**
+ * Dialog that renders the details of a selected Spasilac instance.
+ *
+ * Upon loading it renders the selected Spasilac instance from the
+ * {@code SpasilacDialog}
+ *
+ * @author dulait
+ */
 public class DetaljiSpasiocaDialog extends javax.swing.JDialog {
 
     private final Spasilac spasilac;

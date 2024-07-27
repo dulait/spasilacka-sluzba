@@ -4,6 +4,14 @@ import domen.Spasilac;
 import javax.swing.JOptionPane;
 import kontroler.SpasilacKontroler;
 
+/**
+ * Dialog that allows users to create a new Spasilac instance.
+ *
+ * Upon loading it renders the selected Spasilac instance from the
+ * {@code SpasilacDialog}
+ *
+ * @author dulait
+ */
 public class KreirajSpasiocaDialog extends javax.swing.JDialog {
 
     private final SpasilacDialog dialog;

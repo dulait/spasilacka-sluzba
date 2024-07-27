@@ -8,6 +8,14 @@ import java.util.List;
 import kontroler.AngazovanjeKontroler;
 import model.AngazovanjeTableModel;
 
+/**
+ * Dialog that renders the details of a selected Raspored instance.
+ *
+ * Upon loading it renders the selected Raspored instance from the
+ * {@code RasporedDialog}
+ *
+ * @author dulait
+ */
 public class DetaljiRasporedaDialog extends javax.swing.JDialog {
 
     private final Raspored raspored;

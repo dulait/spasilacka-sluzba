@@ -6,6 +6,14 @@ import java.time.ZoneId;
 import javax.swing.JOptionPane;
 import kontroler.RasporedKontroler;
 
+/**
+ * Dialog that allows users to create a new Raspored instance.
+ *
+ * Upon loading it renders the selected Raspored instance from the
+ * {@code RasporedDialog}
+ *
+ * @author dulait
+ */
 public class KreirajRasporedDialog extends javax.swing.JDialog {
 
     private final RasporedDialog dialog;

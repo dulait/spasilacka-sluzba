@@ -10,6 +10,11 @@ import kontroler.ServerKontroler;
 import transfer.Odgovor;
 import transfer.Zahtev;
 
+/**
+ * Thread that connects the Client and the Server using a predefined Socket port
+ *
+ * @author dulait
+ */
 public class KlijentskaNit extends Thread {
 
     private final int port;

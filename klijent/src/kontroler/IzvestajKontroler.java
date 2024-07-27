@@ -6,6 +6,12 @@ import konstante.Operacija;
 import transfer.Odgovor;
 import transfer.Zahtev;
 
+/**
+ * Handler class that sends and receives server requests and responses for CRUD
+ * operations regarding the Izvestaj domain model
+ *
+ * @author dulait
+ */
 public class IzvestajKontroler {
 
     private static IzvestajKontroler instanca;

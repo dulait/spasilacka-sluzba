@@ -12,6 +12,14 @@ import kontroler.ServerKontroler;
 import niti.KlijentskaNit;
 import transfer.Zahtev;
 
+/**
+ * Frame that displays after a User successfully logs into his account.
+ *
+ * Represents the main frame from which the users will be able to perform CRUD
+ * operations.
+ *
+ * @author drask
+ */
 public class KlijentFrame extends javax.swing.JFrame {
 
     private final KlijentskaNit klijentskaNit;
