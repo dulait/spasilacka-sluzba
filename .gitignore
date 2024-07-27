@@ -24,3 +24,8 @@ hs_err_pid*
 replay_pid*
 /klijent/nbproject/
 /zajednicki/nbproject/
+/server/dist/
+/klijent/dist/
+/server/target/
+/zajednicki/target/
+/klijent/target/
