@@ -25,3 +25,8 @@ replay_pid*
 /klijent/nbproject/
 /zajednicki/nbproject/
 /server/nbproject/
+/server/dist/
+/klijent/dist/
+/server/target/
+/zajednicki/target/
+/klijent/target/
