@@ -285,6 +285,17 @@ public class KlijentskaNit extends Thread {
                     }
                 }
 
+                case Operacija.EXPORT_TO_JSON -> {
+                    String jsonFilePath = ExportKontroler.getInstanca().exportToJson();
+                    if (jsonFilePath != null) {
+                        o.setPoruka("Sistem je uspešno izvezao podatke u JSON datoteku: " + jsonFilePath);
+                        o.setUspeh(Operacija.USPEH);
+                    } else {
+                        o.setPoruka("Sistem ne može da izveze podatke.");
+                        o.setUspeh(Operacija.NEUSPEH);
+                    }
+                }
+
                 case Operacija.ZATVORI_KONEKCIJU -> {
                     try {
                         System.out.println("Klijentski program zatvoren: " + getKlijentskiSocket());

@@ -154,4 +154,9 @@ public class Operacija {
      */
     public static final int ZATVORI_SERVER = 27;
 
+    /**
+     * Operation code for exporting to JSON.
+     */
+    public static final int EXPORT_TO_JSON = 28;
+
 }

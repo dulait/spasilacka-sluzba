@@ -7,7 +7,9 @@ import gui.dialog.smena.SmenaDialog;
 import gui.dialog.spasilac.SpasilacDialog;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import konstante.Operacija;
+import kontroler.ExportKontroler;
 import kontroler.ServerKontroler;
 import niti.KlijentskaNit;
 import transfer.Zahtev;
@@ -42,6 +44,7 @@ public class KlijentFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnIzvezi = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmiSpasioci = new javax.swing.JMenuItem();
@@ -55,6 +58,13 @@ public class KlijentFrame extends javax.swing.JFrame {
         jmiIzvestaji = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnIzvezi.setText("Izvezi");
+        btnIzvezi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIzveziActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Spasioci");
 
@@ -122,11 +132,17 @@ public class KlijentFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(btnIzvezi)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(129, Short.MAX_VALUE)
+                .addComponent(btnIzvezi)
+                .addGap(125, 125, 125))
         );
 
         pack();
@@ -152,6 +168,15 @@ public class KlijentFrame extends javax.swing.JFrame {
         new IzvestajDialog(this, true).setVisible(true);
     }//GEN-LAST:event_jmiIzvestajiActionPerformed
 
+    private void btnIzveziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzveziActionPerformed
+        if (ExportKontroler.getInstanca().exportToJson()) {
+            JOptionPane.showMessageDialog(this, "Sistem je izvezao JSON", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Sistem ne moze da izveze u JSON", "Greska", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnIzveziActionPerformed
+
     private void zatvoriKonekciju() {
         try {
             ServerKontroler.getInstanca().posaljiZahtev(new Zahtev(null, Operacija.ZATVORI_KONEKCIJU));
@@ -162,6 +187,7 @@ public class KlijentFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIzvezi;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

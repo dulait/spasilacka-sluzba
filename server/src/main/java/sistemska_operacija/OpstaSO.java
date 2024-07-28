@@ -60,8 +60,6 @@ public abstract class OpstaSO {
      * operation to be performed within the transaction.
      * </p>
      *
-     * @throws Exception if an error occurs during the execution of the specific
-     * operation
      */
     protected abstract void izvrsiSpecificnuOperaciju();
 }
