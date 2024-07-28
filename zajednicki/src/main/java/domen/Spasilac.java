@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents a lifeguard with personal information including ID, name, surname,
@@ -277,6 +278,26 @@ public class Spasilac extends OpstiDomenskiObjekat {
     @Override
     public String getDeleteUpit() {
         return "DELETE FROM " + getNazivTabele() + " WHERE " + getNazivPrimarnogKljuca() + " = " + getVrednostPrimarnogKljuca();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Spasilac spasilac = (Spasilac) o;
+        return id == spasilac.id
+                && Objects.equals(ime, spasilac.ime)
+                && Objects.equals(prezime, spasilac.prezime)
+                && Objects.equals(jmbg, spasilac.jmbg);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, ime, prezime, jmbg);
     }
 
 }

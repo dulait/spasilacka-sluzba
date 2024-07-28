@@ -1,5 +1,8 @@
 package gui.dialog.spasilac;
 
+import com.checkmate.exceptions.jmbg.EmptyJMBGException;
+import com.checkmate.exceptions.jmbg.NullJMBGException;
+import com.checkmate.validation.jmbg.JMBGValidator;
 import domen.Spasilac;
 import javax.swing.JOptionPane;
 import kontroler.SpasilacKontroler;
@@ -134,14 +137,24 @@ public class KreirajSpasiocaDialog extends javax.swing.JDialog {
         String prezime = txtPrezime.getText();
         String jmbg = txtJmbg.getText();
 
+        JMBGValidator jmbgValidator = JMBGValidator.getInstance();
+        try {
+            if (!jmbgValidator.isValid(jmbg)) {
+                JOptionPane.showMessageDialog(this, "Uneti JMBG nije validan.", "Greška", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } catch (NullJMBGException | EmptyJMBGException e) {
+            JOptionPane.showMessageDialog(this, "JMBG ne može biti prazan ili null.", "Greška", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         Spasilac spasilac = new Spasilac(0, ime, prezime, jmbg);
         if (SpasilacKontroler.getInstanca().kreirajSpasioca(spasilac)) {
             JOptionPane.showMessageDialog(this, "Sistem je kreirao spasioca", "Uspeh", JOptionPane.INFORMATION_MESSAGE);
             dialog.popuniTabelu(null);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Sistem ne moze da kreira spasioca", "Greska", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Sistem ne može da kreira spasioca", "Greška", JOptionPane.ERROR_MESSAGE);
         }
-
     }
 }

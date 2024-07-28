@@ -3,6 +3,7 @@ package domen;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Represents an engagement of a lifeguard during a shift within a schedule.
@@ -268,5 +269,24 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     @Override
     public String getDeleteUpit() {
         return "DELETE FROM " + getNazivTabele() + " WHERE " + getSlozeniPrimarniKljuc();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Angazovanje that = (Angazovanje) o;
+        return Objects.equals(spasilac, that.spasilac)
+                && Objects.equals(smena, that.smena)
+                && Objects.equals(raspored, that.raspored);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(spasilac, smena, raspored);
     }
 }

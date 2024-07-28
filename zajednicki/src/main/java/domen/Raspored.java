@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 /**
  * Represents a schedule with a list of engagements. This class extends
@@ -268,6 +269,24 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     @Override
     public String getDeleteUpit() {
         return "DELETE FROM " + getNazivTabele() + " WHERE " + getNazivPrimarnogKljuca() + " = " + getVrednostPrimarnogKljuca();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Raspored raspored = (Raspored) o;
+        return id == raspored.id
+                && Objects.equals(datum, raspored.datum);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, datum);
     }
 
 }

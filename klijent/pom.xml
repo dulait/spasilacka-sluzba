@@ -20,15 +20,18 @@
             <artifactId>zajednicki</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-       <dependency>
+        <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
-            <version>8.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.toedter</groupId>
             <artifactId>jcalendar</artifactId>
-            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.dulait</groupId>
+            <artifactId>check-mate</artifactId>
+            <version>1.1.0</version>
         </dependency>
     </dependencies>
 </project>

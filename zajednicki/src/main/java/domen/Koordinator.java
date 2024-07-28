@@ -3,6 +3,7 @@ package domen;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Represents a coordinator in the system. This class provides methods for
@@ -298,4 +299,26 @@ public class Koordinator extends OpstiDomenskiObjekat {
         return String.format("id = %d, korisnickoIme = '%s', lozinka = '%s', ime = '%s', prezime = '%s'",
                 id, korisnickoIme, lozinka, ime, prezime);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Koordinator that = (Koordinator) obj;
+        return id == that.id
+                && Objects.equals(korisnickoIme, that.korisnickoIme)
+                && Objects.equals(lozinka, that.lozinka)
+                && Objects.equals(ime, that.ime)
+                && Objects.equals(prezime, that.prezime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, korisnickoIme, lozinka, ime, prezime);
+    }
+
 }
