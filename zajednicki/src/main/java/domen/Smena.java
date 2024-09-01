@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * Represents a work shift with start and end times. This class extends
- * {@link OpstiDomenskiObjekat} and provides methods for converting between
- * ResultSet and domain objects, and generating SQL queries for CRUD operations.
+ * Predstavlja smenu sa vremenima početka i kraja.
  *
  * @author dulait
  */
@@ -19,70 +17,68 @@ public class Smena extends OpstiDomenskiObjekat {
     private int kraj;
 
     /**
-     * Default constructor.
+     * Podrazumevani konstruktor.
      */
     public Smena() {
     }
 
     /**
-     * Constructs a Smena with the specified ID.
+     * Konstruše Smenu sa datim id-jem.
      *
-     * @param smenaId the ID of the shift.
+     * @param smenaId id smene.
      */
     public Smena(int smenaId) {
         this.id = smenaId;
     }
 
     /**
-     * Sets the ID of the shift.
+     * Postavlja id smene.
      *
-     * @param id the new ID of the shift.
-     * @throws IllegalArgumentException if id is less than or equal to zero.
+     * @param id novi id smene.
+     * @throws IllegalArgumentException ako je id manji ili jednak nuli.
      */
     public final void setId(int id) {
         if (id <= 0) {
-            throw new IllegalArgumentException("Id must be greater than zero.");
+            throw new IllegalArgumentException("Id mora biti veći od nule.");
         }
         this.id = id;
     }
 
     /**
-     * Sets the start time of the shift.
+     * Postavlja vreme početka smene.
      *
-     * @param pocetak the new start time of the shift.
-     * @throws IllegalArgumentException if pocetak is less than 0 or greater
-     * than 23.
+     * @param pocetak novo vreme početka smene.
+     * @throws IllegalArgumentException ako je pocetak manji od 0 ili veći od
+     * 23.
      */
     public final void setPocetak(int pocetak) {
         if (pocetak < 0 || pocetak > 23) {
-            throw new IllegalArgumentException("Start time must be between 0 and 23.");
+            throw new IllegalArgumentException("Vreme početka mora biti između 0 i 23.");
         }
         this.pocetak = pocetak;
     }
 
     /**
-     * Sets the end time of the shift.
+     * Postavlja vreme kraja smene.
      *
-     * @param kraj the new end time of the shift.
-     * @throws IllegalArgumentException if kraj is less than 0 or greater than
-     * 23.
+     * @param kraj novo vreme kraja smene.
+     * @throws IllegalArgumentException ako je kraj manji od 0 ili veći od 23.
      */
     public final void setKraj(int kraj) {
         if (kraj < 0 || kraj > 23) {
-            throw new IllegalArgumentException("End time must be between 0 and 23.");
+            throw new IllegalArgumentException("Vreme kraja mora biti između 0 i 23.");
         }
         this.kraj = kraj;
     }
 
     /**
-     * Constructs a Smena with the specified ID, start time, and end time.
+     * Konstruše Smenu sa datim id-jem, vremenom početka i vremenom kraja.
      *
-     * @param smenaId the ID of the shift.
-     * @param pocetak the start time of the shift.
-     * @param kraj the end time of the shift.
-     * @throws IllegalArgumentException if pocetak is less than 0, greater than
-     * 23, or if kraj is less than 0, greater than 23, or if kraj is less than
-     * pocetak.
+     * @param smenaId id smene.
+     * @param pocetak vreme početka smene.
+     * @param kraj vreme kraja smene.
+     * @throws IllegalArgumentException ako je pocetak manji od 0, veći od 23,
+     * ili ako je kraj manji od 0, veći od 23, ili ako je kraj manji od pocetak.
      */
     public Smena(int smenaId, int pocetak, int kraj) {
         setId(smenaId);
@@ -90,41 +86,41 @@ public class Smena extends OpstiDomenskiObjekat {
         setKraj(kraj);
 
         if (kraj < pocetak) {
-            throw new IllegalArgumentException("End time must be greater than or equal to start time.");
+            throw new IllegalArgumentException("Vreme kraja mora biti veće ili jednako vremenu početka.");
         }
     }
 
     /**
-     * Gets the ID of the shift.
+     * Vraća id smene.
      *
-     * @return the ID of the shift.
+     * @return id smene.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Gets the start time of the shift.
+     * Vraća vreme početka smene.
      *
-     * @return the start time of the shift.
+     * @return vreme početka smene.
      */
     public int getPocetak() {
         return pocetak;
     }
 
     /**
-     * Gets the end time of the shift.
+     * Vraća vreme kraja smene.
      *
-     * @return the end time of the shift.
+     * @return vreme kraja smene.
      */
     public int getKraj() {
         return kraj;
     }
 
     /**
-     * Converts the shift's start and end times to a string representation.
+     * Konvertuje vreme početka i kraja smene u string reprezentaciju.
      *
-     * @return the string representation of the shift's start and end times.
+     * @return string reprezentacija vremena početka i kraja smene.
      */
     @Override
     public String toString() {
@@ -132,9 +128,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the name of the table associated with this domain object.
+     * Vraća naziv tabele povezan sa ovim domen objektom.
      *
-     * @return the table name as a String.
+     * @return naziv tabele kao String.
      */
     @Override
     public String getNazivTabele() {
@@ -142,10 +138,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for this domain object in the format required for an
-     * SQL statement.
+     * Vraća parametre za ovaj domen objekat u formatu potrebnom za SQL izjavu.
      *
-     * @return the parameters as a String.
+     * @return parametri kao String.
      */
     @Override
     public String getParametre() {
@@ -153,9 +148,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the names of the parameters for this domain object.
+     * Vraća nazive parametara za ovaj domen objekat.
      *
-     * @return the parameter names as a String.
+     * @return nazivi parametara kao String.
      */
     @Override
     public String getNaziveParametara() {
@@ -163,9 +158,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the name of the primary key column for this domain object.
+     * Vraća naziv kolone primarnog ključa za ovaj domen objekat.
      *
-     * @return the primary key column name as a String.
+     * @return naziv kolone primarnog ključa kao String.
      */
     @Override
     public String getNazivPrimarnogKljuca() {
@@ -173,9 +168,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the value of the primary key for this domain object.
+     * Vraća vrednost primarnog ključa za ovaj domen objekat.
      *
-     * @return the primary key value as an Integer.
+     * @return vrednost primarnog ključa kao Integer.
      */
     @Override
     public Integer getVrednostPrimarnogKljuca() {
@@ -183,9 +178,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the composite primary key for this domain object, if applicable.
+     * Vraća složeni primarni ključ za ovaj domen objekat, ako je primenljivo.
      *
-     * @return the composite primary key as a String, or null if not applicable.
+     * @return složeni primarni ključ kao String, ili null ako nije primenljivo.
      */
     @Override
     public String getSlozeniPrimarniKljuc() {
@@ -193,10 +188,10 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Converts a {@link ResultSet} to a list of domain objects.
+     * Konvertuje {@link ResultSet} u listu domen objekata.
      *
-     * @param rs the {@link ResultSet} to convert.
-     * @return a {@link List} of domain objects.
+     * @param rs {@link ResultSet} koji treba konvertovati.
+     * @return {@link List} domen objekata.
      */
     @Override
     public ArrayList<OpstiDomenskiObjekat> konvertujRSUListu(ResultSet rs) {
@@ -210,16 +205,15 @@ public class Smena extends OpstiDomenskiObjekat {
                 smene.add(new Smena(rsId, rsPocetak, rsKraj));
             }
         } catch (SQLException e) {
-            System.out.println("Greska u Smena::konvertujRSUListu:\n" + e.getMessage());
+            System.out.println("Greška u Smena::konvertujRSUListu:\n" + e.getMessage());
         }
         return smene;
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving all records of this domain
-     * object.
+     * Vraća SQL SELECT upit za dobijanje svih zapisa ovog domen objekta.
      *
-     * @return the SQL SELECT query as a String.
+     * @return SQL SELECT upit kao String.
      */
     @Override
     public String getSelectUpit() {
@@ -227,10 +221,10 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving records of this domain object
-     * based on specific parameters.
+     * Vraća SQL SELECT upit za dobijanje zapisa ovog domen objekta na osnovu
+     * specifičnih parametara.
      *
-     * @return the SQL SELECT query with parameters as a String.
+     * @return SQL SELECT upit sa parametrima kao String.
      */
     @Override
     public String getSelectUpitPoParametru() {
@@ -238,9 +232,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL INSERT query for inserting a record of this domain object.
+     * Vraća SQL INSERT upit za umetanje zapisa ovog domen objekta.
      *
-     * @return the SQL INSERT query as a String.
+     * @return SQL INSERT upit kao String.
      */
     @Override
     public String getInsertUpit() {
@@ -248,9 +242,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL UPDATE query for updating a record of this domain object.
+     * Vraća SQL UPDATE upit za ažuriranje zapisa ovog domen objekta.
      *
-     * @return the SQL UPDATE query as a String.
+     * @return SQL UPDATE upit kao String.
      */
     @Override
     public String getUpdateUpit() {
@@ -258,9 +252,9 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for updating a record of this domain object.
+     * Vraća parametre za ažuriranje zapisa ovog domen objekta.
      *
-     * @return the update parameters as a String.
+     * @return parametri za ažuriranje kao String.
      */
     @Override
     public String getUpdateParametre() {
@@ -268,15 +262,21 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL DELETE query for deleting a record of this domain object.
+     * Vraća SQL DELETE upit za brisanje zapisa ovog domen objekta.
      *
-     * @return the SQL DELETE query as a String.
+     * @return SQL DELETE upit kao String.
      */
     @Override
     public String getDeleteUpit() {
         return "DELETE FROM " + getNazivTabele() + " WHERE " + getNazivPrimarnogKljuca() + " = " + getVrednostPrimarnogKljuca();
     }
 
+    /**
+     * Upoređuje ovaj objekat sa datim objektom radi utvrđivanja jednakosti.
+     *
+     * @param o objekat sa kojim se upoređuje.
+     * @return true ako su objekti jednaki, inače false.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -291,6 +291,11 @@ public class Smena extends OpstiDomenskiObjekat {
                 && kraj == smena.kraj;
     }
 
+    /**
+     * Vraća hash kod ovog objekta.
+     *
+     * @return hash kod kao int.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id, pocetak, kraj);

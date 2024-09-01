@@ -10,10 +10,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 /**
- * Represents a schedule with a list of engagements. This class extends
- * {@link OpstiDomenskiObjekat} and implements {@link Comparable} for comparing
- * schedules by date. It provides methods for converting between ResultSet and
- * domain objects and generating SQL queries for CRUD operations.
+ * Predstavlja raspored sa listom angažovanja.
  *
  * @author dulait
  */
@@ -24,53 +21,53 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     private List<Angazovanje> angazovanja;
 
     /**
-     * Default constructor.
+     * Podrazumevajući konstruktor.
      */
     public Raspored() {
     }
 
     /**
-     * Constructs a Raspored with the specified ID.
+     * Konstruktor koji kreira Raspored sa zadatim id-jem.
      *
-     * @param id the ID of the schedule.
+     * @param id ID rasporeda.
      */
     public Raspored(int id) {
         this.id = id;
     }
 
     /**
-     * Sets the date of the schedule.
+     * Postavlja datum rasporeda.
      *
-     * @param datum the new date of the schedule.
-     * @throws IllegalArgumentException if datum is null.
+     * @param datum novi datum rasporeda.
+     * @throws IllegalArgumentException ako je datum null.
      */
     public final void setDatum(LocalDate datum) {
         if (datum == null) {
-            throw new IllegalArgumentException("Datum cannot be null.");
+            throw new IllegalArgumentException("Datum ne može biti null.");
         }
         this.datum = datum;
     }
 
     /**
-     * Sets the ID of the schedule.
+     * Postavlja id rasporeda.
      *
-     * @param id the new ID of the schedule.
-     * @throws IllegalArgumentException if id is less than or equal to zero.
+     * @param id novi id rasporeda.
+     * @throws IllegalArgumentException ako je id manji ili jednak nuli.
      */
     public final void setId(int id) {
         if (id <= 0) {
-            throw new IllegalArgumentException("Id must be greater than zero.");
+            throw new IllegalArgumentException("Id mora biti veći od nule.");
         }
         this.id = id;
     }
 
     /**
-     * Constructs a Raspored with the specified ID and date.
+     * Konstruktor koji kreira Raspored sa specifičnim ID-em i datumom.
      *
-     * @param id the ID of the schedule.
-     * @param datum the date of the schedule.
-     * @throws IllegalArgumentException if datum is null or id is less than or
-     * equal to zero.
+     * @param id id rasporeda.
+     * @param datum datum rasporeda.
+     * @throws IllegalArgumentException ako je datum null ili id manji ili
+     * jednako nuli.
      */
     public Raspored(int id, LocalDate datum) {
         setId(id);
@@ -79,49 +76,49 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the date of the schedule.
+     * Vraća datum rasporeda.
      *
-     * @return the date of the schedule.
+     * @return datum rasporeda.
      */
     public LocalDate getDatum() {
         return datum;
     }
 
     /**
-     * Gets the ID of the schedule.
+     * Vraća id rasporeda.
      *
-     * @return the ID of the schedule.
+     * @return id rasporeda.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Gets the list of engagements in the schedule.
+     * Vraća listu angažovanja u rasporedu.
      *
-     * @return the list of engagements.
+     * @return lista angažovanja.
      */
     public List<Angazovanje> getAngazovanja() {
         return angazovanja;
     }
 
     /**
-     * Sets the list of engagements in the schedule.
+     * Postavlja listu angažovanja u rasporedu.
      *
-     * @param angazovanja the new list of engagements.
-     * @throws IllegalArgumentException if angazovanja is null.
+     * @param angazovanja nova lista angažovanja.
+     * @throws IllegalArgumentException ako je angazovanja null.
      */
     public void setAngazovanja(List<Angazovanje> angazovanja) {
         if (angazovanja == null) {
-            throw new IllegalArgumentException("Angazovanja cannot be null.");
+            throw new IllegalArgumentException("Angazovanja ne mogu biti null.");
         }
         this.angazovanja = angazovanja;
     }
 
     /**
-     * Converts the schedule's date to a string representation.
+     * Konvertuje datum rasporeda u string reprezentaciju.
      *
-     * @return the string representation of the schedule's date.
+     * @return string reprezentacija datuma rasporeda.
      */
     @Override
     public String toString() {
@@ -130,11 +127,11 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Compares this schedule to another schedule by date.
+     * Upoređuje ovaj raspored sa drugim rasporedom po datumu.
      *
-     * @param o the other schedule to compare to.
-     * @return a negative integer, zero, or a positive integer as this schedule
-     * is earlier than, equal to, or later than the specified schedule.
+     * @param o drugi raspored za upoređivanje.
+     * @return negativan ceo broj, nula ili pozitivan ceo broj kao ovaj raspored
+     * je raniji, jednak ili kasniji od specificiranog rasporeda.
      */
     @Override
     public int compareTo(Raspored o) {
@@ -142,9 +139,9 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the name of the table associated with this domain object.
+     * Vraća ime tabele povezane sa ovim domenski objektom.
      *
-     * @return the table name as a String.
+     * @return ime tabele kao String.
      */
     @Override
     public String getNazivTabele() {
@@ -152,10 +149,10 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the parameters for this domain object in the format required for an
-     * SQL statement.
+     * Vraća parametre za ovaj domenski objekat u formatu koji je potreban za
+     * SQL iskaz.
      *
-     * @return the parameters as a String.
+     * @return parametri kao String.
      */
     @Override
     public String getParametre() {
@@ -163,9 +160,9 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the names of the parameters for this domain object.
+     * Vraća imena parametara za ovaj domenski objekat.
      *
-     * @return the parameter names as a String.
+     * @return imena parametara kao String.
      */
     @Override
     public String getNaziveParametara() {
@@ -173,9 +170,9 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the name of the primary key column for this domain object.
+     * Vraća ime kolone primarnog ključa za ovaj domenski objekat.
      *
-     * @return the primary key column name as a String.
+     * @return ime kolone primarnog ključa kao String.
      */
     @Override
     public String getNazivPrimarnogKljuca() {
@@ -183,9 +180,9 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the value of the primary key for this domain object.
+     * Vraća vrednost primarnog ključa za ovaj domenski objekat.
      *
-     * @return the primary key value as an Integer.
+     * @return vrednost primarnog ključa kao Integer.
      */
     @Override
     public Integer getVrednostPrimarnogKljuca() {
@@ -193,9 +190,10 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the composite primary key for this domain object, if applicable.
+     * Vraća složeni primarni ključ za ovaj domenski objekat, ako je
+     * primenljivo.
      *
-     * @return the composite primary key as a String, or null if not applicable.
+     * @return složeni primarni ključ kao String, ili null ako nije primenljivo.
      */
     @Override
     public String getSlozeniPrimarniKljuc() {
@@ -203,10 +201,10 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Converts a {@link ResultSet} to a list of domain objects.
+     * Konvertuje {@link ResultSet} u listu domenskih objekata.
      *
-     * @param rs the {@link ResultSet} to convert.
-     * @return a {@link List} of domain objects.
+     * @param rs {@link ResultSet} koji se konvertuje.
+     * @return {@link List} domenskih objekata.
      */
     @Override
     public ArrayList<OpstiDomenskiObjekat> konvertujRSUListu(ResultSet rs) {
@@ -218,16 +216,15 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
                 rasporedi.add(new Raspored(rsId, rsDatum));
             }
         } catch (SQLException e) {
-            System.out.println("Greska u Raspored::konvertujRSUListu:\n" + e.getMessage());
+            System.out.println("Greška u Raspored::konvertujRSUListu:\n" + e.getMessage());
         }
         return rasporedi;
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving all records of this domain
-     * object.
+     * Vraća SQL SELECT upit za dobijanje svih zapisa ovog domenskog objekta.
      *
-     * @return the SQL SELECT query as a String.
+     * @return SQL SELECT upit kao String.
      */
     @Override
     public String getSelectUpit() {
@@ -235,10 +232,10 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving records of this domain object
-     * based on specific parameters.
+     * Vraća SQL SELECT upit za dobijanje zapisa ovog domenskog objekta na
+     * osnovu specifičnih parametara.
      *
-     * @return the SQL SELECT query with parameters as a String.
+     * @return SQL SELECT upit sa parametrima kao String.
      */
     @Override
     public String getSelectUpitPoParametru() {
@@ -246,9 +243,9 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the SQL INSERT query for inserting a record of this domain object.
+     * Vraća SQL INSERT upit za umetanje zapisa ovog domenskog objekta.
      *
-     * @return the SQL INSERT query as a String.
+     * @return SQL INSERT upit kao String.
      */
     @Override
     public String getInsertUpit() {
@@ -256,9 +253,9 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the SQL UPDATE query for updating a record of this domain object.
+     * Vraća SQL UPDATE upit za ažuriranje zapisa ovog domenskog objekta.
      *
-     * @return the SQL UPDATE query as a String.
+     * @return SQL UPDATE upit kao String.
      */
     @Override
     public String getUpdateUpit() {
@@ -266,9 +263,9 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the parameters for updating a record of this domain object.
+     * Vraća parametre za ažuriranje zapisa ovog domenskog objekta.
      *
-     * @return the update parameters as a String.
+     * @return parametri za ažuriranje kao String.
      */
     @Override
     public String getUpdateParametre() {
@@ -276,15 +273,22 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Gets the SQL DELETE query for deleting a record of this domain object.
+     * Vraća SQL DELETE upit za brisanje zapisa ovog domenskog objekta.
      *
-     * @return the SQL DELETE query as a String.
+     * @return SQL DELETE upit kao String.
      */
     @Override
     public String getDeleteUpit() {
         return "DELETE FROM " + getNazivTabele() + " WHERE " + getNazivPrimarnogKljuca() + " = " + getVrednostPrimarnogKljuca();
     }
 
+    /**
+     * Upoređuje ovaj objekat sa drugim objektom radi utvrđivanja da li su
+     * jednaki.
+     *
+     * @param o objekat sa kojim se upoređuje.
+     * @return {@code true} ako su objekti jednaki, inače {@code false}.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -298,6 +302,12 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
                 && Objects.equals(datum, raspored.datum);
     }
 
+    /**
+     * Vraća hash kod za ovaj objekat. Hash kod se generiše koristeći id i datum
+     * rasporeda.
+     *
+     * @return hash kod kao {@code int}.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id, datum);

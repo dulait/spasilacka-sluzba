@@ -3,36 +3,31 @@ package transfer;
 import java.io.Serializable;
 
 /**
- * Represents a response sent from the server to the client.
- * <p>
- * The {@code Odgovor} class encapsulates the data returned by the server in
- * response to a client's request. It includes information about the success of
- * the operation, the response data, and any relevant message.
- * </p>
+ * Predstavlja odgovor poslat od servera klijentu.
  *
  * @author dulait
  */
 public class Odgovor implements Serializable {
 
-    private static final long serialVersionUID = 1L; // Added for serialization compatibility
+    private static final long serialVersionUID = 1L; // Dodato za kompatibilnost sa serijalizacijom
 
     private Object odgovor;
     private int uspeh;
     private String poruka;
 
     /**
-     * Default constructor for creating an empty {@code Odgovor} object.
+     * Podrazumevajući konstruktor za kreiranje praznog {@code Odgovor} objekta.
      */
     public Odgovor() {
     }
 
     /**
-     * Constructs an {@code Odgovor} with the specified response data, success
-     * status, and message.
+     * Konstruktor koji kreira {@code Odgovor} sa određenim podacima odgovora,
+     * statusom uspeha i porukom.
      *
-     * @param odgovor the data or result of the operation
-     * @param uspeh an integer indicating the success status of the operation
-     * @param poruka a message associated with the response
+     * @param odgovor podaci ili rezultat operacije
+     * @param uspeh ceo broj koji označava status uspeha operacije
+     * @param poruka poruka povezana sa odgovorom
      */
     public Odgovor(Object odgovor, int uspeh, String poruka) {
         this.odgovor = odgovor;
@@ -41,62 +36,56 @@ public class Odgovor implements Serializable {
     }
 
     /**
-     * Returns the data or result of the operation.
+     * Vraća podatke ili rezultat operacije.
      *
-     * @return the response data
+     * @return podaci odgovora
      */
     public Object getOdgovor() {
         return odgovor;
     }
 
     /**
-     * Sets the data or result of the operation.
+     * Postavlja podatke ili rezultat operacije.
      *
-     * @param odgovor the response data to set
+     * @param odgovor podaci odgovora koje treba postaviti
      */
     public void setOdgovor(Object odgovor) {
         this.odgovor = odgovor;
     }
 
     /**
-     * Returns the message associated with the response.
+     * Vraća poruku povezanu sa odgovorom.
      *
-     * @return the message
+     * @return poruka
      */
     public String getPoruka() {
         return poruka;
     }
 
     /**
-     * Sets the message associated with the response.
+     * Postavlja poruku povezanu sa odgovorom.
      *
-     * @param poruka the message to set
+     * @param poruka poruka koju treba postaviti
      */
     public void setPoruka(String poruka) {
         this.poruka = poruka;
     }
 
     /**
-     * Returns the success status of the operation.
-     * <p>
-     * This value indicates whether the operation was successful or not.
-     * </p>
+     * Vraća status uspeha operacije.
      *
-     * @return the success status (e.g., {@link konstante.Operacija#USPEH} or
-     * {@link konstante.Operacija#NEUSPEH})
+     * @return status uspeha.
      */
     public int getUspeh() {
         return uspeh;
     }
 
     /**
-     * Sets the success status of the operation.
+     * Postavlja status uspeha operacije.
      *
-     * @param uspeh the success status to set (e.g.,
-     * {@link konstante.Operacija#USPEH} or {@link konstante.Operacija#NEUSPEH})
+     * @param uspeh status uspeha koji treba postaviti.
      */
     public void setUspeh(int uspeh) {
         this.uspeh = uspeh;
     }
-
 }

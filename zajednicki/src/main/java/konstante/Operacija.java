@@ -1,13 +1,13 @@
 package konstante;
 
 /**
- * This class contains a set of constants used to define various operations
- * within the system. Each constant represents a specific operation or status
- * code that can be used in controllers and other parts of the application to
- * manage different types of actions or responses.
+ * Ova klasa sadrži skup konstanti koje se koriste za definisanje raznih
+ * operacija unutar sistema. Svaka konstanta predstavlja specifičnu operaciju
+ * ili kod statusa koji se može koristiti u kontrolerima i drugim delovima
+ * aplikacije za upravljanje različitim tipovima akcija ili odgovora.
  * <p>
- * The constants include operation codes for creating, updating, deleting, and
- * loading different entities, as well as status codes for success and failure.
+ * Konstante uključuju kodove operacija za kreiranje, ažuriranje, brisanje i
+ * učitavanje različitih entiteta, kao i kodove statusa za uspeh i neuspeh.
  * </p>
  *
  * @author dulait
@@ -15,147 +15,147 @@ package konstante;
 public class Operacija {
 
     /**
-     * Status code indicating a failure.
+     * Kod statusa koji označava neuspeh.
      */
     public static final int NEUSPEH = 0;
 
     /**
-     * Status code indicating success.
+     * Kod statusa koji označava uspeh.
      */
     public static final int USPEH = 1;
 
     /**
-     * Operation code for registering a coordinator.
+     * Kod operacije za registraciju koordinatora.
      */
     public static final int PRIJAVI_KOORDINATORA = 2;
 
     /**
-     * Operation code for creating a lifeguard.
+     * Kod operacije za kreiranje spasioca.
      */
     public static final int KREIRAJ_SPASIOCA = 3;
 
     /**
-     * Operation code for creating a shift.
+     * Kod operacije za kreiranje smene.
      */
     public static final int KREIRAJ_SMENU = 4;
 
     /**
-     * Operation code for creating an engagement.
+     * Kod operacije za kreiranje angažovanja.
      */
     public static final int KREIRAJ_ANGAZOVANJE = 5;
 
     /**
-     * Operation code for creating a schedule.
+     * Kod operacije za kreiranje rasporeda.
      */
     public static final int KREIRAJ_RASPORED = 6;
 
     /**
-     * Operation code for creating a report.
+     * Kod operacije za kreiranje izveštaja.
      */
     public static final int KREIRAJ_IZVESTAJ = 7;
 
     /**
-     * Operation code for loading a coordinator.
+     * Kod operacije za učitavanje koordinatora.
      */
     public static final int UCITAJ_KOORDINATORA = 8;
 
     /**
-     * Operation code for loading a lifeguard.
+     * Kod operacije za učitavanje spasioca.
      */
     public static final int UCITAJ_SPASIOCA = 9;
 
     /**
-     * Operation code for loading a shift.
+     * Kod operacije za učitavanje smene.
      */
     public static final int UCITAJ_SMENU = 10;
 
     /**
-     * Operation code for loading an engagement.
+     * Kod operacije za učitavanje angažovanja.
      */
     public static final int UCITAJ_ANGAZOVANJE = 11;
 
     /**
-     * Operation code for loading a schedule.
+     * Kod operacije za učitavanje rasporeda.
      */
     public static final int UCITAJ_RASPORED = 12;
 
     /**
-     * Operation code for loading a report.
+     * Kod operacije za učitavanje izveštaja.
      */
     public static final int UCITAJ_IZVESTAJ = 13;
 
     /**
-     * Operation code for updating a lifeguard.
+     * Kod operacije za ažuriranje spasioca.
      */
     public static final int AZURIRAJ_SPASIOCA = 14;
 
     /**
-     * Operation code for updating a shift.
+     * Kod operacije za ažuriranje smene.
      */
     public static final int AZURIRAJ_SMENU = 15;
 
     /**
-     * Operation code for updating a report.
+     * Kod operacije za ažuriranje izveštaja.
      */
     public static final int AZURIRAJ_IZVESTAJ = 16;
 
     /**
-     * Operation code for deleting an engagement.
+     * Kod operacije za brisanje angažovanja.
      */
     public static final int OBRISI_ANGAZOVANJE = 17;
 
     /**
-     * Operation code for deleting a schedule.
+     * Kod operacije za brisanje rasporeda.
      */
     public static final int OBRISI_RASPORED = 18;
 
     /**
-     * Operation code for searching lifeguards.
+     * Kod operacije za pretraživanje spasilaca.
      */
     public static final int PRETRAZI_SPASIOCE = 19;
 
     /**
-     * Operation code for loading a list of lifeguards.
+     * Kod operacije za učitavanje liste spasilaca.
      */
     public static final int UCITAJ_LISTU_SPASIOCA = 20;
 
     /**
-     * Operation code for loading a list of shifts.
+     * Kod operacije za učitavanje liste smena.
      */
     public static final int UCITAJ_LISTU_SMENA = 21;
 
     /**
-     * Operation code for loading a list of schedules.
+     * Kod operacije za učitavanje liste rasporeda.
      */
     public static final int UCITAJ_LISTU_RASPOREDA = 22;
 
     /**
-     * Operation code for loading a list of engagements.
+     * Kod operacije za učitavanje liste angažovanja.
      */
     public static final int UCITAJ_LISTU_ANGAZOVANJA = 23;
 
     /**
-     * Operation code for loading a list of reports.
+     * Kod operacije za učitavanje liste izveštaja.
      */
     public static final int UCITAJ_LISTU_IZVESTAJA = 24;
 
     /**
-     * Operation code for loading a list of coordinators.
+     * Kod operacije za učitavanje liste koordinatora.
      */
     public static final int UCITAJ_LISTU_KOORDINATORA = 25;
 
     /**
-     * Operation code for closing a connection.
+     * Kod operacije za zatvaranje veze.
      */
     public static final int ZATVORI_KONEKCIJU = 26;
 
     /**
-     * Operation code for closing the server.
+     * Kod operacije za zatvaranje servera.
      */
     public static final int ZATVORI_SERVER = 27;
 
     /**
-     * Operation code for exporting to JSON.
+     * Kod operacije za izvoz u JSON.
      */
     public static final int EXPORT_TO_JSON = 28;
 

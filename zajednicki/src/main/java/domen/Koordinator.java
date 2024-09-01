@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * Represents a coordinator in the system. This class provides methods for
- * database interaction and entity manipulation. It extends the
- * {@link OpstiDomenskiObjekat} class.
+ * Predstavlja koordinatora u sistemu.
  *
  * @author dulait
  */
@@ -21,82 +19,82 @@ public class Koordinator extends OpstiDomenskiObjekat {
     private String prezime;
 
     /**
-     * Default constructor.
+     * Podrazumevani konstruktor.
      */
     public Koordinator() {
     }
 
     /**
-     * Constructs a Koordinator object with the specified id.
+     * Konstruira objekat Koordinator sa zadatim id-jem.
      *
-     * @param id the id of the coordinator.
+     * @param id id koordinatora.
      */
     public Koordinator(int id) {
         this.id = id;
     }
 
     /**
-     * Sets the username of the coordinator.
+     * Postavlja korisničko ime koordinatora.
      *
-     * @param korisnickoIme the username to set.
-     * @throws IllegalArgumentException if korisnickoIme is null or empty.
+     * @param korisnickoIme korisničko ime za postavljanje.
+     * @throws IllegalArgumentException ako je korisnickoIme null ili prazno.
      */
     public final void setKorisnickoIme(String korisnickoIme) {
         if (korisnickoIme == null || korisnickoIme.isEmpty()) {
-            throw new IllegalArgumentException("Korisnicko ime cannot be null or empty.");
+            throw new IllegalArgumentException("Korisnicko ime ne može biti null ili prazno.");
         }
         this.korisnickoIme = korisnickoIme;
     }
 
     /**
-     * Sets the password of the coordinator.
+     * Postavlja lozinku koordinatora.
      *
-     * @param lozinka the password to set.
-     * @throws IllegalArgumentException if lozinka is null or empty.
+     * @param lozinka lozinka za postavljanje.
+     * @throws IllegalArgumentException ako je lozinka null ili prazna.
      */
     public final void setLozinka(String lozinka) {
         if (lozinka == null || lozinka.isEmpty()) {
-            throw new IllegalArgumentException("Lozinka cannot be null or empty.");
+            throw new IllegalArgumentException("Lozinka ne može biti null ili prazna.");
         }
         this.lozinka = lozinka;
     }
 
     /**
-     * Sets the first name of the coordinator.
+     * Postavlja ime koordinatora.
      *
-     * @param ime the first name to set.
-     * @throws IllegalArgumentException if ime is null or empty.
+     * @param ime ime za postavljanje.
+     * @throws IllegalArgumentException ako je ime null ili prazno.
      */
     public final void setIme(String ime) {
         if (ime == null || ime.isEmpty()) {
-            throw new IllegalArgumentException("Ime cannot be null or empty.");
+            throw new IllegalArgumentException("Ime ne može biti null ili prazno.");
         }
         this.ime = ime;
     }
 
     /**
-     * Sets the last name of the coordinator.
+     * Postavlja prezime koordinatora.
      *
-     * @param prezime the last name to set.
-     * @throws IllegalArgumentException if prezime is null or empty.
+     * @param prezime prezime za postavljanje.
+     * @throws IllegalArgumentException ako je prezime null ili prazno.
      */
     public final void setPrezime(String prezime) {
         if (prezime == null || prezime.isEmpty()) {
-            throw new IllegalArgumentException("Prezime cannot be null or empty.");
+            throw new IllegalArgumentException("Prezime ne može biti null ili prazno.");
         }
         this.prezime = prezime;
     }
 
     /**
-     * Constructs a Koordinator object with the specified attributes.
+     * Konstruira objekat Koordinator sa zadatim atributima.
      *
-     * @param id the id of the coordinator.
-     * @param korisnickoIme the username of the coordinator.
-     * @param lozinka the password of the coordinator.
-     * @param ime the first name of the coordinator.
-     * @param prezime the last name of the coordinator.
-     * @throws IllegalArgumentException if korisnickoIme, lozinka, ime, or
-     * prezime is null or empty.
+     * @param id id koordinatora.
+     * @param korisnickoIme korisničko ime koordinatora.
+     * @param lozinka lozinka koordinatora.
+     * @param ime ime koordinatora.
+     * @param prezime prezime koordinatora.
+     * @throws IllegalArgumentException ako je korisnickoIme, lozinka, ime ili
+     * prezime null ili prazno.
      */
     public Koordinator(int id, String korisnickoIme, String lozinka, String ime, String prezime) {
         setId(id);
@@ -107,67 +105,67 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the last name of the coordinator.
+     * Vraća prezime koordinatora.
      *
-     * @return the last name.
+     * @return prezime.
      */
     public String getPrezime() {
         return prezime;
     }
 
     /**
-     * Gets the id of the coordinator.
+     * Vraća id koordinatora.
      *
-     * @return the id.
+     * @return id.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Sets the id of the coordinator.
+     * Postavlja id koordinatora.
      *
-     * @param id the id to set.
-     * @throws IllegalArgumentException if id is less than or equal to zero.
+     * @param id id za postavljanje.
+     * @throws IllegalArgumentException ako je id manji ili jednak nuli.
      */
     public final void setId(int id) {
         if (id <= 0) {
-            throw new IllegalArgumentException("Id must be greater than zero.");
+            throw new IllegalArgumentException("Id mora biti veći od nule.");
         }
         this.id = id;
     }
 
     /**
-     * Gets the username of the coordinator.
+     * Vraća korisničko ime koordinatora.
      *
-     * @return the username.
+     * @return korisničko ime.
      */
     public String getKorisnickoIme() {
         return korisnickoIme;
     }
 
     /**
-     * Gets the password of the coordinator.
+     * Vraća lozinku koordinatora.
      *
-     * @return the password.
+     * @return lozinka.
      */
     public String getLozinka() {
         return lozinka;
     }
 
     /**
-     * Gets the first name of the coordinator.
+     * Vraća ime koordinatora.
      *
-     * @return the first name.
+     * @return ime.
      */
     public String getIme() {
         return ime;
     }
 
     /**
-     * Returns a string representation of the coordinator.
+     * Vraća string reprezentaciju koordinatora.
      *
-     * @return a string representing the coordinator's first and last name.
+     * @return string koji predstavlja ime i prezime koordinatora.
      */
     @Override
     public String toString() {
@@ -175,9 +173,9 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the name of the table associated with this entity.
+     * Vraća ime tabele povezane sa ovim entitetom.
      *
-     * @return the table name.
+     * @return ime tabele.
      */
     @Override
     public String getNazivTabele() {
@@ -185,10 +183,9 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for this entity in the format required for an SQL
-     * statement.
+     * Vraća parametre za ovaj entitet u formatu koji je potreban za SQL izjavu.
      *
-     * @return the parameters string.
+     * @return string sa parametrima.
      */
     @Override
     public String getParametre() {
@@ -196,9 +193,9 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the names of the parameters for this entity.
+     * Vraća imena parametara za ovaj entitet.
      *
-     * @return the parameter names string.
+     * @return string sa imenima parametara.
      */
     @Override
     public String getNaziveParametara() {
@@ -206,9 +203,9 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the name of the primary key for this entity.
+     * Vraća ime primarnog ključa za ovaj entitet.
      *
-     * @return the primary key name.
+     * @return ime primarnog ključa.
      */
     @Override
     public String getNazivPrimarnogKljuca() {
@@ -216,9 +213,9 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the value of the primary key for this entity.
+     * Vraća vrednost primarnog ključa za ovaj entitet.
      *
-     * @return the primary key value.
+     * @return vrednost primarnog ključa.
      */
     @Override
     public Integer getVrednostPrimarnogKljuca() {
@@ -226,9 +223,10 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the composite primary key for this entity.
+     * Vraća složeni primarni ključ za ovaj entitet.
      *
-     * @return the composite primary key string, which is null for this entity.
+     * @return string sa složenim primarnim ključem, koji je null za ovaj
+     * entitet.
      */
     @Override
     public String getSlozeniPrimarniKljuc() {
@@ -236,10 +234,10 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Converts a ResultSet to a list of Koordinator objects.
+     * Konvertuje ResultSet u listu objekata Koordinator.
      *
-     * @param rs the ResultSet to convert.
-     * @return a list of Koordinator objects.
+     * @param rs ResultSet za konvertovanje.
+     * @return lista objekata Koordinator.
      */
     @Override
     public ArrayList<OpstiDomenskiObjekat> konvertujRSUListu(ResultSet rs) {
@@ -250,20 +248,20 @@ public class Koordinator extends OpstiDomenskiObjekat {
                 String rsKorisnickoIme = rs.getString("korisnickoIme");
                 String rsLozinka = rs.getString("lozinka");
                 String rsIme = rs.getString("ime");
-                String rePrezime = rs.getString("prezime");
+                String rsPrezime = rs.getString("prezime");
 
-                koordinatori.add(new Koordinator(rsId, rsKorisnickoIme, rsLozinka, rsIme, rePrezime));
+                koordinatori.add(new Koordinator(rsId, rsKorisnickoIme, rsLozinka, rsIme, rsPrezime));
             }
         } catch (SQLException e) {
-            System.out.println("Greska u Koordinator::konvertujRSUListu\n" + e.getMessage());
+            System.out.println("Greška u Koordinator::konvertujRSUListu\n" + e.getMessage());
         }
         return koordinatori;
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving all Koordinator records.
+     * Vraća SQL SELECT upit za preuzimanje svih Koordinator zapisa.
      *
-     * @return the SQL SELECT query string.
+     * @return SQL SELECT upit.
      */
     @Override
     public String getSelectUpit() {
@@ -271,10 +269,10 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving Koordinator records based on
-     * specific parameters.
+     * Vraća SQL SELECT upit za preuzimanje Koordinator zapisa na osnovu
+     * specifičnih parametara.
      *
-     * @return the SQL SELECT query string with parameters.
+     * @return SQL SELECT upit sa parametrima.
      */
     @Override
     public String getSelectUpitPoParametru() {
@@ -282,9 +280,9 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL INSERT query for inserting a Koordinator record.
+     * Vraća SQL INSERT upit za ubacivanje zapisa Koordinator.
      *
-     * @return the SQL INSERT query string.
+     * @return SQL INSERT upit.
      */
     @Override
     public String getInsertUpit() {
@@ -292,36 +290,42 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for updating a Koordinator record.
+     * Vraća parametre za ažuriranje zapisa Koordinator.
      *
-     * @return the update parameters string.
+     * @return string sa parametrima za ažuriranje.
      */
     @Override
     public String getUpdateParametre() {
-        return null;
+        return String.format("korisnickoIme='%s', lozinka='%s', ime='%s', prezime='%s' WHERE id=%d",
+                korisnickoIme, lozinka, ime, prezime, id);
     }
 
     /**
-     * Gets the SQL DELETE query for deleting a Koordinator record.
+     * Vraća SQL DELETE upit za brisanje zapisa Koordinator.
      *
-     * @return the SQL DELETE query string.
+     * @return SQL DELETE upit.
      */
     @Override
     public String getDeleteUpit() {
-        return null;
+        return "DELETE FROM " + getNazivTabele() + " WHERE id=" + getVrednostPrimarnogKljuca();
     }
 
     /**
-     * Gets the SQL UPDATE query for updating a Koordinator record.
+     * Vraća SQL UPDATE upit za ažuriranje zapisa Koordinator.
      *
-     * @return the SQL UPDATE query string.
+     * @return SQL UPDATE upit.
      */
     @Override
     public String getUpdateUpit() {
-        return String.format("id = %d, korisnickoIme = '%s', lozinka = '%s', ime = '%s', prezime = '%s'",
-                id, korisnickoIme, lozinka, ime, prezime);
+        return "UPDATE " + getNazivTabele() + " SET " + getUpdateParametre();
     }
 
+    /**
+     * Upoređuje objekat sa trenutnim koordinatorom.
+     *
+     * @param obj objekat koji se upoređuje sa trenutnim koordinatorom.
+     * @return true ako su objekti jednaki, false inače.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -338,6 +342,11 @@ public class Koordinator extends OpstiDomenskiObjekat {
                 && Objects.equals(prezime, that.prezime);
     }
 
+    /**
+     * Vraća hash kod za trenutni objekat koordinatora.
+     *
+     * @return hash kod.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id, korisnickoIme, lozinka, ime, prezime);

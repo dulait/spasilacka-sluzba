@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * Represents an engagement of a lifeguard during a shift within a schedule.
- * This class provides methods for database interaction and entity manipulation.
- * It extends the {@link OpstiDomenskiObjekat} class.
+ * Predstavlja angažovanje spasioca tokom smene u rasporedu.
  *
  * @author dulait
  */
@@ -19,18 +17,18 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     private Raspored raspored;
 
     /**
-     * Default constructor.
+     * Podrazumevajući konstruktor.
      */
     public Angazovanje() {
     }
 
     /**
-     * Constructs an Angazovanje object with specified lifeguard, shift, and
-     * schedule.
+     * Konstruktor koji kreira objekat Angazovanje sa datim spasiocem, smenom i
+     * rasporedom.
      *
-     * @param spasilac the lifeguard involved in the engagement.
-     * @param smena the shift during which the engagement occurs.
-     * @param raspored the schedule within which the engagement is defined.
+     * @param spasilac spasilac uključen u angažovanje.
+     * @param smena smena tokom koje se angažovanje dešava.
+     * @param raspored raspored unutar kojeg je angažovanje definisano.
      */
     public Angazovanje(Spasilac spasilac, Smena smena, Raspored raspored) {
         setSpasilac(spasilac);
@@ -39,75 +37,75 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the lifeguard involved in the engagement.
+     * Vraća spasioca uključenog u angažovanje.
      *
-     * @return the lifeguard.
+     * @return spasilac.
      */
     public Spasilac getSpasilac() {
         return spasilac;
     }
 
     /**
-     * Sets the lifeguard involved in the engagement.
+     * Postavlja spasioca uključenog u angažovanje.
      *
-     * @param spasilac the lifeguard to set.
-     * @throws IllegalArgumentException if spasilac is null.
+     * @param spasilac spasilac za postavljanje.
+     * @throws IllegalArgumentException ako je spasilac null.
      */
     public final void setSpasilac(Spasilac spasilac) {
         if (spasilac == null) {
-            throw new IllegalArgumentException("Lifeguard cannot be null.");
+            throw new IllegalArgumentException("Spasilac ne može biti null.");
         }
         this.spasilac = spasilac;
     }
 
     /**
-     * Gets the shift during which the engagement occurs.
+     * Vraća smenu tokom koje se angažovanje dešava.
      *
-     * @return the shift.
+     * @return smena.
      */
     public Smena getSmena() {
         return smena;
     }
 
     /**
-     * Sets the shift during which the engagement occurs.
+     * Postavlja smenu tokom koje se angažovanje dešava.
      *
-     * @param smena the shift to set.
-     * @throws IllegalArgumentException if smena is null.
+     * @param smena smena za postavljanje.
+     * @throws IllegalArgumentException ako je smena null.
      */
     public final void setSmena(Smena smena) {
         if (smena == null) {
-            throw new IllegalArgumentException("Shift cannot be null.");
+            throw new IllegalArgumentException("Smena ne može biti null.");
         }
         this.smena = smena;
     }
 
     /**
-     * Gets the schedule within which the engagement is defined.
+     * Vraća raspored unutar kojeg je angažovanje definisano.
      *
-     * @return the schedule.
+     * @return raspored.
      */
     public Raspored getRaspored() {
         return raspored;
     }
 
     /**
-     * Sets the schedule within which the engagement is defined.
+     * Postavlja raspored unutar kojeg je angažovanje definisano.
      *
-     * @param raspored the schedule to set.
-     * @throws IllegalArgumentException if raspored is null.
+     * @param raspored raspored za postavljanje.
+     * @throws IllegalArgumentException ako je raspored null.
      */
     public final void setRaspored(Raspored raspored) {
         if (raspored == null) {
-            throw new IllegalArgumentException("Schedule cannot be null.");
+            throw new IllegalArgumentException("Raspored ne može biti null.");
         }
         this.raspored = raspored;
     }
 
     /**
-     * Returns a string representation of the Angazovanje object.
+     * Vraća string reprezentaciju objekta Angazovanje.
      *
-     * @return a string representation of the Angazovanje object.
+     * @return string reprezentacija objekta Angazovanje.
      */
     @Override
     public String toString() {
@@ -115,9 +113,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the name of the table associated with this entity.
+     * Vraća naziv tabele povezane sa ovim entitetom.
      *
-     * @return the table name.
+     * @return naziv tabele.
      */
     @Override
     public String getNazivTabele() {
@@ -125,10 +123,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for this entity in the format required for an SQL
-     * statement.
+     * Vraća parametre za ovaj entitet u formatu potrebnom za SQL izjavu.
      *
-     * @return the parameters string.
+     * @return string parametara.
      */
     @Override
     public String getParametre() {
@@ -136,9 +133,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the names of the parameters for this entity.
+     * Vraća nazive parametara za ovaj entitet.
      *
-     * @return the parameter names string.
+     * @return string sa nazivima parametara.
      */
     @Override
     public String getNaziveParametara() {
@@ -146,10 +143,10 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the name of the primary key for this entity.
+     * Vraća naziv primarnog ključa za ovaj entitet.
      *
-     * @return the primary key name, which is null since this entity has a
-     * composite key.
+     * @return naziv primarnog ključa, koji je null jer ovaj entitet ima složeni
+     * ključ.
      */
     @Override
     public String getNazivPrimarnogKljuca() {
@@ -157,10 +154,10 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the value of the primary key for this entity.
+     * Vraća vrednost primarnog ključa za ovaj entitet.
      *
-     * @return the primary key value, which is null since this entity has a
-     * composite key.
+     * @return vrednost primarnog ključa, koja je null jer ovaj entitet ima
+     * složeni ključ.
      */
     @Override
     public Integer getVrednostPrimarnogKljuca() {
@@ -168,9 +165,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the composite primary key for this entity.
+     * Vraća složeni primarni ključ za ovaj entitet.
      *
-     * @return the composite primary key string.
+     * @return string sa složenim primarnim ključem.
      */
     @Override
     public String getSlozeniPrimarniKljuc() {
@@ -178,10 +175,10 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Converts a ResultSet to a list of Angazovanje objects.
+     * Konvertuje ResultSet u listu objekata Angazovanje.
      *
-     * @param rs the ResultSet to convert.
-     * @return a list of Angazovanje objects.
+     * @param rs ResultSet za konverziju.
+     * @return lista objekata Angazovanje.
      */
     @Override
     public ArrayList<OpstiDomenskiObjekat> konvertujRSUListu(ResultSet rs) {
@@ -207,15 +204,15 @@ public class Angazovanje extends OpstiDomenskiObjekat {
                 angazovanja.add(new Angazovanje(rsSpasilac, rsSmena, rsRaspored));
             }
         } catch (SQLException e) {
-            System.out.println("Greska u Angazovanje::konvertujRSUListu\n" + e.getMessage());
+            System.out.println("Greška u Angazovanje::konvertujRSUListu\n" + e.getMessage());
         }
         return angazovanja;
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving all Angazovanje records.
+     * Vraća SQL SELECT upit za dobijanje svih Angazovanje zapisa.
      *
-     * @return the SQL SELECT query string.
+     * @return SQL SELECT upit kao string.
      */
     @Override
     public String getSelectUpit() {
@@ -227,10 +224,10 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving Angazovanje records based on
-     * specific parameters.
+     * Vraća SQL SELECT upit za dobijanje Angazovanje zapisa na osnovu
+     * specifičnih parametara.
      *
-     * @return the SQL SELECT query string with parameters.
+     * @return SQL SELECT upit kao string sa parametrima.
      */
     @Override
     public String getSelectUpitPoParametru() {
@@ -243,9 +240,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL INSERT query for inserting an Angazovanje record.
+     * Vraća SQL INSERT upit za umetanje Angazovanje zapisa.
      *
-     * @return the SQL INSERT query string.
+     * @return SQL INSERT upit kao string.
      */
     @Override
     public String getInsertUpit() {
@@ -253,9 +250,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL UPDATE query for updating an Angazovanje record.
+     * Vraća SQL UPDATE upit za ažuriranje Angazovanje zapisa.
      *
-     * @return the SQL UPDATE query string.
+     * @return SQL UPDATE upit kao string.
      */
     @Override
     public String getUpdateUpit() {
@@ -263,9 +260,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for updating an Angazovanje record.
+     * Vraća parametre za ažuriranje Angazovanje zapisa.
      *
-     * @return the update parameters string.
+     * @return string sa parametrima za ažuriranje.
      */
     @Override
     public String getUpdateParametre() {
@@ -274,9 +271,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL DELETE query for deleting an Angazovanje record.
+     * Vraća SQL DELETE upit za brisanje Angazovanje zapisa.
      *
-     * @return the SQL DELETE query string.
+     * @return SQL DELETE upit kao string.
      */
     @Override
     public String getDeleteUpit() {

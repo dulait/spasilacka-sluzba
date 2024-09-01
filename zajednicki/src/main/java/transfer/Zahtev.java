@@ -3,12 +3,7 @@ package transfer;
 import java.io.Serializable;
 
 /**
- * Represents a request sent from a client to the server.
- * <p>
- * The {@code Zahtev} class is used to encapsulate the parameters and the type
- * of operation that a client wants to perform. It is designed to be serialized
- * for transmission over a network.
- * </p>
+ * Predstavlja zahtev poslat od klijenta serveru.
  *
  * @author dulait
  */
@@ -20,18 +15,17 @@ public class Zahtev implements Serializable {
     private int operacija;
 
     /**
-     * Default constructor for creating an empty {@code Zahtev} object.
+     * Podrazumevajući konstruktor.
      */
     public Zahtev() {
     }
 
     /**
-     * Constructs a {@code Zahtev} with the specified parameter and operation
-     * code.
+     * Konstruktor koji kreira Zahtev sa određenim parametrom i kodom operacije.
      *
-     * @param parametar the parameter or data associated with the request
-     * @param operacija the operation code indicating the type of operation to
-     * perform
+     * @param parametar parametar ili podaci povezani sa zahtevom
+     * @param operacija kod operacije koji označava tip operacije koju treba
+     * izvršiti
      */
     public Zahtev(Object parametar, int operacija) {
         this.parametar = parametar;
@@ -39,39 +33,38 @@ public class Zahtev implements Serializable {
     }
 
     /**
-     * Returns the operation code of this request.
+     * Vraća kod operacije ovog zahteva.
      *
-     * @return the operation code
+     * @return kod operacije
      */
     public int getOperacija() {
         return operacija;
     }
 
     /**
-     * Sets the operation code for this request.
+     * Postavlja kod operacije za ovaj zahtev.
      *
-     * @param operacija the operation code to set
+     * @param operacija kod operacije koji treba postaviti
      */
     public void setOperacija(int operacija) {
         this.operacija = operacija;
     }
 
     /**
-     * Returns the parameter or data associated with this request.
+     * Vraća parametar ili podatke povezane sa ovim zahtevom.
      *
-     * @return the parameter or data
+     * @return parametar ili podaci
      */
     public Object getParametar() {
         return parametar;
     }
 
     /**
-     * Sets the parameter or data for this request.
+     * Postavlja parametar ili podatke za ovaj zahtev.
      *
-     * @param parametar the parameter or data to set
+     * @param parametar parametar ili podaci koji treba postaviti
      */
     public void setParametar(Object parametar) {
         this.parametar = parametar;
     }
-
 }

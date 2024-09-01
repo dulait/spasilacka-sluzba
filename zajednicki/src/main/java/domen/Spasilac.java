@@ -7,10 +7,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a lifeguard with personal information including ID, name, surname,
- * and JMBG. This class extends {@link OpstiDomenskiObjekat} and provides
- * methods for converting between ResultSet and domain objects, and generating
- * SQL queries for CRUD operations.
+ * Predstavlja spasioca sa ličnim informacijama uključujući ID, ime, prezime i
+ * JMBG.
  *
  * @author dulait
  */
@@ -22,94 +20,94 @@ public class Spasilac extends OpstiDomenskiObjekat {
     private String jmbg;
 
     /**
-     * Default constructor.
+     * Podrazumevajući konstruktor.
      */
     public Spasilac() {
     }
 
     /**
-     * Constructs a Spasilac with the specified ID.
+     * Konstruira Spasioca sa specifičnim ID-jem.
      *
-     * @param id the ID of the lifeguard.
+     * @param id id spasioca.
      */
     public Spasilac(int id) {
         this.id = id;
     }
 
     /**
-     * Sets the ID of the lifeguard.
+     * Postavlja id spasioca.
      *
-     * @param id the new ID of the lifeguard.
-     * @throws IllegalArgumentException if id is less than or equal to zero.
+     * @param id novi id spasioca.
+     * @throws IllegalArgumentException ako je id manji ili jednak nuli.
      */
     public final void setId(int id) {
         if (id <= 0) {
-            throw new IllegalArgumentException("Id must be greater than zero.");
+            throw new IllegalArgumentException("Id mora biti veći od nule.");
         }
         this.id = id;
     }
 
     /**
-     * Sets the name of the lifeguard.
+     * Postavlja ime spasioca.
      *
-     * @param ime the new name of the lifeguard.
-     * @throws IllegalArgumentException if ime is null or empty.
+     * @param ime novo ime spasioca.
+     * @throws IllegalArgumentException ako je ime null ili prazno.
      */
     public final void setIme(String ime) {
         if (ime == null || ime.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null or empty.");
+            throw new IllegalArgumentException("Ime ne može biti null ili prazno.");
         }
         this.ime = ime;
     }
 
     /**
-     * Sets the surname of the lifeguard.
+     * Postavlja prezime spasioca.
      *
-     * @param prezime the new surname of the lifeguard.
-     * @throws IllegalArgumentException if prezime is null or empty.
+     * @param prezime novo prezime spasioca.
+     * @throws IllegalArgumentException ako je prezime null ili prazno.
      */
     public final void setPrezime(String prezime) {
         if (prezime == null || prezime.trim().isEmpty()) {
-            throw new IllegalArgumentException("Surname cannot be null or empty.");
+            throw new IllegalArgumentException("Prezime ne može biti null ili prazno.");
         }
         this.prezime = prezime;
     }
 
     /**
-     * Sets the JMBG of the lifeguard.
+     * Postavlja JMBG spasioca.
      *
-     * @param jmbg the new JMBG of the lifeguard.
-     * @throws IllegalArgumentException if jmbg is null or does not match the
-     * required format.
+     * @param jmbg novi JMBG spasioca.
+     * @throws IllegalArgumentException ako je jmbg null ili ne odgovara
+     * zahtevanom formatu.
      */
     public final void setJmbg(String jmbg) {
-        if (jmbg == null || !jmbg.matches("\\d{13}")) { // Assuming JMBG is a 13-digit number
-            throw new IllegalArgumentException("JMBG must be a 13-digit number.");
+        if (jmbg == null || !jmbg.matches("\\d{13}")) { // Pretpostavlja se da je JMBG 13-cifren broj
+            throw new IllegalArgumentException("JMBG mora biti 13-cifren broj.");
         }
         this.jmbg = jmbg;
     }
 
     /**
-     * Constructs a Spasilac with the specified ID, name, surname, and JMBG.
+     * Konstruira Spasioca sa specifičnim id-jem, imenom, prezimenom i JMBG-om.
      *
-     * @param spasilacId the ID of the lifeguard.
-     * @param ime the name of the lifeguard.
-     * @param prezime the surname of the lifeguard.
-     * @param jmbg the JMBG of the lifeguard.
-     * @throws IllegalArgumentException if ime or prezime are null or empty, or
-     * if jmbg does not match the required format.
+     * @param spasilacId ID spasioca.
+     * @param ime ime spasioca.
+     * @param prezime prezime spasioca.
+     * @param jmbg JMBG spasioca.
+     * @throws IllegalArgumentException ako su ime ili prezime null ili prazni,
+     * ili ako jmbg ne odgovara zahtevanom formatu.
      */
     public Spasilac(int spasilacId, String ime, String prezime, String jmbg) {
-        setId(spasilacId); // Using the validated setter
-        setIme(ime); // Using the validated setter
-        setPrezime(prezime); // Using the validated setter
-        setJmbg(jmbg); // Using the validated setter
+        setId(spasilacId); // Koristeći validirani setter
+        setIme(ime); // Koristeći validirani setter
+        setPrezime(prezime); // Koristeći validirani setter
+        setJmbg(jmbg); // Koristeći validirani setter
     }
 
     /**
-     * Returns a string representation of the lifeguard.
+     * Vraća string reprezentaciju spasioca.
      *
-     * @return the string representation of the lifeguard.
+     * @return string reprezentacija spasioca.
      */
     @Override
     public String toString() {
@@ -117,45 +115,45 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the ID of the lifeguard.
+     * Vraća id spasioca.
      *
-     * @return the ID of the lifeguard.
+     * @return id spasioca.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Gets the name of the lifeguard.
+     * Vraća ime spasioca.
      *
-     * @return the name of the lifeguard.
+     * @return ime spasioca.
      */
     public String getIme() {
         return ime;
     }
 
     /**
-     * Gets the surname of the lifeguard.
+     * Vraća prezime spasioca.
      *
-     * @return the surname of the lifeguard.
+     * @return prezime spasioca.
      */
     public String getPrezime() {
         return prezime;
     }
 
     /**
-     * Gets the JMBG of the lifeguard.
+     * Vraća JMBG spasioca.
      *
-     * @return the JMBG of the lifeguard.
+     * @return JMBG spasioca.
      */
     public String getJmbg() {
         return jmbg;
     }
 
     /**
-     * Gets the name of the table associated with this domain object.
+     * Vraća naziv tabele povezan sa ovim domena objektom.
      *
-     * @return the table name as a String.
+     * @return naziv tabele kao String.
      */
     @Override
     public String getNazivTabele() {
@@ -163,10 +161,9 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for this domain object in the format required for an
-     * SQL statement.
+     * Vraća parametre za ovaj domena objekat u formatu potrebnom za SQL izjavu.
      *
-     * @return the parameters as a String.
+     * @return parametri kao String.
      */
     @Override
     public String getParametre() {
@@ -174,9 +171,9 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the names of the parameters for this domain object.
+     * Vraća nazive parametara za ovaj domena objekat.
      *
-     * @return the parameter names as a String.
+     * @return nazivi parametara kao String.
      */
     @Override
     public String getNaziveParametara() {
@@ -184,9 +181,9 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the name of the primary key column for this domain object.
+     * Vraća naziv primarnog ključa za ovaj domena objekat.
      *
-     * @return the primary key column name as a String.
+     * @return naziv primarnog ključa kao String.
      */
     @Override
     public String getNazivPrimarnogKljuca() {
@@ -194,9 +191,9 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the value of the primary key for this domain object.
+     * Vraća vrednost primarnog ključa za ovaj domena objekat.
      *
-     * @return the primary key value as an Integer.
+     * @return vrednost primarnog ključa kao Integer.
      */
     @Override
     public Integer getVrednostPrimarnogKljuca() {
@@ -204,9 +201,9 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the composite primary key for this domain object, if applicable.
+     * Vraća složeni primarni ključ za ovaj domena objekat, ako je primenljivo.
      *
-     * @return the composite primary key as a String, or null if not applicable.
+     * @return složeni primarni ključ kao String, ili null ako nije primenljivo.
      */
     @Override
     public String getSlozeniPrimarniKljuc() {
@@ -214,10 +211,10 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Converts a {@link ResultSet} to a list of domain objects.
+     * Konvertuje {@link ResultSet} u listu domena objekata.
      *
-     * @param rs the {@link ResultSet} to convert.
-     * @return a {@link List} of domain objects.
+     * @param rs {@link ResultSet} koji treba konvertovati.
+     * @return {@link List} domena objekata.
      */
     @Override
     public List<OpstiDomenskiObjekat> konvertujRSUListu(ResultSet rs) {
@@ -232,16 +229,15 @@ public class Spasilac extends OpstiDomenskiObjekat {
                 spasioci.add(new Spasilac(rsId, rsIme, rsPrezime, rsJmbg));
             }
         } catch (SQLException e) {
-            System.out.println("Greska u Spasilac::konvertujRSUListu\n" + e.getMessage());
+            System.out.println("Greška u Spasilac::konvertujRSUListu\n" + e.getMessage());
         }
         return spasioci;
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving all records of this domain
-     * object.
+     * Vraća SQL SELECT upit za Vraćanje svih zapisa ovog domena objekta.
      *
-     * @return the SQL SELECT query as a String.
+     * @return SQL SELECT upit kao String.
      */
     @Override
     public String getSelectUpit() {
@@ -249,10 +245,10 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving records of this domain object
-     * based on specific parameters.
+     * Vraća SQL SELECT upit za Vraćanje zapisa ovog domena objekta na osnovu
+     * specifičnih parametara.
      *
-     * @return the SQL SELECT query with parameters as a String.
+     * @return SQL SELECT upit sa parametrima kao String.
      */
     @Override
     public String getSelectUpitPoParametru() {
@@ -260,9 +256,9 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL INSERT query for inserting a record of this domain object.
+     * Vraća SQL INSERT upit za umetanje zapisa ovog domena objekta.
      *
-     * @return the SQL INSERT query as a String.
+     * @return SQL INSERT upit kao String.
      */
     @Override
     public String getInsertUpit() {
@@ -270,9 +266,9 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL UPDATE query for updating a record of this domain object.
+     * Vraća SQL UPDATE upit za ažuriranje zapisa ovog domena objekta.
      *
-     * @return the SQL UPDATE query as a String.
+     * @return SQL UPDATE upit kao String.
      */
     @Override
     public String getUpdateUpit() {
@@ -280,9 +276,9 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for updating a record of this domain object.
+     * Vraća parametre za ažuriranje zapisa ovog domena objekta.
      *
-     * @return the update parameters as a String.
+     * @return parametri za ažuriranje kao String.
      */
     @Override
     public String getUpdateParametre() {
@@ -290,15 +286,21 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL DELETE query for deleting a record of this domain object.
+     * Vraća SQL DELETE upit za brisanje zapisa ovog domena objekta.
      *
-     * @return the SQL DELETE query as a String.
+     * @return SQL DELETE upit kao String.
      */
     @Override
     public String getDeleteUpit() {
         return "DELETE FROM " + getNazivTabele() + " WHERE " + getNazivPrimarnogKljuca() + " = " + getVrednostPrimarnogKljuca();
     }
 
+    /**
+     * Upoređuje ovaj objekat sa datim objektom radi jednakosti.
+     *
+     * @param o objekat koji se upoređuje sa ovim.
+     * @return true ako su objekti jednaki, inače false.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -314,9 +316,13 @@ public class Spasilac extends OpstiDomenskiObjekat {
                 && Objects.equals(jmbg, spasilac.jmbg);
     }
 
+    /**
+     * Vraća hash kod za ovaj objekat.
+     *
+     * @return hash kod objekta kao int.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id, ime, prezime, jmbg);
     }
-
 }

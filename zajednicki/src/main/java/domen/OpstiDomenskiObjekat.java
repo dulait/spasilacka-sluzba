@@ -5,109 +5,108 @@ import java.sql.*;
 import java.util.List;
 
 /**
- * An abstract class representing a general domain object. This class provides a
- * contract for all domain objects to interact with the database. Classes
- * extending this abstract class must implement the abstract methods for
- * specific database operations such as select, insert, update, and delete.
+ * Apstraktna klasa koja predstavlja opšti domensk objekat. Ova klasa pruža
+ * ugovor za sve domenske objekte.
  *
- * This class implements {@link Serializable} to allow objects to be serialized.
+ * Ova klasa implementira {@link Serializable} kako bi omogućila serijalizaciju
+ * objekata.
  *
  * @author dulait
  */
 public abstract class OpstiDomenskiObjekat implements Serializable {
 
     /**
-     * Gets the name of the table associated with this domain object.
+     * Vraća ime tabele povezane sa ovim domenskim objektom.
      *
-     * @return the table name as a String.
+     * @return ime tabele kao String.
      */
     public abstract String getNazivTabele();
 
     /**
-     * Gets the parameters for this domain object in the format required for an
-     * SQL statement.
+     * Vraća parametre za ovaj domenski objekat u formatu koji je potreban za
+     * SQL iskaz.
      *
-     * @return the parameters as a String.
+     * @return parametri kao String.
      */
     public abstract String getParametre();
 
     /**
-     * Gets the names of the parameters for this domain object.
+     * Vraća imena parametara za ovaj domenski objekat.
      *
-     * @return the parameter names as a String.
+     * @return imena parametara kao String.
      */
     public abstract String getNaziveParametara();
 
     /**
-     * Gets the name of the primary key column for this domain object.
+     * Vraća ime kolone primarnog ključa za ovaj domenski objekat.
      *
-     * @return the primary key column name as a String.
+     * @return ime kolone primarnog ključa kao String.
      */
     public abstract String getNazivPrimarnogKljuca();
 
     /**
-     * Gets the value of the primary key for this domain object.
+     * Vraća vrednost primarnog ključa za ovaj domenski objekat.
      *
-     * @return the primary key value as an Integer.
+     * @return vrednost primarnog ključa kao Integer.
      */
     public abstract Integer getVrednostPrimarnogKljuca();
 
     /**
-     * Gets the composite primary key for this domain object, if applicable.
+     * Vraća složeni primarni ključ za ovaj domenski objekat, ako je
+     * primenljivo.
      *
-     * @return the composite primary key as a String, or null if not applicable.
+     * @return složeni primarni ključ kao String, ili null ako nije primenljivo.
      */
     public abstract String getSlozeniPrimarniKljuc();
 
     /**
-     * Converts a {@link ResultSet} to a list of domain objects.
+     * Konvertuje {@link ResultSet} u listu domenskih objekata.
      *
-     * @param rs the {@link ResultSet} to convert.
-     * @return a {@link List} of domain objects.
+     * @param rs {@link ResultSet} koji se konvertuje.
+     * @return {@link List} domenskih objekata.
      */
     public abstract List<OpstiDomenskiObjekat> konvertujRSUListu(ResultSet rs);
 
     /**
-     * Gets the SQL SELECT query for retrieving all records of this domain
-     * object.
+     * Vraća SQL SELECT upit za dobijanje svih zapisa ovog domenskog objekta.
      *
-     * @return the SQL SELECT query as a String.
+     * @return SQL SELECT upit kao String.
      */
     public abstract String getSelectUpit();
 
     /**
-     * Gets the SQL SELECT query for retrieving records of this domain object
-     * based on specific parameters.
+     * Vraća SQL SELECT upit za dobijanje zapisa ovog domenskog objekta na
+     * osnovu specifičnih parametara.
      *
-     * @return the SQL SELECT query with parameters as a String.
+     * @return SQL SELECT upit sa parametrima kao String.
      */
     public abstract String getSelectUpitPoParametru();
 
     /**
-     * Gets the SQL INSERT query for inserting a record of this domain object.
+     * Vraća SQL INSERT upit za umetanje zapisa ovog domenskog objekta.
      *
-     * @return the SQL INSERT query as a String.
+     * @return SQL INSERT upit kao String.
      */
     public abstract String getInsertUpit();
 
     /**
-     * Gets the SQL UPDATE query for updating a record of this domain object.
+     * Vraća SQL UPDATE upit za ažuriranje zapisa ovog domenskog objekta.
      *
-     * @return the SQL UPDATE query as a String.
+     * @return SQL UPDATE upit kao String.
      */
     public abstract String getUpdateUpit();
 
     /**
-     * Gets the parameters for updating a record of this domain object.
+     * Vraća parametre za ažuriranje zapisa ovog domenskog objekta.
      *
-     * @return the update parameters as a String.
+     * @return parametri za ažuriranje kao String.
      */
     public abstract String getUpdateParametre();
 
     /**
-     * Gets the SQL DELETE query for deleting a record of this domain object.
+     * Vraća SQL DELETE upit za brisanje zapisa ovog domenskog objekta.
      *
-     * @return the SQL DELETE query as a String.
+     * @return SQL DELETE upit kao String.
      */
     public abstract String getDeleteUpit();
 

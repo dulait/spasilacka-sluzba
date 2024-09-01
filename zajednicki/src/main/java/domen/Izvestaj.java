@@ -6,9 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- * Represents a report associated with an engagement of a lifeguard during a
- * shift within a schedule. This class provides methods for database interaction
- * and entity manipulation. It extends the {@link OpstiDomenskiObjekat} class.
+ * Predstavlja izveštaj za angažovanje.
  *
  * @author dulait
  */
@@ -18,19 +16,18 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     private String opis;
 
     /**
-     * Default constructor.
+     * Podrazumevajući konstruktor.
      */
     public Izvestaj() {
     }
 
     /**
-     * Constructs an Izvestaj object with the specified engagement and
-     * description.
+     * Konstruktor koji kreira objekat Izvestaj sa datim angažovanjem i opisom.
      *
-     * @param angazovanje the engagement associated with the report.
-     * @param opis the description of the report.
-     * @throws IllegalArgumentException if angazovanje is null or if opis is
-     * null or empty.
+     * @param angazovanje angažovanje povezano sa izveštajem.
+     * @param opis opis izveštaja.
+     * @throws IllegalArgumentException ako je angazovanje null ili ako je opis
+     * null ili prazan.
      */
     public Izvestaj(Angazovanje angazovanje, String opis) {
         setAngazovanje(angazovanje);
@@ -38,53 +35,53 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the engagement associated with the report.
+     * Vraća angažovanje povezano sa izveštajem.
      *
-     * @return the engagement.
+     * @return angažovanje.
      */
     public Angazovanje getAngazovanje() {
         return angazovanje;
     }
 
     /**
-     * Sets the engagement associated with the report.
+     * Postavlja angažovanje povezano sa izveštajem.
      *
-     * @param angazovanje the engagement to set.
-     * @throws IllegalArgumentException if angazovanje is null.
+     * @param angazovanje angažovanje za postavljanje.
+     * @throws IllegalArgumentException ako je angazovanje null.
      */
     public final void setAngazovanje(Angazovanje angazovanje) {
         if (angazovanje == null) {
-            throw new IllegalArgumentException("Angazovanje cannot be null.");
+            throw new IllegalArgumentException("Angazovanje ne može biti null.");
         }
         this.angazovanje = angazovanje;
     }
 
     /**
-     * Gets the description of the report.
+     * Vraća opis izveštaja.
      *
-     * @return the description.
+     * @return opis.
      */
     public String getOpis() {
         return opis;
     }
 
     /**
-     * Sets the description of the report.
+     * Postavlja opis izveštaja.
      *
-     * @param opis the description to set.
-     * @throws IllegalArgumentException if opis is null or empty.
+     * @param opis opis za postavljanje.
+     * @throws IllegalArgumentException ako je opis null ili prazan.
      */
     public final void setOpis(String opis) {
         if (opis == null || opis.isEmpty()) {
-            throw new IllegalArgumentException("Opis cannot be null or empty.");
+            throw new IllegalArgumentException("Opis ne može biti null ili prazan.");
         }
         this.opis = opis;
     }
 
     /**
-     * Gets the name of the table associated with this entity.
+     * Vraća ime tabele povezane sa ovim entitetom.
      *
-     * @return the table name.
+     * @return ime tabele.
      */
     @Override
     public String getNazivTabele() {
@@ -92,10 +89,9 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for this entity in the format required for an SQL
-     * statement.
+     * Vraća parametre za ovaj entitet u formatu koji je potreban za SQL izjavu.
      *
-     * @return the parameters string.
+     * @return string sa parametrima.
      */
     @Override
     public String getParametre() {
@@ -104,9 +100,9 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the names of the parameters for this entity.
+     * Vraća imena parametara za ovaj entitet.
      *
-     * @return the parameter names string.
+     * @return string sa imenima parametara.
      */
     @Override
     public String getNaziveParametara() {
@@ -114,10 +110,10 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the name of the primary key for this entity.
+     * Vraća ime primarnog ključa za ovaj entitet.
      *
-     * @return the primary key name, which is null since this entity has a
-     * composite key.
+     * @return ime primarnog ključa, koje je null jer ovaj entitet ima složeni
+     * ključ.
      */
     @Override
     public String getNazivPrimarnogKljuca() {
@@ -125,10 +121,10 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the value of the primary key for this entity.
+     * Vraća vrednost primarnog ključa za ovaj entitet.
      *
-     * @return the primary key value, which is null since this entity has a
-     * composite key.
+     * @return vrednost primarnog ključa, koja je null jer ovaj entitet ima
+     * složeni ključ.
      */
     @Override
     public Integer getVrednostPrimarnogKljuca() {
@@ -136,9 +132,9 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the composite primary key for this entity.
+     * Vraća složeni primarni ključ za ovaj entitet.
      *
-     * @return the composite primary key string.
+     * @return string sa složenim primarnim ključem.
      */
     @Override
     public String getSlozeniPrimarniKljuc() {
@@ -147,10 +143,10 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Converts a ResultSet to a list of Izvestaj objects.
+     * Konvertuje ResultSet u listu Izvestaj objekata.
      *
-     * @param rs the ResultSet to convert.
-     * @return a list of Izvestaj objects.
+     * @param rs ResultSet koji treba konvertovati.
+     * @return lista Izvestaj objekata.
      */
     @Override
     public ArrayList<OpstiDomenskiObjekat> konvertujRSUListu(ResultSet rs) {
@@ -184,15 +180,15 @@ public class Izvestaj extends OpstiDomenskiObjekat {
                 izvestaji.add(izvestaj);
             }
         } catch (SQLException e) {
-            System.out.println("Greska u Izvestaj::konvertujRSUListu\n" + e.getMessage());
+            System.out.println("Greška u Izvestaj::konvertujRSUListu\n" + e.getMessage());
         }
         return izvestaji;
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving all Izvestaj records.
+     * Vraća SQL SELECT upit za preuzimanje svih Izvestaj zapisa.
      *
-     * @return the SQL SELECT query string.
+     * @return SQL SELECT upit kao string.
      */
     @Override
     public String getSelectUpit() {
@@ -205,10 +201,10 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL SELECT query for retrieving Izvestaj records based on
-     * specific parameters.
+     * Vraća SQL SELECT upit za preuzimanje Izvestaj zapisa na osnovu
+     * specifičnih parametara.
      *
-     * @return the SQL SELECT query string with parameters.
+     * @return SQL SELECT upit kao string sa parametrima.
      */
     @Override
     public String getSelectUpitPoParametru() {
@@ -222,9 +218,9 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL INSERT query for inserting an Izvestaj record.
+     * Vraća SQL INSERT upit za umetanje Izvestaj zapisa.
      *
-     * @return the SQL INSERT query string.
+     * @return SQL INSERT upit kao string.
      */
     @Override
     public String getInsertUpit() {
@@ -232,9 +228,9 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL UPDATE query for updating an Izvestaj record.
+     * Vraća SQL UPDATE upit za ažuriranje Izvestaj zapisa.
      *
-     * @return the SQL UPDATE query string.
+     * @return SQL UPDATE upit kao string.
      */
     @Override
     public String getUpdateUpit() {
@@ -242,9 +238,9 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the parameters for updating an Izvestaj record.
+     * Vraća parametre za ažuriranje Izvestaj zapisa.
      *
-     * @return the update parameters string.
+     * @return string sa parametrima za ažuriranje.
      */
     @Override
     public String getUpdateParametre() {
@@ -253,13 +249,12 @@ public class Izvestaj extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Gets the SQL DELETE query for deleting an Izvestaj record.
+     * Vraća SQL DELETE upit za brisanje Izvestaj zapisa.
      *
-     * @return the SQL DELETE query string.
+     * @return SQL DELETE upit kao string.
      */
     @Override
     public String getDeleteUpit() {
         return "DELETE FROM " + getNazivTabele() + " WHERE " + getSlozeniPrimarniKljuc();
     }
-
 }
