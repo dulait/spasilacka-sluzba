@@ -39,14 +39,42 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
+     * Sets the date of the schedule.
+     *
+     * @param datum the new date of the schedule.
+     * @throws IllegalArgumentException if datum is null.
+     */
+    public final void setDatum(LocalDate datum) {
+        if (datum == null) {
+            throw new IllegalArgumentException("Datum cannot be null.");
+        }
+        this.datum = datum;
+    }
+
+    /**
+     * Sets the ID of the schedule.
+     *
+     * @param id the new ID of the schedule.
+     * @throws IllegalArgumentException if id is less than or equal to zero.
+     */
+    public final void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id must be greater than zero.");
+        }
+        this.id = id;
+    }
+
+    /**
      * Constructs a Raspored with the specified ID and date.
      *
      * @param id the ID of the schedule.
      * @param datum the date of the schedule.
+     * @throws IllegalArgumentException if datum is null or id is less than or
+     * equal to zero.
      */
     public Raspored(int id, LocalDate datum) {
-        this.id = id;
-        this.datum = datum;
+        setId(id);
+        setDatum(datum);
         this.angazovanja = new ArrayList<>();
     }
 
@@ -60,30 +88,12 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
     }
 
     /**
-     * Sets the date of the schedule.
-     *
-     * @param datum the new date of the schedule.
-     */
-    public void setDatum(LocalDate datum) {
-        this.datum = datum;
-    }
-
-    /**
      * Gets the ID of the schedule.
      *
      * @return the ID of the schedule.
      */
     public int getId() {
         return id;
-    }
-
-    /**
-     * Sets the ID of the schedule.
-     *
-     * @param id the new ID of the schedule.
-     */
-    public void setId(int id) {
-        this.id = id;
     }
 
     /**
@@ -99,8 +109,12 @@ public class Raspored extends OpstiDomenskiObjekat implements Comparable<Raspore
      * Sets the list of engagements in the schedule.
      *
      * @param angazovanja the new list of engagements.
+     * @throws IllegalArgumentException if angazovanja is null.
      */
     public void setAngazovanja(List<Angazovanje> angazovanja) {
+        if (angazovanja == null) {
+            throw new IllegalArgumentException("Angazovanja cannot be null.");
+        }
         this.angazovanja = angazovanja;
     }
 

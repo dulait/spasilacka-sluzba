@@ -33,9 +33,9 @@ public class Angazovanje extends OpstiDomenskiObjekat {
      * @param raspored the schedule within which the engagement is defined.
      */
     public Angazovanje(Spasilac spasilac, Smena smena, Raspored raspored) {
-        this.spasilac = spasilac;
-        this.smena = smena;
-        this.raspored = raspored;
+        setSpasilac(spasilac);
+        setSmena(smena);
+        setRaspored(raspored);
     }
 
     /**
@@ -51,8 +51,12 @@ public class Angazovanje extends OpstiDomenskiObjekat {
      * Sets the lifeguard involved in the engagement.
      *
      * @param spasilac the lifeguard to set.
+     * @throws IllegalArgumentException if spasilac is null.
      */
-    public void setSpasilac(Spasilac spasilac) {
+    public final void setSpasilac(Spasilac spasilac) {
+        if (spasilac == null) {
+            throw new IllegalArgumentException("Lifeguard cannot be null.");
+        }
         this.spasilac = spasilac;
     }
 
@@ -69,8 +73,12 @@ public class Angazovanje extends OpstiDomenskiObjekat {
      * Sets the shift during which the engagement occurs.
      *
      * @param smena the shift to set.
+     * @throws IllegalArgumentException if smena is null.
      */
-    public void setSmena(Smena smena) {
+    public final void setSmena(Smena smena) {
+        if (smena == null) {
+            throw new IllegalArgumentException("Shift cannot be null.");
+        }
         this.smena = smena;
     }
 
@@ -87,8 +95,12 @@ public class Angazovanje extends OpstiDomenskiObjekat {
      * Sets the schedule within which the engagement is defined.
      *
      * @param raspored the schedule to set.
+     * @throws IllegalArgumentException if raspored is null.
      */
-    public void setRaspored(Raspored raspored) {
+    public final void setRaspored(Raspored raspored) {
+        if (raspored == null) {
+            throw new IllegalArgumentException("Schedule cannot be null.");
+        }
         this.raspored = raspored;
     }
 

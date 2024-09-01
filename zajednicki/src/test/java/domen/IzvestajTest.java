@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.mockito.Mockito.*;
 
 public class IzvestajTest {
@@ -29,6 +31,39 @@ public class IzvestajTest {
         izvestaj = new Izvestaj(angazovanje, "Test description");
     }
 
+    @ParameterizedTest
+    @CsvSource({
+        "1, Dusan, Draskovic, 1234567890123, 1, 8, 16, 1, 'Opis dusan'",
+        "2, Marko, Markovic, 9876543210123, 2, 9, 17, 2, 'Opis marko'"
+    })
+    void testConstructor(int spasilacId, String spasilacIme, String spasilacPrezime, String spasilacJmbg,
+            int smenaId, int smenaPocetak, int smenaKraj,
+            int rasporedId, String opis) {
+        Spasilac spasilac = new Spasilac(spasilacId, spasilacIme, spasilacPrezime, spasilacJmbg);
+        Smena smena = new Smena(smenaId, smenaPocetak, smenaKraj);
+        Raspored raspored = new Raspored(rasporedId, LocalDate.now());
+        Angazovanje angazovanje = new Angazovanje(spasilac, smena, raspored);
+
+        Izvestaj izvestaj = new Izvestaj(angazovanje, opis);
+
+        assertEquals(angazovanje, izvestaj.getAngazovanje());
+        assertEquals(opis, izvestaj.getOpis());
+    }
+
+    @Test
+    void testSetAngazovanje() {
+        Angazovanje newAngazovanje = new Angazovanje(new Spasilac(2, "Marko", "Markovic", "9876543210123"), new Smena(2, 9, 17), new Raspored(2, LocalDate.now().plusDays(1)));
+        izvestaj.setAngazovanje(newAngazovanje);
+        assertEquals(newAngazovanje, izvestaj.getAngazovanje());
+    }
+
+    @Test
+    void testSetOpis() {
+        String newOpis = "Updated description";
+        izvestaj.setOpis(newOpis);
+        assertEquals(newOpis, izvestaj.getOpis());
+    }
+
     @Test
     public void testGetNazivTabele() {
         assertEquals("izvestaj", izvestaj.getNazivTabele());
@@ -37,7 +72,7 @@ public class IzvestajTest {
     @Test
     public void testGetParametre() {
         String expected = String.format("%d, %d, %d, '%s'",
-                spasilac.getId(), smena.getId(), raspored.getId(), "Test description");
+                spasilac.getId(), smena.getId(), raspored.getId(), "Test opis");
         assertEquals(expected, izvestaj.getParametre());
     }
 
@@ -102,7 +137,7 @@ public class IzvestajTest {
     @Test
     public void testGetUpdateParametre() {
         String expected = String.format("spasilacId = %d, smenaId = %d, rasporedId = %d, opis = '%s'",
-                spasilac.getId(), smena.getId(), raspored.getId(), "Test description");
+                spasilac.getId(), smena.getId(), raspored.getId(), "Test opis");
         assertEquals(expected, izvestaj.getUpdateParametre());
     }
 
@@ -117,7 +152,7 @@ public class IzvestajTest {
         ResultSet rs = mock(ResultSet.class);
 
         when(rs.next()).thenReturn(true).thenReturn(false);
-        when(rs.getString("izv.opis")).thenReturn("Test description");
+        when(rs.getString("izv.opis")).thenReturn("Test opis");
 
         when(rs.getInt("spa.id")).thenReturn(1);
         when(rs.getString("spa.ime")).thenReturn("Dusan");

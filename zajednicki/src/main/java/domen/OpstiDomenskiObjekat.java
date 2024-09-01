@@ -64,8 +64,6 @@ public abstract class OpstiDomenskiObjekat implements Serializable {
      *
      * @param rs the {@link ResultSet} to convert.
      * @return a {@link List} of domain objects.
-     * @throws SQLException if there is an error accessing the
-     * {@link ResultSet}.
      */
     public abstract List<OpstiDomenskiObjekat> konvertujRSUListu(ResultSet rs);
 

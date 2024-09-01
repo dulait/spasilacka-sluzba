@@ -37,18 +37,73 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
+     * Sets the ID of the lifeguard.
+     *
+     * @param id the new ID of the lifeguard.
+     * @throws IllegalArgumentException if id is less than or equal to zero.
+     */
+    public final void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id must be greater than zero.");
+        }
+        this.id = id;
+    }
+
+    /**
+     * Sets the name of the lifeguard.
+     *
+     * @param ime the new name of the lifeguard.
+     * @throws IllegalArgumentException if ime is null or empty.
+     */
+    public final void setIme(String ime) {
+        if (ime == null || ime.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty.");
+        }
+        this.ime = ime;
+    }
+
+    /**
+     * Sets the surname of the lifeguard.
+     *
+     * @param prezime the new surname of the lifeguard.
+     * @throws IllegalArgumentException if prezime is null or empty.
+     */
+    public final void setPrezime(String prezime) {
+        if (prezime == null || prezime.trim().isEmpty()) {
+            throw new IllegalArgumentException("Surname cannot be null or empty.");
+        }
+        this.prezime = prezime;
+    }
+
+    /**
+     * Sets the JMBG of the lifeguard.
+     *
+     * @param jmbg the new JMBG of the lifeguard.
+     * @throws IllegalArgumentException if jmbg is null or does not match the
+     * required format.
+     */
+    public final void setJmbg(String jmbg) {
+        if (jmbg == null || !jmbg.matches("\\d{13}")) { // Assuming JMBG is a 13-digit number
+            throw new IllegalArgumentException("JMBG must be a 13-digit number.");
+        }
+        this.jmbg = jmbg;
+    }
+
+    /**
      * Constructs a Spasilac with the specified ID, name, surname, and JMBG.
      *
      * @param spasilacId the ID of the lifeguard.
      * @param ime the name of the lifeguard.
      * @param prezime the surname of the lifeguard.
      * @param jmbg the JMBG of the lifeguard.
+     * @throws IllegalArgumentException if ime or prezime are null or empty, or
+     * if jmbg does not match the required format.
      */
     public Spasilac(int spasilacId, String ime, String prezime, String jmbg) {
-        this.id = spasilacId;
-        this.ime = ime;
-        this.prezime = prezime;
-        this.jmbg = jmbg;
+        setId(spasilacId); // Using the validated setter
+        setIme(ime); // Using the validated setter
+        setPrezime(prezime); // Using the validated setter
+        setJmbg(jmbg); // Using the validated setter
     }
 
     /**
@@ -71,30 +126,12 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Sets the ID of the lifeguard.
-     *
-     * @param id the new ID of the lifeguard.
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
      * Gets the name of the lifeguard.
      *
      * @return the name of the lifeguard.
      */
     public String getIme() {
         return ime;
-    }
-
-    /**
-     * Sets the name of the lifeguard.
-     *
-     * @param ime the new name of the lifeguard.
-     */
-    public void setIme(String ime) {
-        this.ime = ime;
     }
 
     /**
@@ -107,30 +144,12 @@ public class Spasilac extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Sets the surname of the lifeguard.
-     *
-     * @param prezime the new surname of the lifeguard.
-     */
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
-    }
-
-    /**
      * Gets the JMBG of the lifeguard.
      *
      * @return the JMBG of the lifeguard.
      */
     public String getJmbg() {
         return jmbg;
-    }
-
-    /**
-     * Sets the JMBG of the lifeguard.
-     *
-     * @param jmbg the new JMBG of the lifeguard.
-     */
-    public void setJmbg(String jmbg) {
-        this.jmbg = jmbg;
     }
 
     /**

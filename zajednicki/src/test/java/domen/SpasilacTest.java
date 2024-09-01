@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.mockito.Mockito.*;
 
 public class SpasilacTest {
@@ -17,6 +19,38 @@ public class SpasilacTest {
     @BeforeEach
     public void setUp() {
         spasilac = new Spasilac(1, "Dusan", "Draskovic", "1234567890123");
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "1, 'Dusan', 'Draskovic', '1234567890123'",
+        "2, 'Marija', 'Draskovic', '1234567890124'"
+    })
+    void testConstructor(int id, String ime, String prezime, String jmbg) {
+        Spasilac spasilac = new Spasilac(id, ime, prezime, jmbg);
+
+        assertEquals(id, spasilac.getId());
+        assertEquals(ime, spasilac.getIme());
+        assertEquals(prezime, spasilac.getPrezime());
+        assertEquals(jmbg, spasilac.getJmbg());
+    }
+
+    @Test
+    public void testSetIme() {
+        spasilac.setIme("Marija");
+        assertEquals("Marija", spasilac.getIme());
+    }
+
+    @Test
+    public void testSetPrezime() {
+        spasilac.setPrezime("Petrovic");
+        assertEquals("Petrovic", spasilac.getPrezime());
+    }
+
+    @Test
+    public void testSetJmbg() {
+        spasilac.setJmbg("1234567890124");
+        assertEquals("1234567890124", spasilac.getJmbg());
     }
 
     @Test

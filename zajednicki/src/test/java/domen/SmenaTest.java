@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.mockito.Mockito.*;
 
 public class SmenaTest {
@@ -17,6 +19,31 @@ public class SmenaTest {
     @BeforeEach
     public void setUp() {
         smena = new Smena(1, 8, 16);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "1, 8, 16",
+        "2, 9, 17"
+    })
+    void testConstructor(int id, int pocetak, int kraj) {
+        Smena smena = new Smena(id, pocetak, kraj);
+
+        assertEquals(id, smena.getId());
+        assertEquals(pocetak, smena.getPocetak());
+        assertEquals(kraj, smena.getKraj());
+    }
+
+    @Test
+    public void testSetPocetak() {
+        smena.setPocetak(9);
+        assertEquals(9, smena.getPocetak());
+    }
+
+    @Test
+    public void testSetKraj() {
+        smena.setKraj(17);
+        assertEquals(17, smena.getKraj());
     }
 
     @Test

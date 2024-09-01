@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.mockito.Mockito.*;
 
 public class KoordinatorTest {
@@ -17,6 +19,45 @@ public class KoordinatorTest {
     @BeforeEach
     public void setUp() {
         koordinator = new Koordinator(1, "user1", "password1", "Dusan", "Draskovic");
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "1, user1, password1, Dusan, Draskovic",
+        "2, user2, password2, Marko, Markovic"
+    })
+    void testConstructor(int id, String korisnickoIme, String lozinka, String ime, String prezime) {
+        Koordinator koordinator = new Koordinator(id, korisnickoIme, lozinka, ime, prezime);
+
+        assertEquals(id, koordinator.getId());
+        assertEquals(korisnickoIme, koordinator.getKorisnickoIme());
+        assertEquals(lozinka, koordinator.getLozinka());
+        assertEquals(ime, koordinator.getIme());
+        assertEquals(prezime, koordinator.getPrezime());
+    }
+
+    @Test
+    public void testSetKorisnickoIme() {
+        koordinator.setKorisnickoIme("username");
+        assertEquals("username", koordinator.getKorisnickoIme());
+    }
+
+    @Test
+    public void testSetLozinka() {
+        koordinator.setLozinka("newPassword");
+        assertEquals("newPassword", koordinator.getLozinka());
+    }
+
+    @Test
+    public void testSetIme() {
+        koordinator.setIme("NewIme");
+        assertEquals("NewIme", koordinator.getIme());
+    }
+
+    @Test
+    public void testSetPrezime() {
+        koordinator.setPrezime("Prezimenovic");
+        assertEquals("Prezimenovic", koordinator.getPrezime());
     }
 
     @Test

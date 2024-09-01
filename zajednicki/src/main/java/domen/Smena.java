@@ -34,16 +34,64 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
+     * Sets the ID of the shift.
+     *
+     * @param id the new ID of the shift.
+     * @throws IllegalArgumentException if id is less than or equal to zero.
+     */
+    public final void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id must be greater than zero.");
+        }
+        this.id = id;
+    }
+
+    /**
+     * Sets the start time of the shift.
+     *
+     * @param pocetak the new start time of the shift.
+     * @throws IllegalArgumentException if pocetak is less than 0 or greater
+     * than 23.
+     */
+    public final void setPocetak(int pocetak) {
+        if (pocetak < 0 || pocetak > 23) {
+            throw new IllegalArgumentException("Start time must be between 0 and 23.");
+        }
+        this.pocetak = pocetak;
+    }
+
+    /**
+     * Sets the end time of the shift.
+     *
+     * @param kraj the new end time of the shift.
+     * @throws IllegalArgumentException if kraj is less than 0 or greater than
+     * 23.
+     */
+    public final void setKraj(int kraj) {
+        if (kraj < 0 || kraj > 23) {
+            throw new IllegalArgumentException("End time must be between 0 and 23.");
+        }
+        this.kraj = kraj;
+    }
+
+    /**
      * Constructs a Smena with the specified ID, start time, and end time.
      *
      * @param smenaId the ID of the shift.
      * @param pocetak the start time of the shift.
      * @param kraj the end time of the shift.
+     * @throws IllegalArgumentException if pocetak is less than 0, greater than
+     * 23, or if kraj is less than 0, greater than 23, or if kraj is less than
+     * pocetak.
      */
     public Smena(int smenaId, int pocetak, int kraj) {
-        this.id = smenaId;
-        this.pocetak = pocetak;
-        this.kraj = kraj;
+        setId(smenaId);
+        setPocetak(pocetak);
+        setKraj(kraj);
+
+        if (kraj < pocetak) {
+            throw new IllegalArgumentException("End time must be greater than or equal to start time.");
+        }
     }
 
     /**
@@ -56,15 +104,6 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Sets the ID of the shift.
-     *
-     * @param id the new ID of the shift.
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
      * Gets the start time of the shift.
      *
      * @return the start time of the shift.
@@ -74,30 +113,12 @@ public class Smena extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Sets the start time of the shift.
-     *
-     * @param pocetak the new start time of the shift.
-     */
-    public void setPocetak(int pocetak) {
-        this.pocetak = pocetak;
-    }
-
-    /**
      * Gets the end time of the shift.
      *
      * @return the end time of the shift.
      */
     public int getKraj() {
         return kraj;
-    }
-
-    /**
-     * Sets the end time of the shift.
-     *
-     * @param kraj the new end time of the shift.
-     */
-    public void setKraj(int kraj) {
-        this.kraj = kraj;
     }
 
     /**

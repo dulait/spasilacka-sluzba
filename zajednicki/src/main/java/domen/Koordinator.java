@@ -36,6 +36,58 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
+     * Sets the username of the coordinator.
+     *
+     * @param korisnickoIme the username to set.
+     * @throws IllegalArgumentException if korisnickoIme is null or empty.
+     */
+    public final void setKorisnickoIme(String korisnickoIme) {
+        if (korisnickoIme == null || korisnickoIme.isEmpty()) {
+            throw new IllegalArgumentException("Korisnicko ime cannot be null or empty.");
+        }
+        this.korisnickoIme = korisnickoIme;
+    }
+
+    /**
+     * Sets the password of the coordinator.
+     *
+     * @param lozinka the password to set.
+     * @throws IllegalArgumentException if lozinka is null or empty.
+     */
+    public final void setLozinka(String lozinka) {
+        if (lozinka == null || lozinka.isEmpty()) {
+            throw new IllegalArgumentException("Lozinka cannot be null or empty.");
+        }
+        this.lozinka = lozinka;
+    }
+
+    /**
+     * Sets the first name of the coordinator.
+     *
+     * @param ime the first name to set.
+     * @throws IllegalArgumentException if ime is null or empty.
+     */
+    public final void setIme(String ime) {
+        if (ime == null || ime.isEmpty()) {
+            throw new IllegalArgumentException("Ime cannot be null or empty.");
+        }
+        this.ime = ime;
+    }
+
+    /**
+     * Sets the last name of the coordinator.
+     *
+     * @param prezime the last name to set.
+     * @throws IllegalArgumentException if prezime is null or empty.
+     */
+    public final void setPrezime(String prezime) {
+        if (prezime == null || prezime.isEmpty()) {
+            throw new IllegalArgumentException("Prezime cannot be null or empty.");
+        }
+        this.prezime = prezime;
+    }
+
+    /**
      * Constructs a Koordinator object with the specified attributes.
      *
      * @param id the id of the coordinator.
@@ -43,13 +95,15 @@ public class Koordinator extends OpstiDomenskiObjekat {
      * @param lozinka the password of the coordinator.
      * @param ime the first name of the coordinator.
      * @param prezime the last name of the coordinator.
+     * @throws IllegalArgumentException if korisnickoIme, lozinka, ime, or
+     * prezime is null or empty.
      */
     public Koordinator(int id, String korisnickoIme, String lozinka, String ime, String prezime) {
-        this.id = id;
-        this.korisnickoIme = korisnickoIme;
-        this.lozinka = lozinka;
-        this.ime = ime;
-        this.prezime = prezime;
+        setId(id);
+        setKorisnickoIme(korisnickoIme);
+        setLozinka(lozinka);
+        setIme(ime);
+        setPrezime(prezime);
     }
 
     /**
@@ -59,15 +113,6 @@ public class Koordinator extends OpstiDomenskiObjekat {
      */
     public String getPrezime() {
         return prezime;
-    }
-
-    /**
-     * Sets the last name of the coordinator.
-     *
-     * @param prezime the last name to set.
-     */
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
     }
 
     /**
@@ -83,8 +128,12 @@ public class Koordinator extends OpstiDomenskiObjekat {
      * Sets the id of the coordinator.
      *
      * @param id the id to set.
+     * @throws IllegalArgumentException if id is less than or equal to zero.
      */
-    public void setId(int id) {
+    public final void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id must be greater than zero.");
+        }
         this.id = id;
     }
 
@@ -98,15 +147,6 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Sets the username of the coordinator.
-     *
-     * @param korisnickoIme the username to set.
-     */
-    public void setKorisnickoIme(String korisnickoIme) {
-        this.korisnickoIme = korisnickoIme;
-    }
-
-    /**
      * Gets the password of the coordinator.
      *
      * @return the password.
@@ -116,30 +156,12 @@ public class Koordinator extends OpstiDomenskiObjekat {
     }
 
     /**
-     * Sets the password of the coordinator.
-     *
-     * @param lozinka the password to set.
-     */
-    public void setLozinka(String lozinka) {
-        this.lozinka = lozinka;
-    }
-
-    /**
      * Gets the first name of the coordinator.
      *
      * @return the first name.
      */
     public String getIme() {
         return ime;
-    }
-
-    /**
-     * Sets the first name of the coordinator.
-     *
-     * @param ime the first name to set.
-     */
-    public void setIme(String ime) {
-        this.ime = ime;
     }
 
     /**

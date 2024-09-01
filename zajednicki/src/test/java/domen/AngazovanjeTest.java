@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.mockito.Mockito.*;
 
 class AngazovanjeTest {
@@ -27,22 +29,43 @@ class AngazovanjeTest {
         angazovanje = new Angazovanje(spasilac, smena, raspored);
     }
 
-    @Test
-    void testGettersAndSetters() {
+    @ParameterizedTest
+    @CsvSource({
+        "1, Dusan, Draskovic, 1234567890123, 1, 8, 16, 1, 2024-08-26",
+        "2, Marko, Markovic, 9876543210123, 2, 9, 17, 2, 2024-08-27"
+    })
+    void testConstructor(int spasilacId, String spasilacIme, String spasilacPrezime, String spasilacJmbg,
+            int smenaId, int smenaPocetak, int smenaKraj,
+            int rasporedId, String rasporedDatum) {
+        Spasilac spasilac = new Spasilac(spasilacId, spasilacIme, spasilacPrezime, spasilacJmbg);
+        Smena smena = new Smena(smenaId, smenaPocetak, smenaKraj);
+        Raspored raspored = new Raspored(rasporedId, LocalDate.parse(rasporedDatum));
+
+        Angazovanje angazovanje = new Angazovanje(spasilac, smena, raspored);
+
         assertEquals(spasilac, angazovanje.getSpasilac());
         assertEquals(smena, angazovanje.getSmena());
         assertEquals(raspored, angazovanje.getRaspored());
+    }
 
-        Spasilac newSpasilac = new Spasilac(2, "Marija", "Draskovic", "9876543210987");
-        Smena newSmena = new Smena(2, 16, 24);
-        Raspored newRaspored = new Raspored(2, LocalDate.now().plusDays(1));
-
+    @Test
+    void testSetSpasilac() {
+        Spasilac newSpasilac = new Spasilac(2, "Marko", "Markovic", "9876543210123");
         angazovanje.setSpasilac(newSpasilac);
-        angazovanje.setSmena(newSmena);
-        angazovanje.setRaspored(newRaspored);
-
         assertEquals(newSpasilac, angazovanje.getSpasilac());
+    }
+
+    @Test
+    void testSetSmena() {
+        Smena newSmena = new Smena(2, 9, 17);
+        angazovanje.setSmena(newSmena);
         assertEquals(newSmena, angazovanje.getSmena());
+    }
+
+    @Test
+    void testSetRaspored() {
+        Raspored newRaspored = new Raspored(2, LocalDate.now().plusDays(1));
+        angazovanje.setRaspored(newRaspored);
         assertEquals(newRaspored, angazovanje.getRaspored());
     }
 

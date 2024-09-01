@@ -29,10 +29,12 @@ public class Izvestaj extends OpstiDomenskiObjekat {
      *
      * @param angazovanje the engagement associated with the report.
      * @param opis the description of the report.
+     * @throws IllegalArgumentException if angazovanje is null or if opis is
+     * null or empty.
      */
     public Izvestaj(Angazovanje angazovanje, String opis) {
-        this.angazovanje = angazovanje;
-        this.opis = opis;
+        setAngazovanje(angazovanje);
+        setOpis(opis);
     }
 
     /**
@@ -48,8 +50,12 @@ public class Izvestaj extends OpstiDomenskiObjekat {
      * Sets the engagement associated with the report.
      *
      * @param angazovanje the engagement to set.
+     * @throws IllegalArgumentException if angazovanje is null.
      */
-    public void setAngazovanje(Angazovanje angazovanje) {
+    public final void setAngazovanje(Angazovanje angazovanje) {
+        if (angazovanje == null) {
+            throw new IllegalArgumentException("Angazovanje cannot be null.");
+        }
         this.angazovanje = angazovanje;
     }
 
@@ -66,8 +72,12 @@ public class Izvestaj extends OpstiDomenskiObjekat {
      * Sets the description of the report.
      *
      * @param opis the description to set.
+     * @throws IllegalArgumentException if opis is null or empty.
      */
-    public void setOpis(String opis) {
+    public final void setOpis(String opis) {
+        if (opis == null || opis.isEmpty()) {
+            throw new IllegalArgumentException("Opis cannot be null or empty.");
+        }
         this.opis = opis;
     }
 
