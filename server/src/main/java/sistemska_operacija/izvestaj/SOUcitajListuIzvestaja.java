@@ -7,13 +7,8 @@ import java.util.List;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a list of {@link OpstiDomenskiObjekat}
- * instances from the database. Specifically, this operation retrieves all
- * instances of {@link domen.Izvestaj} from the database.
- * <p>
- * This operation handles the database transaction, ensuring that the database
- * connection is managed correctly throughout the retrieval process.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje liste
+ * {@link OpstiDomenskiObjekat} instanci iz baze podataka.
  *
  * @see OpstiDomenskiObjekat
  * @see DbBroker
@@ -24,25 +19,18 @@ public class SOUcitajListuIzvestaja extends OpstaSO {
     private List<OpstiDomenskiObjekat> izvestaji;
 
     /**
-     * Returns the list of retrieved {@link OpstiDomenskiObjekat} instances.
+     * Metoda koja vraća listu preuzetih {@link OpstiDomenskiObjekat} instanci.
      *
-     * @return a list of {@link OpstiDomenskiObjekat} instances, specifically
-     * instances of {@link domen.Izvestaj}, retrieved from the database
+     * @return lista {@link OpstiDomenskiObjekat} instanci, specifično instanci
+     * {@link domen.Izvestaj}, preuzetih iz baze podataka
      */
     public List<OpstiDomenskiObjekat> getIzvestaji() {
         return izvestaji;
     }
 
     /**
-     * Executes the specific operation of retrieving all
-     * {@link OpstiDomenskiObjekat} instances from the database.
-     * <p>
-     * This method is invoked within the transaction managed by the
-     * {@code izvrsiSistemskuOperaciju} method of the {@link OpstaSO} class. It
-     * retrieves all instances of {@link domen.Izvestaj} using the
-     * {@link DbBroker#getAllOpstiDomenskiObjekats(OpstiDomenskiObjekat)}
-     * method.
-     * </p>
+     * Metoda koja izvršava specifičnu operaciju preuzimanja svih
+     * {@link OpstiDomenskiObjekat} instanci iz baze podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

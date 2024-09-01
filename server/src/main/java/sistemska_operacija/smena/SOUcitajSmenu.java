@@ -5,19 +5,10 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a single {@link OpstiDomenskiObjekat}
- * instance representing {@link Smena} from the database based on the provided
- * parameters.
- * <p>
- * This operation fetches a specific {@link OpstiDomenskiObjekat} instance from
- * the database, which represents a {@link Smena} object, using the parameters
- * provided during initialization. The retrieved instance can be accessed using
- * the {@link #getSmena()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje jedne
+ * {@link OpstiDomenskiObjekat} instance koja predstavlja {@link Smena} iz baze
+ * podataka na osnovu prosleđenih parametara.
  *
- * @see OpstiDomenskiObjekat
- * @see Smena
- * @see DbBroker
  * @author dulait
  */
 public class SOUcitajSmenu extends OpstaSO {
@@ -25,25 +16,19 @@ public class SOUcitajSmenu extends OpstaSO {
     private OpstiDomenskiObjekat smena;
 
     /**
-     * Constructs a new system operation for retrieving a specific {@link Smena}
-     * instance.
+     * Konstruktor za kreiranje nove sistemske operacije za preuzimanje
+     * specifične {@link Smena} instance.
      *
-     * @param smena an {@link OpstiDomenskiObjekat} representing the parameters
-     * to identify the {@link Smena} to be retrieved.
+     * @param smena {@link OpstiDomenskiObjekat} koji predstavlja parametre za
+     * identifikaciju {@link Smena} koja treba da bude preuzeta.
      */
     public SOUcitajSmenu(OpstiDomenskiObjekat smena) {
         this.smena = smena;
     }
 
     /**
-     * Executes the specific operation of retrieving a single {@link Smena}
-     * instance from the database.
-     * <p>
-     * This method performs the retrieval operation by calling the appropriate
-     * method in {@link DbBroker}, using the parameters provided to the
-     * constructor. The retrieved {@link Smena} instance is stored in the
-     * {@code smena} field.
-     * </p>
+     * Izvršava specifičnu operaciju preuzimanja jedne {@link Smena} instance iz
+     * baze podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {
@@ -51,11 +36,11 @@ public class SOUcitajSmenu extends OpstaSO {
     }
 
     /**
-     * Returns the retrieved {@link OpstiDomenskiObjekat} instance representing
+     * Vraća preuzetu {@link OpstiDomenskiObjekat} instancu koja predstavlja
      * {@link Smena}.
      *
-     * @return an {@link OpstiDomenskiObjekat} representing the retrieved
-     * {@link Smena} object.
+     * @return {@link OpstiDomenskiObjekat} koji predstavlja preuzetu
+     * {@link Smena} objekat.
      */
     public OpstiDomenskiObjekat getSmena() {
         return smena;

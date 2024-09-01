@@ -9,18 +9,7 @@ import sistemska_operacija.izvestaj.SOUcitajIzvestaj;
 import sistemska_operacija.izvestaj.SOUcitajListuIzvestaja;
 
 /**
- * The {@code IzvestajKontroler} class provides methods for managing
- * {@code Izvestaj} objects.
- * <p>
- * This class serves as a controller for {@code Izvestaj} entities, interacting
- * with system operations to perform CRUD (Create, Read, Update, Delete)
- * operations on {@code Izvestaj} data.
- * </p>
- *
- * <p>
- * It implements the Singleton pattern to ensure that only one instance of the
- * controller is created.
- * </p>
+ * Klasa koja pruža metode za upravljanje Izveštajima.
  *
  * @author dulait
  */
@@ -32,13 +21,9 @@ public class IzvestajKontroler {
     }
 
     /**
-     * Returns the singleton instance of the {@code IzvestajKontroler}.
-     * <p>
-     * If the instance does not exist, it is created. This method ensures that
-     * only one instance of the controller is used.
-     * </p>
+     * Vraća instancu kontrolera.
      *
-     * @return the singleton instance of {@code IzvestajKontroler}
+     * @return singleton instanca {@code IzvestajKontroler}
      */
     public static IzvestajKontroler getInstanca() {
         if (instanca == null) {
@@ -48,14 +33,10 @@ public class IzvestajKontroler {
     }
 
     /**
-     * Retrieves a list of all {@code Izvestaj} objects.
-     * <p>
-     * This method uses the {@code SOUcitajListuIzvestaja} system operation to
-     * execute the retrieval process.
-     * </p>
+     * Vraća listu svih Izveštaja.
      *
-     * @return a list of {@code OpstiDomenskiObjekat} representing
-     * {@code Izvestaj} objects
+     * @return lista {@code OpstiDomenskiObjekat} koji predstavljaju
+     * {@code Izvestaj} objekte
      */
     public List<OpstiDomenskiObjekat> ucitajListuIzvestaja() {
         SOUcitajListuIzvestaja so = new SOUcitajListuIzvestaja();
@@ -64,15 +45,10 @@ public class IzvestajKontroler {
     }
 
     /**
-     * Retrieves a specific {@code Izvestaj} object by its identifier.
-     * <p>
-     * This method uses the {@code SOUcitajIzvestaj} system operation to execute
-     * the retrieval process.
-     * </p>
+     * Vraća specifičan Izveštaj.
      *
-     * @param izvestaj the {@code Izvestaj} object to be retrieved
-     * @return the {@code OpstiDomenskiObjekat} representing the retrieved
-     * {@code Izvestaj}
+     * @param izvestaj objekat {@code Izvestaj} koji treba vratiti
+     * @return {@code OpstiDomenskiObjekat} koji predstavlja pronađeni Izveštaj
      */
     public OpstiDomenskiObjekat ucitajIzvestaj(Izvestaj izvestaj) {
         SOUcitajIzvestaj so = new SOUcitajIzvestaj(izvestaj);
@@ -81,15 +57,10 @@ public class IzvestajKontroler {
     }
 
     /**
-     * Creates a new {@code Izvestaj} object.
-     * <p>
-     * This method uses the {@code SOKreirajIzvestaj} system operation to
-     * execute the creation process.
-     * </p>
+     * Kreira novi Izveštaj.
      *
-     * @param izvestaj the {@code Izvestaj} object to be created
-     * @return {@code true} if the creation was successful, {@code false}
-     * otherwise
+     * @param izvestaj objekat {@code Izvestaj} koji treba kreirati
+     * @return {@code true} ako je kreiranje uspešno, {@code false} inače
      */
     public boolean kreirajIzvestaj(Izvestaj izvestaj) {
         SOKreirajIzvestaj so = new SOKreirajIzvestaj(izvestaj);
@@ -98,20 +69,14 @@ public class IzvestajKontroler {
     }
 
     /**
-     * Updates a specific {@code Izvestaj} object.
-     * <p>
-     * This method uses the {@code SOAzurirajIzvestaj} system operation to
-     * execute the update process.
-     * </p>
+     * Ažurira specifičan Izveštaj.
      *
-     * @param izvestaj the {@code Izvestaj} object to be updated
-     * @return {@code true} if the update was successful, {@code false}
-     * otherwise
+     * @param izvestaj objekat {@code Izvestaj} koji treba ažurirati
+     * @return {@code true} ako je ažuriranje uspešno, {@code false} inače
      */
     public boolean azurirajIzvestaj(Izvestaj izvestaj) {
         SOAzurirajIzvestaj so = new SOAzurirajIzvestaj(izvestaj);
         so.izvrsiSistemskuOperaciju();
         return so.isUspeh();
     }
-
 }

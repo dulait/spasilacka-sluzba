@@ -5,17 +5,10 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for deleting an {@link OpstiDomenskiObjekat} instance
- * representing a {@link Raspored} from the database.
- * <p>
- * This operation deletes the specified {@link OpstiDomenskiObjekat}, which
- * represents a {@link Raspored}, from the database. The success of the deletion
- * can be determined by calling the {@link #isUspeh()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za brisanje
+ * {@link OpstiDomenskiObjekat} instance koja predstavlja {@link Raspored} iz
+ * baze podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see Raspored
- * @see DbBroker
  * @author dulait
  */
 public class SOObrisiRaspored extends OpstaSO {
@@ -24,35 +17,29 @@ public class SOObrisiRaspored extends OpstaSO {
     private boolean uspeh;
 
     /**
-     * Constructs a new {@code SOObrisiRaspored} instance with the specified
-     * {@link OpstiDomenskiObjekat} representing the {@link Raspored}.
+     * Konstruktor koji kreira novu {@code SOObrisiRaspored} instancu sa
+     * specifikovanom {@link OpstiDomenskiObjekat} koja predstavlja
+     * {@link Raspored}.
      *
-     * @param raspored the {@link OpstiDomenskiObjekat} instance representing
-     * the {@link Raspored} to be deleted
+     * @param raspored instanca {@link OpstiDomenskiObjekat} koja predstavlja
+     * {@link Raspored} koji treba da se obriše
      */
     public SOObrisiRaspored(OpstiDomenskiObjekat raspored) {
         this.raspored = raspored;
     }
 
     /**
-     * Returns whether the deletion of the {@link Raspored} was successful.
+     * Vraća da li je brisanje {@link Raspored} bilo uspešno.
      *
-     * @return {@code true} if the deletion was successful, {@code false}
-     * otherwise
+     * @return {@code true} ako je brisanje bilo uspešno, {@code false} inače
      */
     public boolean isUspeh() {
         return uspeh;
     }
 
     /**
-     * Executes the specific operation of deleting the
-     * {@link OpstiDomenskiObjekat} representing a {@link Raspored} from the
-     * database.
-     * <p>
-     * This method attempts to delete the provided {@link OpstiDomenskiObjekat}
-     * from the database. The success of the operation is stored in the
-     * {@code uspeh} field.
-     * </p>
+     * Izvršava specifičnu operaciju brisanja {@link OpstiDomenskiObjekat} koja
+     * predstavlja {@link Raspored} iz baze podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

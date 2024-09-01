@@ -8,17 +8,9 @@ import java.util.List;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for finding {@link Spasilac} instances based on a search
- * criterion.
- * <p>
- * This operation retrieves all {@link Spasilac} instances from the database and
- * filters them based on the provided search criterion. The results are stored
- * in the {@link #getRezultat()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za pronalaženje {@link Spasilac}
+ * instanci na osnovu određenih kriterijuma pretrage.
  *
- * @see OpstiDomenskiObjekat
- * @see Spasilac
- * @see DbBroker
  * @author dulait
  */
 public class SONadjiSpasioce extends OpstaSO {
@@ -27,24 +19,19 @@ public class SONadjiSpasioce extends OpstaSO {
     private final String kriterijum;
 
     /**
-     * Constructs a new system operation for finding {@link Spasilac} instances
-     * based on a given criterion.
+     * Konstruktor za novu sistemsku operaciju koja pronalazi {@link Spasilac}
+     * instance na osnovu datog kriterijuma.
      *
-     * @param kriterijum the search criterion to filter {@link Spasilac}
-     * instances.
+     * @param kriterijum kriterijum pretrage za filtriranje {@link Spasilac}
+     * instanci.
      */
     public SONadjiSpasioce(String kriterijum) {
         this.kriterijum = kriterijum;
     }
 
     /**
-     * Executes the specific operation of finding {@link Spasilac} instances
-     * based on the search criterion.
-     * <p>
-     * This method retrieves all {@link Spasilac} instances from the database,
-     * filters them according to the provided {@code kriterijum}, and stores the
-     * results in the {@code rezultat} field.
-     * </p>
+     * Izvršava specifičnu operaciju pronalaženja {@link Spasilac} instanci na
+     * osnovu kriterijuma pretrage.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {
@@ -60,23 +47,23 @@ public class SONadjiSpasioce extends OpstaSO {
     }
 
     /**
-     * Returns the list of {@link OpstiDomenskiObjekat} instances that match the
-     * search criterion.
+     * Vraća listu {@link OpstiDomenskiObjekat} instanci koje odgovaraju
+     * kriterijumu pretrage.
      *
-     * @return a list of {@link OpstiDomenskiObjekat} instances that match the
-     * search criterion.
+     * @return lista {@link OpstiDomenskiObjekat} instanci koje odgovaraju
+     * kriterijumu pretrage.
      */
     public List<OpstiDomenskiObjekat> getRezultat() {
         return rezultat;
     }
 
     /**
-     * Checks if the given {@link Spasilac} instance contains the search
-     * criterion in its fields.
+     * Proverava da li dat {@link Spasilac} instance sadrži kriterijum pretrage
+     * u svojim poljima.
      *
-     * @param s the {@link Spasilac} instance to be checked.
-     * @return {@code true} if the {@link Spasilac} instance contains the search
-     * criterion in its fields, {@code false} otherwise.
+     * @param s {@link Spasilac} instanca koja se proverava.
+     * @return {@code true} ako {@link Spasilac} instanca sadrži kriterijum
+     * pretrage u svojim poljima, {@code false} u suprotnom.
      */
     private boolean sadrziKriterijum(Spasilac s) {
         return s.getIme().toLowerCase().contains(kriterijum.toLowerCase())

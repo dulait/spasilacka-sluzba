@@ -5,18 +5,10 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for updating an {@link OpstiDomenskiObjekat} instance
- * representing {@link Spasilac} in the database.
- * <p>
- * This operation performs an update on a specific {@link OpstiDomenskiObjekat}
- * instance, which represents a {@link Spasilac} object. The update is executed
- * using the provided {@link OpstiDomenskiObjekat} instance, and the success of
- * the operation can be checked using the {@link #isUspeh()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za ažuriranje
+ * {@link OpstiDomenskiObjekat} instance koja predstavlja {@link Spasilac} u
+ * bazi podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see Spasilac
- * @see DbBroker
  * @author dulait
  */
 public class SOAzurirajSpasioca extends OpstaSO {
@@ -25,36 +17,30 @@ public class SOAzurirajSpasioca extends OpstaSO {
     private boolean uspeh;
 
     /**
-     * Constructs a new system operation for updating a specific
-     * {@link Spasilac} instance.
+     * Konstruktor za kreiranje nove sistemske operacije za ažuriranje
+     * specifične {@link Spasilac} instance.
      *
-     * @param spasilac an {@link OpstiDomenskiObjekat} representing the
-     * {@link Spasilac} to be updated.
+     * @param spasilac {@link OpstiDomenskiObjekat} koji predstavlja
+     * {@link Spasilac} koji treba da bude ažuriran.
      */
     public SOAzurirajSpasioca(OpstiDomenskiObjekat spasilac) {
         this.spasilac = spasilac;
     }
 
     /**
-     * Returns {@code true} if the update operation was successful;
-     * {@code false} otherwise.
+     * Vraća {@code true} ako je operacija ažuriranja bila uspešna;
+     * {@code false} u suprotnom.
      *
-     * @return {@code true} if the update operation was successful,
-     * {@code false} otherwise.
+     * @return {@code true} ako je operacija ažuriranja bila uspešna,
+     * {@code false} u suprotnom.
      */
     public boolean isUspeh() {
         return uspeh;
     }
 
     /**
-     * Executes the specific operation of updating the {@link Spasilac} instance
-     * in the database.
-     * <p>
-     * This method performs the update operation by calling the appropriate
-     * method in {@link DbBroker}, using the {@link OpstiDomenskiObjekat}
-     * provided to the constructor. The result of the operation is stored in the
-     * {@code uspeh} field.
-     * </p>
+     * Izvršava specifičnu operaciju ažuriranja {@link Spasilac} instance u bazi
+     * podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

@@ -5,25 +5,16 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- * Startup class for initializing the server application.
- * <p>
- * This class sets the look and feel of the user interface to Nimbus and then
- * creates and displays the server frame.
- * </p>
+ * Glavna klasa za serversku aplikaciju
  *
  * @author dulait
  */
 public class StartujServer {
 
     /**
-     * Main method to start the server application.
-     * <p>
-     * Sets the Nimbus look and feel and then initializes the
-     * {@link ServerFrame}. The server frame is set to be visible once the GUI
-     * is fully initialized.
-     * </p>
+     * Metoda koja predstavlja ulaz u serversku aplikaciju.
      *
-     * @param args command-line arguments (not used).
+     * @param args command-line argumenti (nekorišćeni).
      */
     public static void main(String[] args) {
 

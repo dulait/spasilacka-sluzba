@@ -7,17 +7,10 @@ import java.util.List;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a list of all {@link OpstiDomenskiObjekat}
- * instances of type {@link Angazovanje} from the database.
- * <p>
- * This operation retrieves all instances of the specified domain object from
- * the database. It handles the transaction, ensuring changes are committed if
- * successful or rolled back in case of an error.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje liste svih
+ * {@link OpstiDomenskiObjekat} instanci tipa {@link Angazovanje} iz baze
+ * podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see Angazovanje
- * @see DbBroker
  * @author dulait
  */
 public class SOUcitajListuAngazovanja extends OpstaSO {
@@ -25,9 +18,9 @@ public class SOUcitajListuAngazovanja extends OpstaSO {
     private List<OpstiDomenskiObjekat> angazovanja;
 
     /**
-     * Returns the list of retrieved domain objects.
+     * Metoda koja vraća listu preuzetih objekata domena.
      *
-     * @return the list of all {@link OpstiDomenskiObjekat} instances of type
+     * @return lista svih {@link OpstiDomenskiObjekat} instanci tipa
      * {@link Angazovanje}
      */
     public List<OpstiDomenskiObjekat> getAngazovanja() {
@@ -35,15 +28,8 @@ public class SOUcitajListuAngazovanja extends OpstaSO {
     }
 
     /**
-     * Executes the specific operation of retrieving all domain objects of type
-     * {@link Angazovanje} from the database.
-     * <p>
-     * This method is invoked within the transaction managed by the
-     * {@code izvrsiSistemskuOperaciju} method of the {@link OpstaSO} class. It
-     * retrieves all instances of {@link Angazovanje} using the
-     * {@link DbBroker#getAllOpstiDomenskiObjekats(OpstiDomenskiObjekat)}
-     * method.
-     * </p>
+     * Metoda koja izvršava specifičnu operaciju preuzimanja svih objekata
+     * domena tipa {@link Angazovanje} iz baze podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

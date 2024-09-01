@@ -5,16 +5,10 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a specific {@link OpstiDomenskiObjekat}
- * instance from the database based on provided parameters.
- * <p>
- * This operation retrieves a domain object from the database using specified
- * criteria. It ensures the transaction is handled appropriately, committing the
- * changes if successful or rolling back if an error occurs during the process.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje određene
+ * {@link OpstiDomenskiObjekat} instance iz baze podataka na osnovu pruženih
+ * parametara.
  *
- * @see OpstiDomenskiObjekat
- * @see DbBroker
  * @author dulait
  */
 public class SOUcitajAngazovanje extends OpstaSO {
@@ -22,26 +16,19 @@ public class SOUcitajAngazovanje extends OpstaSO {
     private OpstiDomenskiObjekat angazovanje;
 
     /**
-     * Constructs a new {@code SOUcitajAngazovanje} instance with the specified
-     * domain object parameter for retrieval.
+     * Konstruktor za novu {@code SOUcitajAngazovanje} instancu sa
+     * specificiranim objektom domena koji sadrži parametre za preuzimanje.
      *
-     * @param angazovanje the domain object containing parameters for the
-     * retrieval query
+     * @param angazovanje objekat domena koji sadrži parametre za upit
+     * preuzimanja
      */
     public SOUcitajAngazovanje(OpstiDomenskiObjekat angazovanje) {
         this.angazovanje = angazovanje;
     }
 
     /**
-     * Executes the specific operation of retrieving the domain object from the
-     * database based on the provided parameters.
-     * <p>
-     * This method is invoked within the transaction managed by the
-     * {@code izvrsiSistemskuOperaciju} method of the {@link OpstaSO} class. It
-     * retrieves the domain object using the
-     * {@link DbBroker#getOpstiDomenskiObjekatPoParametru(OpstiDomenskiObjekat)}
-     * method.
-     * </p>
+     * Metoda koja izvršava specifičnu operaciju preuzimanja objekta domena iz
+     * baze podataka na osnovu pruženih parametara.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {
@@ -49,9 +36,9 @@ public class SOUcitajAngazovanje extends OpstaSO {
     }
 
     /**
-     * Returns the retrieved domain object.
+     * Metoda koja vraća preuzeti objekat domena.
      *
-     * @return the domain object retrieved from the database
+     * @return objekat domena preuzet iz baze podataka
      */
     public OpstiDomenskiObjekat getAngazovanje() {
         return angazovanje;

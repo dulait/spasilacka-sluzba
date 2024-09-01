@@ -5,17 +5,9 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for updating an existing {@link OpstiDomenskiObjekat}
- * instance representing a {@link Smena} in the database.
- * <p>
- * This operation updates an existing {@link OpstiDomenskiObjekat} instance
- * representing a {@link Smena} in the database. The success of the operation
- * can be determined using the {@link #isUspeh()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za ažuriranje postojeće
+ * {@link OpstiDomenskiObjekat} instance koja predstavlja {@link Smena} u bazi.
  *
- * @see OpstiDomenskiObjekat
- * @see Smena
- * @see DbBroker
  * @author dulait
  */
 public class SOAzurirajSmenu extends OpstaSO {
@@ -24,33 +16,26 @@ public class SOAzurirajSmenu extends OpstaSO {
     private boolean uspeh;
 
     /**
-     * Constructs a system operation for updating a specific {@link Smena}.
+     * Konstruktor za sistemsku operaciju ažuriranja specifične {@link Smena}.
      *
-     * @param smena the {@link OpstiDomenskiObjekat} instance representing the
-     * {@link Smena} to be updated.
+     * @param smena {@link OpstiDomenskiObjekat} instanca koja predstavlja
+     * {@link Smena} koja treba biti ažurirana.
      */
     public SOAzurirajSmenu(OpstiDomenskiObjekat smena) {
         this.smena = smena;
     }
 
     /**
-     * Returns whether the update operation was successful.
+     * Vraća da li je operacija ažuriranja bila uspešna.
      *
-     * @return {@code true} if the update was successful, {@code false}
-     * otherwise.
+     * @return {@code true} ako je ažuriranje bilo uspešno, {@code false} inače.
      */
     public boolean isUspeh() {
         return uspeh;
     }
 
     /**
-     * Executes the specific operation of updating the {@link Smena} instance in
-     * the database.
-     * <p>
-     * This method performs the update operation by calling the appropriate
-     * method in {@link DbBroker}. The success of the update operation is stored
-     * in the {@code uspeh} field.
-     * </p>
+     * Izvršava specifičnu operaciju ažuriranja {@link Smena} instance u bazi.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

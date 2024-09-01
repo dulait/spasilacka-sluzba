@@ -7,18 +7,9 @@ import java.util.List;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for authenticating a {@link Koordinator} against the
- * database.
- * <p>
- * This operation retrieves all {@link OpstiDomenskiObjekat} instances of type
- * {@link Koordinator} from the database and checks if any of them match the
- * provided credentials (username and password). If a match is found, the
- * authenticated {@link Koordinator} is stored for further use.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za autentifikaciju
+ * {@link Koordinator} u bazi podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see Koordinator
- * @see DbBroker
  * @author dulait
  */
 public class SOPrijaviKoordinatora extends OpstaSO {
@@ -27,12 +18,12 @@ public class SOPrijaviKoordinatora extends OpstaSO {
     private OpstiDomenskiObjekat prijavljeni;
 
     /**
-     * Constructs a new {@code SOPrijaviKoordinatora} with the specified
-     * {@link OpstiDomenskiObjekat} representing the {@link Koordinator} to be
-     * authenticated.
+     * Metoda koja kreira novu instancu {@code SOPrijaviKoordinatora} sa datim
+     * {@link OpstiDomenskiObjekat} koji predstavlja {@link Koordinator} koji
+     * treba da bude autentifikovan.
      *
-     * @param koordinator the {@link OpstiDomenskiObjekat} representing the
-     * {@link Koordinator} whose credentials are to be verified
+     * @param koordinator {@link OpstiDomenskiObjekat} koji predstavlja
+     * {@link Koordinator} čije kredencijale treba verifikovati
      */
     public SOPrijaviKoordinatora(OpstiDomenskiObjekat koordinator) {
         this.koordinator = koordinator;
@@ -40,15 +31,8 @@ public class SOPrijaviKoordinatora extends OpstaSO {
     }
 
     /**
-     * Executes the specific operation of authenticating the
+     * Metoda koja izvršava specifičnu operaciju autentifikacije
      * {@link Koordinator}.
-     * <p>
-     * This method retrieves all {@link OpstiDomenskiObjekat} instances from the
-     * database that are of type {@link Koordinator}. It then compares the
-     * username and password of each retrieved instance with those of the
-     * provided {@link Koordinator}. If a match is found, the authenticated
-     * {@link Koordinator} is stored in the {@code prijavljeni} field.
-     * </p>
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {
@@ -64,11 +48,12 @@ public class SOPrijaviKoordinatora extends OpstaSO {
     }
 
     /**
-     * Returns the authenticated {@link Koordinator} if authentication was
-     * successful, or {@code null} if no matching {@link Koordinator} was found.
+     * Metoda koja vraća autentifikovanog {@link Koordinator} ako je
+     * autentifikacija bila uspešna, ili {@code null} ako nije pronađen
+     * odgovarajući {@link Koordinator}.
      *
-     * @return the authenticated {@link Koordinator} or {@code null} if
-     * authentication failed
+     * @return autentifikovani {@link Koordinator} ili {@code null} ako
+     * autentifikacija nije uspela
      */
     public OpstiDomenskiObjekat getKoordinator() {
         return prijavljeni;

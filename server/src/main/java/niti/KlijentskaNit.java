@@ -13,20 +13,7 @@ import transfer.Odgovor;
 import transfer.Zahtev;
 
 /**
- * The {@code KlijentskaNit} class represents a client thread that handles
- * communication between the server and a client.
- * <p>
- * This class extends {@code Thread} and is responsible for processing client
- * requests and sending responses back to the client. Each client connection is
- * managed by a separate instance of {@code KlijentskaNit}.
- * </p>
- *
- * <p>
- * The class listens for incoming requests from the client, processes these
- * requests using appropriate controller classes, and sends back the results or
- * status messages to the client. It also manages the client connection's
- * lifecycle.
- * </p>
+ * Nit za komunikacijom sa klijentom.
  *
  * @author dulait
  */
@@ -37,11 +24,10 @@ public class KlijentskaNit extends Thread {
     private final ServerFrame frame;
 
     /**
-     * Constructs a {@code KlijentskaNit} with the specified client socket and
-     * server frame.
+     * Konstruktor koji inicijalizacije nit
      *
-     * @param klijentskiSocket the socket used to communicate with the client
-     * @param frame the server frame used to update the server's state
+     * @param klijentskiSocket soket za komunikaciju sa klijentom
+     * @param frame frame koji prikazuje serverska aplikacija
      */
     public KlijentskaNit(Socket klijentskiSocket, ServerFrame frame) {
         this.klijentskiSocket = klijentskiSocket;
@@ -49,32 +35,25 @@ public class KlijentskaNit extends Thread {
     }
 
     /**
-     * Gets the client socket used for communication with the client.
+     * Vraća klijentski soket za komunikaciju sa klijentom.
      *
-     * @return the client socket
+     * @return klijentski soket
      */
     public Socket getKlijentskiSocket() {
         return klijentskiSocket;
     }
 
     /**
-     * Sets the client socket used for communication with the client.
+     * Postavlja klijentski soket za komunikaciju sa klijentom.
      *
-     * @param klijentskiSocket the new client socket
+     * @param klijentskiSocket novi klijentski soket
      */
     public void setKlijentskiSocket(Socket klijentskiSocket) {
         this.klijentskiSocket = klijentskiSocket;
     }
 
     /**
-     * Executes the thread's main logic to handle client requests and send
-     * responses.
-     * <p>
-     * This method continuously listens for incoming requests from the client
-     * and processes them based on the requested operation. The operations are
-     * handled using appropriate controller classes, and responses are sent back
-     * to the client.
-     * </p>
+     * Glavna logika niti za obradu zahteva klijenta i slanje odgovora.
      */
     @Override
     public void run() {
@@ -319,10 +298,9 @@ public class KlijentskaNit extends Thread {
     }
 
     /**
-     * Receives a request from the client.
+     * Prima zahtev od klijenta.
      *
-     * @return the received request, or {@code null} if an error occurs or the
-     * client connection is closed
+     * @return primljeni zahtev ili {@code null} ako se desi greska
      */
     public Zahtev primiZahtev() {
         try {
@@ -335,9 +313,9 @@ public class KlijentskaNit extends Thread {
     }
 
     /**
-     * Sends a response to the client.
+     * Šalje odgovor klijentu.
      *
-     * @param o the response to send
+     * @param o odgovor za slanje
      */
     public void posaljiOdgovor(Odgovor o) {
         try {

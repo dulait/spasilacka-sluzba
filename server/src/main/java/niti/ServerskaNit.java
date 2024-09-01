@@ -9,18 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The {@code ServerskaNit} class represents a server thread that handles
- * incoming client connections and manages client threads.
- * <p>
- * This class extends {@code Thread} and is responsible for listening for
- * incoming client connections, accepting them, and creating and starting
- * {@code KlijentskaNit} threads to handle communication with each client.
- * </p>
- *
- * <p>
- * The server thread maintains a list of active client threads and provides
- * methods to stop the server and close client connections.
- * </p>
+ * Klasa za podizanje konekcije na serverskoj strani
  *
  * @author dulait
  */
@@ -32,13 +21,10 @@ public class ServerskaNit extends Thread {
     private ServerFrame frame;
 
     /**
-     * Constructs a {@code ServerskaNit} with the specified server frame.
-     * <p>
-     * Initializes the server socket to listen on the port specified in the
-     * configuration.
-     * </p>
+     * Konstruktor koji inicijalizuje socket i frame koji prikazuje serverska
+     * strana aplikacije.
      *
-     * @param frame the server frame used to manage the server's state
+     * @param frame frame koji se prikazuje
      */
     public ServerskaNit(ServerFrame frame) {
         try {
@@ -53,31 +39,25 @@ public class ServerskaNit extends Thread {
     }
 
     /**
-     * Gets the server socket used to accept incoming client connections.
+     * Vraća serverski socket koji se koristi za konekciju sa klijentom
      *
-     * @return the server socket
+     * @return serverski socket
      */
     public ServerSocket getServerskiSocket() {
         return serverskiSocket;
     }
 
     /**
-     * Checks if the server is active.
+     * Proverava da li je serverska nit pokrenuta
      *
-     * @return {@code true} if the server is active, {@code false} otherwise
+     * @return {@code true} ako je pokrenuta, inače {@code false}
      */
     public boolean isSignal() {
         return signal;
     }
 
     /**
-     * Executes the thread's main logic to accept and handle client connections.
-     * <p>
-     * This method continuously listens for incoming client connections. When a
-     * client connects, it creates a new {@code KlijentskaNit} instance to
-     * handle communication with the client and adds it to the list of active
-     * clients.
-     * </p>
+     * Metoda koja pokreće serversku nit
      */
     @Override
     public void run() {
@@ -96,11 +76,7 @@ public class ServerskaNit extends Thread {
     }
 
     /**
-     * Stops the server and closes all active client connections.
-     * <p>
-     * This method interrupts all active client threads, closes their sockets,
-     * and then closes the server socket.
-     * </p>
+     * Zaustavlja server kao i sve konekcije
      */
     public void zaustaviServer() {
         for (KlijentskaNit nk : klijenti) {
@@ -114,12 +90,9 @@ public class ServerskaNit extends Thread {
     }
 
     /**
-     * Closes a specific client connection.
-     * <p>
-     * This method interrupts the specified client thread and closes its socket.
-     * </p>
+     * Zatvara konekciju sa klijentom
      *
-     * @param nk the client thread to be closed
+     * @param nk nit koja se zatvara
      */
     private void zatvoriKlijenta(KlijentskaNit nk) {
         try {

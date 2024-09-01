@@ -5,16 +5,10 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a specific {@link OpstiDomenskiObjekat}
- * instance representing a {@link domen.Spasilac} from the database.
- * <p>
- * This operation fetches a single record from the database based on the
- * parameters provided in the constructor and stores the result in the
- * {@link #getSpasilac()} method for further processing.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje specifične
+ * {@link OpstiDomenskiObjekat} instance koja predstavlja {@link domen.Spasilac}
+ * iz baze podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see db.DbBroker
  * @author drask
  */
 public class SOUcitajSpasioca extends OpstaSO {
@@ -22,23 +16,19 @@ public class SOUcitajSpasioca extends OpstaSO {
     private OpstiDomenskiObjekat spasilac;
 
     /**
-     * Constructs a new {@code SOUcitajSpasioca} with the specified
-     * {@link OpstiDomenskiObjekat} to retrieve.
+     * Konstruira novu {@code SOUcitajSpasioca} sa specificiranom
+     * {@link OpstiDomenskiObjekat} instancom koja treba da se preuzme.
      *
-     * @param spasilac the {@link OpstiDomenskiObjekat} representing the
-     * {@link domen.Spasilac} to be retrieved.
+     * @param spasilac {@link OpstiDomenskiObjekat} koji predstavlja
+     * {@link domen.Spasilac} koji treba da se preuzme.
      */
     public SOUcitajSpasioca(OpstiDomenskiObjekat spasilac) {
         this.spasilac = spasilac;
     }
 
     /**
-     * Executes the specific operation of retrieving the
-     * {@link OpstiDomenskiObjekat} instance from the database.
-     * <p>
-     * This method retrieves the {@link OpstiDomenskiObjekat} based on the
-     * parameters provided and stores the result in the {@code spasilac} field.
-     * </p>
+     * Izvršava specifičnu operaciju preuzimanja {@link OpstiDomenskiObjekat}
+     * instance iz baze podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {
@@ -46,11 +36,11 @@ public class SOUcitajSpasioca extends OpstaSO {
     }
 
     /**
-     * Returns the retrieved {@link OpstiDomenskiObjekat} instance representing
-     * the {@link domen.Spasilac}.
+     * Vraća preuzetu {@link OpstiDomenskiObjekat} instancu koja predstavlja
+     * {@link domen.Spasilac}.
      *
-     * @return the {@link OpstiDomenskiObjekat} instance representing the
-     * retrieved {@link domen.Spasilac}.
+     * @return {@link OpstiDomenskiObjekat} instanca koja predstavlja preuzetu
+     * {@link domen.Spasilac}.
      */
     public OpstiDomenskiObjekat getSpasilac() {
         return spasilac;

@@ -5,16 +5,9 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for deleting a specific {@link OpstiDomenskiObjekat}
- * instance from the database.
- * <p>
- * This operation involves removing a specific domain object from the database.
- * It is executed within a transaction to ensure that changes are committed if
- * successful or rolled back if an error occurs.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za brisanje određene
+ * {@link OpstiDomenskiObjekat} instance iz baze podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see DbBroker
  * @author dulait
  */
 public class SOObrisiAngazovanje extends OpstaSO {
@@ -23,24 +16,18 @@ public class SOObrisiAngazovanje extends OpstaSO {
     private boolean uspeh;
 
     /**
-     * Constructs a new {@code SOObrisiAngazovanje} instance with the specified
-     * domain object to delete.
+     * Konstruktor za novu {@code SOObrisiAngazovanje} instancu sa
+     * specificiranim objektom domena koji treba obrisati.
      *
-     * @param angazovanje the domain object to be deleted from the database
+     * @param angazovanje objekat domena koji se briše iz baze podataka
      */
     public SOObrisiAngazovanje(OpstiDomenskiObjekat angazovanje) {
         this.angazovanje = angazovanje;
     }
 
     /**
-     * Executes the specific operation of deleting the domain object from the
-     * database.
-     * <p>
-     * This method is invoked within the transaction managed by the
-     * {@code izvrsiSistemskuOperaciju} method of the {@link OpstaSO} class. The
-     * success of the operation is determined by the return value of the
-     * {@link DbBroker#deleteOpstiDomenskiObjekat(OpstiDomenskiObjekat)} method.
-     * </p>
+     * Metoda koja izvršava specifičnu operaciju brisanja objekta domena iz baze
+     * podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {
@@ -48,10 +35,10 @@ public class SOObrisiAngazovanje extends OpstaSO {
     }
 
     /**
-     * Returns whether the delete operation was successful.
+     * Metoda koja vraća da li je operacija brisanja bila uspešna.
      *
-     * @return {@code true} if the domain object was successfully deleted,
-     * {@code false} otherwise
+     * @return {@code true} ako je objekat domena uspešno obrisan, {@code false}
+     * inače
      */
     public boolean isUspeh() {
         return uspeh;

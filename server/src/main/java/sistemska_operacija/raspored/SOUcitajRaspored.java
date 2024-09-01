@@ -5,18 +5,10 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a specific {@link OpstiDomenskiObjekat}
- * instance representing a {@link Raspored} from the database.
- * <p>
- * This operation fetches a single {@link OpstiDomenskiObjekat} instance
- * representing a {@link Raspored} based on the parameters provided. The
- * retrieved {@link OpstiDomenskiObjekat} instance can be accessed using the
- * {@link #getRaspored()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje specifične
+ * {@link OpstiDomenskiObjekat} instance koja predstavlja {@link Raspored} iz
+ * baze podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see Raspored
- * @see DbBroker
  * @author dulait
  */
 public class SOUcitajRaspored extends OpstaSO {
@@ -24,23 +16,19 @@ public class SOUcitajRaspored extends OpstaSO {
     private OpstiDomenskiObjekat raspored;
 
     /**
-     * Constructs a system operation for retrieving a specific {@link Raspored}.
+     * Konstruktor za sistemsku operaciju preuzimanja specifičnog
+     * {@link Raspored}.
      *
-     * @param raspored the {@link OpstiDomenskiObjekat} instance representing
-     * the {@link Raspored} to be retrieved.
+     * @param raspored {@link OpstiDomenskiObjekat} instanca koja predstavlja
+     * {@link Raspored} koji treba preuzeti.
      */
     public SOUcitajRaspored(OpstiDomenskiObjekat raspored) {
         this.raspored = raspored;
     }
 
     /**
-     * Executes the specific operation of retrieving a {@link Raspored} instance
-     * from the database.
-     * <p>
-     * This method fetches a single {@link OpstiDomenskiObjekat} instance
-     * representing a {@link Raspored} based on the parameters provided in the
-     * constructor and stores it in the {@code raspored} field.
-     * </p>
+     * Izvršava specifičnu operaciju preuzimanja {@link Raspored} instance iz
+     * baze podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {
@@ -48,10 +36,10 @@ public class SOUcitajRaspored extends OpstaSO {
     }
 
     /**
-     * Returns the {@link OpstiDomenskiObjekat} instance representing the
-     * {@link Raspored} retrieved from the database.
+     * Vraća {@link OpstiDomenskiObjekat} instancu koja predstavlja
+     * {@link Raspored} preuzetu iz baze podataka.
      *
-     * @return the {@link OpstiDomenskiObjekat} instance representing the
+     * @return {@link OpstiDomenskiObjekat} instanca koja predstavlja
      * {@link Raspored}
      */
     public OpstiDomenskiObjekat getRaspored() {

@@ -7,40 +7,29 @@ import java.util.List;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a list of all {@link Spasilac} instances from
- * the database.
- * <p>
- * This operation fetches all {@link Spasilac} records from the database and
- * stores them in the {@link #getSpasioci()} method for further processing.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje liste svih
+ * {@link Spasilac} instanci iz baze podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see Spasilac
- * @see DbBroker
- * @author drask
+ * @author dulait
  */
 public class SOUcitajListuSpasioca extends OpstaSO {
 
     private List<OpstiDomenskiObjekat> spasioci;
 
     /**
-     * Returns the list of all {@link OpstiDomenskiObjekat} instances
-     * representing the retrieved {@link Spasilac} records.
+     * Vraća listu svih {@link OpstiDomenskiObjekat} instanci koje predstavljaju
+     * preuzete {@link Spasilac} zapise.
      *
-     * @return a list of all {@link OpstiDomenskiObjekat} instances representing
-     * the retrieved {@link Spasilac} records.
+     * @return lista svih {@link OpstiDomenskiObjekat} instanci koje
+     * predstavljaju preuzete {@link Spasilac} zapise.
      */
     public List<OpstiDomenskiObjekat> getSpasioci() {
         return spasioci;
     }
 
     /**
-     * Executes the specific operation of retrieving all {@link Spasilac}
-     * instances from the database.
-     * <p>
-     * This method retrieves all records of type {@link Spasilac} from the
-     * database and stores them in the {@code spasioci} field.
-     * </p>
+     * Izvršava specifičnu operaciju preuzimanja svih {@link Spasilac} instanci
+     * iz baze podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

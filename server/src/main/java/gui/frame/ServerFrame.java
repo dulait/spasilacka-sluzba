@@ -11,9 +11,9 @@ import model.KoordinatorTableModel;
 import niti.ServerskaNit;
 
 /**
- * Frame that displays after a Koordinator successfully logs into his account.
+ * Frame koji se prikazuje kada se Koordinator prijavi na sistem.
  *
- * @author drask
+ * @author dulait
  */
 public class ServerFrame extends javax.swing.JFrame {
 

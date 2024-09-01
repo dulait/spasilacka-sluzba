@@ -5,16 +5,7 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for creating a new {@link OpstiDomenskiObjekat} instance in
- * the database.
- * <p>
- * This operation involves saving a specific domain object into the database.
- * The operation is performed within a transaction, ensuring that the changes
- * are committed if successful, or rolled back in case of an error.
- * </p>
- *
- * @see OpstiDomenskiObjekat
- * @see DbBroker
+ * Klasa koja predstavlja sistemsku operaciju za kreiranje Angažovanja.
  *
  * @author dulait
  */
@@ -24,24 +15,16 @@ public class SOKreirajAngazovanje extends OpstaSO {
     private boolean uspeh;
 
     /**
-     * Constructs a new {@code SOKreirajAngazovanje} instance with the specified
-     * domain object.
+     * Metoda koja kreira instancu sistemske operacije.
      *
-     * @param angazovanje the domain object to be created in the database
+     * @param angazovanje Angažovanje koje se koristi za sistemsku operaciju.
      */
     public SOKreirajAngazovanje(OpstiDomenskiObjekat angazovanje) {
         this.angazovanje = angazovanje;
     }
 
     /**
-     * Executes the specific operation of saving the domain object into the
-     * database.
-     * <p>
-     * This method is called within the transaction managed by the
-     * {@code izvrsiSistemskuOperaciju} method of the {@link OpstaSO} class. The
-     * success of the operation is determined by the return value of the
-     * {@link DbBroker#saveOpstiDomenskiObjekat(OpstiDomenskiObjekat)} method.
-     * </p>
+     * Metoda koja izvržava sistemsku operaciju.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {
@@ -49,10 +32,10 @@ public class SOKreirajAngazovanje extends OpstaSO {
     }
 
     /**
-     * Returns whether the operation was successful.
+     * Metoda koja vraća ishod sistemske operacije
      *
-     * @return {@code true} if the domain object was successfully saved,
-     * {@code false} otherwise
+     * @return {@code true} ako je sistemska operacija uspešno izvršena, inače
+     * {@code false}
      */
     public boolean isUspeh() {
         return uspeh;

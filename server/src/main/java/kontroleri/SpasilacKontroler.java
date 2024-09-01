@@ -10,18 +10,7 @@ import sistemska_operacija.spasilac.SOUcitajListuSpasioca;
 import sistemska_operacija.spasilac.SOUcitajSpasioca;
 
 /**
- * The {@code SpasilacKontroler} class provides methods for managing
- * {@code Spasilac} objects.
- * <p>
- * This class serves as a controller for {@code Spasilac} entities, interacting
- * with system operations to perform various operations related to
- * {@code Spasilac} data.
- * </p>
- *
- * <p>
- * It implements the Singleton pattern to ensure that only one instance of the
- * controller is created.
- * </p>
+ * Klasa koja pruža metode za upravljanje Spasiocima.
  *
  * @author dulait
  */
@@ -33,13 +22,9 @@ public class SpasilacKontroler {
     }
 
     /**
-     * Returns the singleton instance of the {@code SpasilacKontroler}.
-     * <p>
-     * If the instance does not exist, it is created. This method ensures that
-     * only one instance of the controller is used.
-     * </p>
+     * Vraća instancu kontrolera.
      *
-     * @return the singleton instance of {@code SpasilacKontroler}
+     * @return singleton instanca {@code SpasilacKontroler}
      */
     public static SpasilacKontroler getInstanca() {
         if (instanca == null) {
@@ -49,14 +34,10 @@ public class SpasilacKontroler {
     }
 
     /**
-     * Retrieves a list of all {@code Spasilac} objects.
-     * <p>
-     * This method uses the {@code SOUcitajListuSpasioca} system operation to
-     * execute the retrieval process.
-     * </p>
+     * Vraća listu svih Spasilaca.
      *
-     * @return a list of {@code OpstiDomenskiObjekat} representing
-     * {@code Spasilac} objects
+     * @return lista {@code OpstiDomenskiObjekat} koji predstavljaju Spasilac
+     * objekte
      */
     public List<OpstiDomenskiObjekat> ucitajListuSpasioca() {
         SOUcitajListuSpasioca so = new SOUcitajListuSpasioca();
@@ -65,15 +46,10 @@ public class SpasilacKontroler {
     }
 
     /**
-     * Retrieves a specific {@code Spasilac} object by its identifier.
-     * <p>
-     * This method uses the {@code SOUcitajSpasioca} system operation to execute
-     * the retrieval process.
-     * </p>
+     * Vraća specifičnog Spasioca.
      *
-     * @param spasilac the {@code Spasilac} object to be retrieved
-     * @return the {@code OpstiDomenskiObjekat} representing the retrieved
-     * {@code Spasilac}
+     * @param spasilac objekat {@code Spasilac} koji treba vratiti
+     * @return {@code OpstiDomenskiObjekat} koji predstavlja pronađenog Spasioca
      */
     public OpstiDomenskiObjekat ucitajSpasioca(Spasilac spasilac) {
         SOUcitajSpasioca so = new SOUcitajSpasioca(spasilac);
@@ -82,15 +58,10 @@ public class SpasilacKontroler {
     }
 
     /**
-     * Creates a new {@code Spasilac} object.
-     * <p>
-     * This method uses the {@code SOKreirajSpasioca} system operation to
-     * execute the creation process.
-     * </p>
+     * Kreira novog Spasioca.
      *
-     * @param spasilac the {@code Spasilac} object to be created
-     * @return {@code true} if the creation is successful, {@code false}
-     * otherwise
+     * @param spasilac objekat {@code Spasilac} koji treba kreirati
+     * @return {@code true} ako je kreiranje uspešno, {@code false} inače
      */
     public boolean kreirajSpasioca(Spasilac spasilac) {
         SOKreirajSpasioca so = new SOKreirajSpasioca(spasilac);
@@ -99,14 +70,10 @@ public class SpasilacKontroler {
     }
 
     /**
-     * Updates an existing {@code Spasilac} object.
-     * <p>
-     * This method uses the {@code SOAzurirajSpasioca} system operation to
-     * execute the update process.
-     * </p>
+     * Ažurira postojećeg Spasioca.
      *
-     * @param spasilac the {@code Spasilac} object to be updated
-     * @return {@code true} if the update is successful, {@code false} otherwise
+     * @param spasilac objekat {@code Spasilac} koji treba ažurirati
+     * @return {@code true} ako je ažuriranje uspešno, {@code false} inače
      */
     public boolean azurirajSpasioca(Spasilac spasilac) {
         SOAzurirajSpasioca so = new SOAzurirajSpasioca(spasilac);
@@ -115,16 +82,11 @@ public class SpasilacKontroler {
     }
 
     /**
-     * Searches for {@code Spasilac} objects based on a search criterion.
-     * <p>
-     * This method uses the {@code SONadjiSpasioce} system operation to execute
-     * the search process.
-     * </p>
+     * Pretražuje Spasioce na osnovu kriterijuma.
      *
-     * @param kriterijum the search criterion used to find {@code Spasilac}
-     * objects
-     * @return a list of {@code OpstiDomenskiObjekat} representing the search
-     * results
+     * @param kriterijum kriterijum pretrage za Spasilac objekte
+     * @return lista {@code OpstiDomenskiObjekat} koja predstavlja rezultate
+     * pretrage
      */
     public List<OpstiDomenskiObjekat> pretraziSpasioce(String kriterijum) {
         SONadjiSpasioce so = new SONadjiSpasioce(kriterijum);

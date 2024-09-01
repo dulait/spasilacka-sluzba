@@ -9,19 +9,7 @@ import sistemska_operacija.angazovanje.SOUcitajAngazovanje;
 import sistemska_operacija.angazovanje.SOUcitajListuAngazovanja;
 
 /**
- * The {@code AngazovanjeKontroler} class provides methods for managing
- * {@code Angazovanje} objects.
- * <p>
- * This class serves as a controller that interacts with system operations
- * related to {@code Angazovanje} entities. It uses system operation classes to
- * perform CRUD (Create, Read, Update, Delete) operations and manage
- * {@code Angazovanje} data.
- * </p>
- *
- * <p>
- * It implements the Singleton pattern to ensure that only one instance of the
- * controller exists.
- * </p>
+ * Klasa koja pruža metode za upravljanje Angažovanjima.
  *
  * @author dulait
  */
@@ -33,13 +21,9 @@ public class AngazovanjeKontroler {
     }
 
     /**
-     * Returns the singleton instance of the {@code AngazovanjeKontroler}.
-     * <p>
-     * If the instance does not exist, it is created. This method ensures that
-     * only one instance of the controller is used.
-     * </p>
+     * Vraća instancu kontrolera.
      *
-     * @return the singleton instance of {@code AngazovanjeKontroler}
+     * @return singleton instanca {@code AngazovanjeKontroler}
      */
     public static AngazovanjeKontroler getInstanca() {
         if (instanca == null) {
@@ -49,14 +33,10 @@ public class AngazovanjeKontroler {
     }
 
     /**
-     * Retrieves a list of all {@code Angazovanje} objects.
-     * <p>
-     * This method uses the {@code SOUcitajListuAngazovanja} system operation to
-     * execute the retrieval process.
-     * </p>
+     * Vraća listu svih Angažovanja.
      *
-     * @return a list of {@code OpstiDomenskiObjekat} representing
-     * {@code Angazovanje} objects
+     * @return lista {@code OpstiDomenskiObjekat} koji predstavljaju
+     * {@code Angazovanje} objekte
      */
     public List<OpstiDomenskiObjekat> ucitajListuAngazovanja() {
         SOUcitajListuAngazovanja so = new SOUcitajListuAngazovanja();
@@ -65,15 +45,11 @@ public class AngazovanjeKontroler {
     }
 
     /**
-     * Retrieves a specific {@code Angazovanje} object by its identifier.
-     * <p>
-     * This method uses the {@code SOUcitajAngazovanje} system operation to
-     * execute the retrieval process.
-     * </p>
+     * Vraća Angažovanje.
      *
-     * @param angazovanje the {@code Angazovanje} object to be retrieved
-     * @return the {@code OpstiDomenskiObjekat} representing the retrieved
-     * {@code Angazovanje}
+     * @param angazovanje objekat {@code Angazovanje} koji treba vratiti
+     * @return {@code OpstiDomenskiObjekat} koji predstavlja pronađeno
+     * Angažovanje
      */
     public OpstiDomenskiObjekat ucitajAngazovanje(Angazovanje angazovanje) {
         SOUcitajAngazovanje so = new SOUcitajAngazovanje(angazovanje);
@@ -82,15 +58,10 @@ public class AngazovanjeKontroler {
     }
 
     /**
-     * Creates a new {@code Angazovanje} object.
-     * <p>
-     * This method uses the {@code SOKreirajAngazovanje} system operation to
-     * execute the creation process.
-     * </p>
+     * Kreira novo Angažovanje.
      *
-     * @param angazovanje the {@code Angazovanje} object to be created
-     * @return {@code true} if the creation was successful, {@code false}
-     * otherwise
+     * @param angazovanje objekat {@code Angazovanje} koji treba kreirati
+     * @return {@code true} ako je kreiranje uspešno, {@code false} inače
      */
     public boolean kreirajAngazovanje(Angazovanje angazovanje) {
         SOKreirajAngazovanje so = new SOKreirajAngazovanje(angazovanje);
@@ -99,15 +70,10 @@ public class AngazovanjeKontroler {
     }
 
     /**
-     * Deletes a specific {@code Angazovanje} object.
-     * <p>
-     * This method uses the {@code SOObrisiAngazovanje} system operation to
-     * execute the deletion process.
-     * </p>
+     * Briše specifično Angažovanje.
      *
-     * @param angazovanje the {@code Angazovanje} object to be deleted
-     * @return {@code true} if the deletion was successful, {@code false}
-     * otherwise
+     * @param angazovanje Angažovanje koji treba obrisati
+     * @return {@code true} ako je brisanje uspešno, {@code false} inače
      */
     public boolean obrisiAngazovanje(Angazovanje angazovanje) {
         SOObrisiAngazovanje so = new SOObrisiAngazovanje(angazovanje);

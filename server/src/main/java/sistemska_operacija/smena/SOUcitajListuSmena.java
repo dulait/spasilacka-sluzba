@@ -7,17 +7,9 @@ import java.util.List;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a list of all {@link Smena} instances from
- * the database.
- * <p>
- * This operation fetches all {@link OpstiDomenskiObjekat} instances
- * representing {@link Smena} from the database. The retrieved list can be
- * accessed using the {@link #getSmene()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje liste svih
+ * {@link Smena} instanci iz baze.
  *
- * @see OpstiDomenskiObjekat
- * @see Smena
- * @see DbBroker
  * @author dulait
  */
 public class SOUcitajListuSmena extends OpstaSO {
@@ -25,24 +17,19 @@ public class SOUcitajListuSmena extends OpstaSO {
     private List<OpstiDomenskiObjekat> smene;
 
     /**
-     * Returns the list of {@link OpstiDomenskiObjekat} instances representing
+     * Vraća listu {@link OpstiDomenskiObjekat} instanci koje predstavljaju
      * {@link Smena}.
      *
-     * @return a {@link List} of {@link OpstiDomenskiObjekat} instances
-     * representing all {@link Smena} objects in the database.
+     * @return {@link List} {@link OpstiDomenskiObjekat} instanci koje
+     * predstavljaju sve {@link Smena} objekte u bazi.
      */
     public List<OpstiDomenskiObjekat> getSmene() {
         return smene;
     }
 
     /**
-     * Executes the specific operation of retrieving all {@link Smena} instances
-     * from the database.
-     * <p>
-     * This method performs the retrieval operation by calling the appropriate
-     * method in {@link DbBroker}. The list of retrieved {@link Smena} instances
-     * is stored in the {@code smene} field.
-     * </p>
+     * Izvršava specifičnu operaciju preuzimanja svih {@link Smena} instanci iz
+     * baze.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

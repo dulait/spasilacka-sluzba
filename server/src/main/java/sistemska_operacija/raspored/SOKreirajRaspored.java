@@ -5,17 +5,10 @@ import domen.OpstiDomenskiObjekat;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for creating a new {@link OpstiDomenskiObjekat} instance
- * representing a {@link Raspored} in the database.
- * <p>
- * This operation saves a new instance of {@link OpstiDomenskiObjekat}, which
- * represents a {@link Raspored}, to the database. The success of the operation
- * can be determined by calling the {@link #isUspeh()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za kreiranje nove
+ * {@link OpstiDomenskiObjekat} instance koja predstavlja {@link Raspored} u
+ * bazi podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see Raspored
- * @see DbBroker
  * @author dulait
  */
 public class SOKreirajRaspored extends OpstaSO {
@@ -24,35 +17,29 @@ public class SOKreirajRaspored extends OpstaSO {
     private boolean uspeh;
 
     /**
-     * Constructs a new {@code SOKreirajRaspored} instance with the specified
-     * {@link OpstiDomenskiObjekat} representing the {@link Raspored}.
+     * Konstruktor koji kreira novu {@code SOKreirajRaspored} instancu sa
+     * specifikovanom {@link OpstiDomenskiObjekat} koja predstavlja
+     * {@link Raspored}.
      *
-     * @param raspored the {@link OpstiDomenskiObjekat} instance representing
-     * the {@link Raspored} to be created
+     * @param raspored instanca {@link OpstiDomenskiObjekat} koja predstavlja
+     * {@link Raspored} koji treba da se kreira
      */
     public SOKreirajRaspored(OpstiDomenskiObjekat raspored) {
         this.raspored = raspored;
     }
 
     /**
-     * Returns whether the creation of the {@link Raspored} was successful.
+     * Vraća da li je kreiranje {@link Raspored} bilo uspešno.
      *
-     * @return {@code true} if the creation was successful, {@code false}
-     * otherwise
+     * @return {@code true} ako je kreiranje bilo uspešno, {@code false} inače
      */
     public boolean isUspeh() {
         return uspeh;
     }
 
     /**
-     * Executes the specific operation of saving the
-     * {@link OpstiDomenskiObjekat} representing a {@link Raspored} to the
-     * database.
-     * <p>
-     * This method attempts to save the provided {@link OpstiDomenskiObjekat} to
-     * the database. The success of the operation is stored in the {@code uspeh}
-     * field.
-     * </p>
+     * Izvršava specifičnu operaciju čuvanja {@link OpstiDomenskiObjekat} koji
+     * predstavlja {@link Raspored} u bazi podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

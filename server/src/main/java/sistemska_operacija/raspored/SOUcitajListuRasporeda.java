@@ -7,18 +7,9 @@ import java.util.List;
 import sistemska_operacija.OpstaSO;
 
 /**
- * System operation for retrieving a list of all {@link Raspored} instances from
- * the database.
- * <p>
- * This operation fetches all {@link OpstiDomenskiObjekat} instances
- * representing {@link Raspored} from the database. The retrieved list of
- * {@link OpstiDomenskiObjekat} instances can be accessed using the
- * {@link #getRasporedi()} method.
- * </p>
+ * Klasa koja predstavlja sistemsku operaciju za preuzimanje liste svih
+ * {@link Raspored} instanci iz baze podataka.
  *
- * @see OpstiDomenskiObjekat
- * @see Raspored
- * @see DbBroker
  * @author dulait
  */
 public class SOUcitajListuRasporeda extends OpstaSO {
@@ -26,23 +17,18 @@ public class SOUcitajListuRasporeda extends OpstaSO {
     private List<OpstiDomenskiObjekat> rasporedi;
 
     /**
-     * Returns the list of {@link OpstiDomenskiObjekat} instances representing
-     * {@link Raspored} retrieved from the database.
+     * Vraća listu {@link OpstiDomenskiObjekat} instanci koje predstavljaju
+     * {@link Raspored} preuzete iz baze podataka.
      *
-     * @return the list of {@link OpstiDomenskiObjekat} instances
+     * @return lista {@link OpstiDomenskiObjekat} instanci
      */
     public List<OpstiDomenskiObjekat> getRasporedi() {
         return rasporedi;
     }
 
     /**
-     * Executes the specific operation of retrieving a list of all
-     * {@link Raspored} instances from the database.
-     * <p>
-     * This method fetches all {@link OpstiDomenskiObjekat} instances
-     * representing {@link Raspored} from the database and stores them in the
-     * {@code rasporedi} field.
-     * </p>
+     * Izvršava specifičnu operaciju preuzimanja liste svih {@link Raspored}
+     * instanci iz baze podataka.
      */
     @Override
     protected void izvrsiSpecificnuOperaciju() {

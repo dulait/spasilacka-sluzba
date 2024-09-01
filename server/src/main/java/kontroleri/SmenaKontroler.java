@@ -9,18 +9,7 @@ import sistemska_operacija.smena.SOUcitajListuSmena;
 import sistemska_operacija.smena.SOUcitajSmenu;
 
 /**
- * The {@code SmenaKontroler} class provides methods for managing {@code Smena}
- * objects.
- * <p>
- * This class serves as a controller for {@code Smena} entities, interacting
- * with system operations to perform various operations related to {@code Smena}
- * data.
- * </p>
- *
- * <p>
- * It implements the Singleton pattern to ensure that only one instance of the
- * controller is created.
- * </p>
+ * Klasa koja pruža metode za upravljanje Smenama.
  *
  * @author dulait
  */
@@ -32,13 +21,9 @@ public class SmenaKontroler {
     }
 
     /**
-     * Returns the singleton instance of the {@code SmenaKontroler}.
-     * <p>
-     * If the instance does not exist, it is created. This method ensures that
-     * only one instance of the controller is used.
-     * </p>
+     * Vraća instancu kontrolera.
      *
-     * @return the singleton instance of {@code SmenaKontroler}
+     * @return singleton instanca {@code SmenaKontroler}
      */
     public static SmenaKontroler getInstanca() {
         if (instanca == null) {
@@ -48,14 +33,10 @@ public class SmenaKontroler {
     }
 
     /**
-     * Retrieves a list of all {@code Smena} objects.
-     * <p>
-     * This method uses the {@code SOUcitajListuSmena} system operation to
-     * execute the retrieval process.
-     * </p>
+     * Vraća listu svih Smena.
      *
-     * @return a list of {@code OpstiDomenskiObjekat} representing {@code Smena}
-     * objects
+     * @return lista {@code OpstiDomenskiObjekat} koji predstavljaju Smena
+     * objekte
      */
     public List<OpstiDomenskiObjekat> ucitajListuSmena() {
         SOUcitajListuSmena so = new SOUcitajListuSmena();
@@ -64,15 +45,10 @@ public class SmenaKontroler {
     }
 
     /**
-     * Retrieves a specific {@code Smena} object by its identifier.
-     * <p>
-     * This method uses the {@code SOUcitajSmenu} system operation to execute
-     * the retrieval process.
-     * </p>
+     * Vraća specifičnu Smenu.
      *
-     * @param smena the {@code Smena} object to be retrieved
-     * @return the {@code OpstiDomenskiObjekat} representing the retrieved
-     * {@code Smena}
+     * @param smena objekat {@code Smena} koji treba vratiti
+     * @return {@code OpstiDomenskiObjekat} koji predstavlja pronađenu Smenu
      */
     public OpstiDomenskiObjekat ucitajSmenu(Smena smena) {
         SOUcitajSmenu so = new SOUcitajSmenu(smena);
@@ -81,15 +57,10 @@ public class SmenaKontroler {
     }
 
     /**
-     * Creates a new {@code Smena} object.
-     * <p>
-     * This method uses the {@code SOKreirajSmenu} system operation to execute
-     * the creation process.
-     * </p>
+     * Kreira novu Smenu.
      *
-     * @param smena the {@code Smena} object to be created
-     * @return {@code true} if the creation is successful, {@code false}
-     * otherwise
+     * @param smena objekat {@code Smena} koji treba kreirati
+     * @return {@code true} ako je kreiranje uspešno, {@code false} inače
      */
     public boolean kreirajSmenu(Smena smena) {
         SOKreirajSmenu so = new SOKreirajSmenu(smena);
@@ -98,14 +69,10 @@ public class SmenaKontroler {
     }
 
     /**
-     * Updates an existing {@code Smena} object.
-     * <p>
-     * This method uses the {@code SOAzurirajSmenu} system operation to execute
-     * the update process.
-     * </p>
+     * Ažurira postojeću Smenu.
      *
-     * @param smena the {@code Smena} object to be updated
-     * @return {@code true} if the update is successful, {@code false} otherwise
+     * @param smena objekat {@code Smena} koji treba ažurirati
+     * @return {@code true} ako je ažuriranje uspešno, {@code false} inače
      */
     public boolean azurirajSmenu(Smena smena) {
         SOAzurirajSmenu so = new SOAzurirajSmenu(smena);

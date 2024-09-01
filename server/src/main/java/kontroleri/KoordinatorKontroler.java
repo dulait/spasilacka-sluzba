@@ -8,18 +8,7 @@ import sistemska_operacija.koordinator.SOUcitajKoordinatora;
 import sistemska_operacija.koordinator.SOUcitajListuKoordinatora;
 
 /**
- * The {@code KoordinatorKontroler} class provides methods for managing
- * {@code Koordinator} objects.
- * <p>
- * This class serves as a controller for {@code Koordinator} entities,
- * interacting with system operations to perform various operations related to
- * {@code Koordinator} data.
- * </p>
- *
- * <p>
- * It implements the Singleton pattern to ensure that only one instance of the
- * controller is created.
- * </p>
+ * Klasa koja pruža metode za upravljanje Koordinatorima.
  *
  * @author dulait
  */
@@ -31,13 +20,9 @@ public class KoordinatorKontroler {
     }
 
     /**
-     * Returns the singleton instance of the {@code KoordinatorKontroler}.
-     * <p>
-     * If the instance does not exist, it is created. This method ensures that
-     * only one instance of the controller is used.
-     * </p>
+     * Vraća instancu kontrolera.
      *
-     * @return the singleton instance of {@code KoordinatorKontroler}
+     * @return singleton instanca {@code KoordinatorKontroler}
      */
     public static KoordinatorKontroler getInstanca() {
         if (instanca == null) {
@@ -47,15 +32,11 @@ public class KoordinatorKontroler {
     }
 
     /**
-     * Registers a new {@code Koordinator} object.
-     * <p>
-     * This method uses the {@code SOPrijaviKoordinatora} system operation to
-     * execute the registration process.
-     * </p>
+     * Vrši prijavu Koordinatora na sistem (login).
      *
-     * @param koordinator the {@code Koordinator} object to be registered
-     * @return the {@code OpstiDomenskiObjekat} representing the registered
-     * {@code Koordinator}
+     * @param koordinator objekat {@code Koordinator} koji se prijavljuje
+     * @return {@code OpstiDomenskiObjekat} koji predstavlja prijavljenog
+     * Koordinatora
      */
     public OpstiDomenskiObjekat prijaviKoordinatora(Koordinator koordinator) {
         SOPrijaviKoordinatora so = new SOPrijaviKoordinatora(koordinator);
@@ -64,15 +45,11 @@ public class KoordinatorKontroler {
     }
 
     /**
-     * Retrieves a specific {@code Koordinator} object by its identifier.
-     * <p>
-     * This method uses the {@code SOUcitajKoordinatora} system operation to
-     * execute the retrieval process.
-     * </p>
+     * Vraća specifičnog Koordinatora.
      *
-     * @param koordinator the {@code Koordinator} object to be retrieved
-     * @return the {@code OpstiDomenskiObjekat} representing the retrieved
-     * {@code Koordinator}
+     * @param koordinator objekat {@code Koordinator} koji treba vratiti
+     * @return {@code OpstiDomenskiObjekat} koji predstavlja pronađenog
+     * Koordinatora
      */
     public OpstiDomenskiObjekat ucitajKoordinatora(Koordinator koordinator) {
         SOUcitajKoordinatora so = new SOUcitajKoordinatora(koordinator);
@@ -81,14 +58,10 @@ public class KoordinatorKontroler {
     }
 
     /**
-     * Retrieves a list of all {@code Koordinator} objects.
-     * <p>
-     * This method uses the {@code SOUcitajListuKoordinatora} system operation
-     * to execute the retrieval process.
-     * </p>
+     * Vraća listu svih Koordinatora.
      *
-     * @return a list of {@code OpstiDomenskiObjekat} representing
-     * {@code Koordinator} objects
+     * @return lista {@code OpstiDomenskiObjekat} koji predstavljaju Koordinator
+     * objekte
      */
     public List<OpstiDomenskiObjekat> ucitajListuKoordinatora() {
         SOUcitajListuKoordinatora so = new SOUcitajListuKoordinatora();

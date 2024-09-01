@@ -9,18 +9,7 @@ import sistemska_operacija.raspored.SOUcitajListuRasporeda;
 import sistemska_operacija.raspored.SOUcitajRaspored;
 
 /**
- * The {@code RasporedKontroler} class provides methods for managing
- * {@code Raspored} objects.
- * <p>
- * This class serves as a controller for {@code Raspored} entities, interacting
- * with system operations to perform various operations related to
- * {@code Raspored} data.
- * </p>
- *
- * <p>
- * It implements the Singleton pattern to ensure that only one instance of the
- * controller is created.
- * </p>
+ * Klasa koja pruža metode za upravljanje Rasporedima.
  *
  * @author dulait
  */
@@ -32,13 +21,9 @@ public class RasporedKontroler {
     }
 
     /**
-     * Returns the singleton instance of the {@code RasporedKontroler}.
-     * <p>
-     * If the instance does not exist, it is created. This method ensures that
-     * only one instance of the controller is used.
-     * </p>
+     * Vraća instancu kontrolera.
      *
-     * @return the singleton instance of {@code RasporedKontroler}
+     * @return singleton instanca {@code RasporedKontroler}
      */
     public static RasporedKontroler getInstanca() {
         if (instanca == null) {
@@ -48,14 +33,10 @@ public class RasporedKontroler {
     }
 
     /**
-     * Retrieves a list of all {@code Raspored} objects.
-     * <p>
-     * This method uses the {@code SOUcitajListuRasporeda} system operation to
-     * execute the retrieval process.
-     * </p>
+     * Vraća listu svih Rasporeda.
      *
-     * @return a list of {@code OpstiDomenskiObjekat} representing
-     * {@code Raspored} objects
+     * @return lista {@code OpstiDomenskiObjekat} koji predstavljaju Raspored
+     * objekte
      */
     public List<OpstiDomenskiObjekat> ucitajListuRasporeda() {
         SOUcitajListuRasporeda so = new SOUcitajListuRasporeda();
@@ -64,15 +45,10 @@ public class RasporedKontroler {
     }
 
     /**
-     * Retrieves a specific {@code Raspored} object by its identifier.
-     * <p>
-     * This method uses the {@code SOUcitajRaspored} system operation to execute
-     * the retrieval process.
-     * </p>
+     * Vraća specifičan Raspored.
      *
-     * @param raspored the {@code Raspored} object to be retrieved
-     * @return the {@code OpstiDomenskiObjekat} representing the retrieved
-     * {@code Raspored}
+     * @param raspored objekat {@code Raspored} koji treba vratiti
+     * @return {@code OpstiDomenskiObjekat} koji predstavlja pronađeni Raspored
      */
     public OpstiDomenskiObjekat ucitajRaspored(Raspored raspored) {
         SOUcitajRaspored so = new SOUcitajRaspored(raspored);
@@ -81,15 +57,10 @@ public class RasporedKontroler {
     }
 
     /**
-     * Creates a new {@code Raspored} object.
-     * <p>
-     * This method uses the {@code SOKreirajRaspored} system operation to
-     * execute the creation process.
-     * </p>
+     * Kreira novi Raspored.
      *
-     * @param raspored the {@code Raspored} object to be created
-     * @return {@code true} if the creation is successful, {@code false}
-     * otherwise
+     * @param raspored objekat {@code Raspored} koji treba kreirati
+     * @return {@code true} ako je kreiranje uspešno, {@code false} inače
      */
     public boolean kreirajRaspored(Raspored raspored) {
         SOKreirajRaspored so = new SOKreirajRaspored(raspored);
@@ -98,15 +69,10 @@ public class RasporedKontroler {
     }
 
     /**
-     * Deletes a specific {@code Raspored} object.
-     * <p>
-     * This method uses the {@code SOObrisiRaspored} system operation to execute
-     * the deletion process.
-     * </p>
+     * Briše specifičan Raspored.
      *
-     * @param raspored the {@code Raspored} object to be deleted
-     * @return {@code true} if the deletion is successful, {@code false}
-     * otherwise
+     * @param raspored objekat {@code Raspored} koji treba obrisati
+     * @return {@code true} ako je brisanje uspešno, {@code false} inače
      */
     public boolean obrisiRaspored(Raspored raspored) {
         SOObrisiRaspored so = new SOObrisiRaspored(raspored);

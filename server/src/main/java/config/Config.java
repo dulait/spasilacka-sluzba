@@ -4,13 +4,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * The {@code Config} class is responsible for loading and providing
- * configuration properties for the application.
- * <p>
- * This class reads configuration settings from a properties file named
- * {@code prop.properties}. It provides static methods to retrieve specific
- * configuration values such as database connection details.
- * </p>
+ * Klasa {@code Config} je odgovorna za konfiguraciju aplikacije.
  *
  * @author dulait
  */
@@ -23,55 +17,55 @@ public class Config {
             if (in != null) {
                 properties.load(in);
             } else {
-                System.out.println("Property file not found.");
+                System.out.println("Datoteka sa svojstvima nije pronađena.");
             }
         } catch (Exception ex) {
-            System.out.println("Error loading property file: " + ex.getMessage());
+            System.out.println("Greška prilikom učitavanja datoteke sa svojstvima: " + ex.getMessage());
         }
     }
 
     /**
-     * Retrieves the username property from the configuration file.
+     * Vraća korisničko ime za pristup bazi.
      *
-     * @return the username configured in {@code prop.properties}, or
-     * {@code null} if not set
+     * @return korisničko ime podešeno u {@code prop.properties}, ili
+     * {@code null} ako nije postavljeno
      */
     public static String getUsername() {
         return properties.getProperty("username");
     }
 
     /**
-     * Retrieves the password property from the configuration file.
+     * Vraća lozinku za pristup bazi.
      *
-     * @return the password configured in {@code prop.properties}, or
-     * {@code null} if not set
+     * @return lozinka podešena u {@code prop.properties}, ili {@code null} ako
+     * nije postavljena
      */
     public static String getPassword() {
         return properties.getProperty("pass");
     }
 
     /**
-     * Retrieves the database URL property from the configuration file.
+     * Vraća URL baze (connection string).
      *
-     * @return the database URL configured in {@code prop.properties}, or
-     * {@code null} if not set
+     * @return URL baze podataka podešen u {@code prop.properties}, ili
+     * {@code null} ako nije postavljen
      */
     public static String getDatabaseUrl() {
         return properties.getProperty("url");
     }
 
     /**
-     * Retrieves the port number property from the configuration file.
+     * Vraća broj porta preko kojeg se vrši socket komunikacija.
      *
-     * @return the port number configured in {@code prop.properties}, or
-     * {@code 0} if not set or if an error occurs
+     * @return broj porta podešen u {@code prop.properties}, ili {@code 0} ako
+     * nije postavljen ili ako dođe do greške.
      */
     public static int getPort() {
         String portString = properties.getProperty("port");
         try {
             return Integer.parseInt(portString);
         } catch (NumberFormatException e) {
-            System.out.println("Error parsing port number: " + e.getMessage());
+            System.out.println("Greška prilikom parsiranja broja porta: " + e.getMessage());
             return 0;
         }
     }
