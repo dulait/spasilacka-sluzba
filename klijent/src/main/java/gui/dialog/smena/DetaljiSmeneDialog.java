@@ -6,10 +6,7 @@ import javax.swing.JOptionPane;
 import kontroler.SmenaKontroler;
 
 /**
- * Dialog that renders the details of a selected Smena instance.
- *
- * Upon loading it renders the selected Smena instance from the
- * {@code SmenaDialog}
+ * Dialog za prikaz detalja smene.
  *
  * @author dulait
  */

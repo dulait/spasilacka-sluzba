@@ -9,10 +9,7 @@ import javax.swing.JOptionPane;
 import kontroler.RasporedKontroler;
 
 /**
- * Dialog that allows users to manipulate the Raspored instances.
- *
- * Upon loading it renders a list of Raspored instances using the
- * {@code RasporedTableModel}
+ * Dialog za rad sa rasporedima
  *
  * @author dulait
  */

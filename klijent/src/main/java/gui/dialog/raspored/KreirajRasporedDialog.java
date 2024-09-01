@@ -7,10 +7,7 @@ import javax.swing.JOptionPane;
 import kontroler.RasporedKontroler;
 
 /**
- * Dialog that allows users to create a new Raspored instance.
- *
- * Upon loading it renders the selected Raspored instance from the
- * {@code RasporedDialog}
+ * Dialog za kreiranje rasporeda.
  *
  * @author dulait
  */

@@ -9,10 +9,7 @@ import kontroler.SpasilacKontroler;
 import model.SpasilacTableModel;
 
 /**
- * Dialog that allows users to manipulate the Spasilac instances.
- *
- * Upon loading it renders a list of Spasilac instances using the
- * {@code SpasilacTableModel}
+ * Dialog za rad sa spasiocima.
  *
  * @author dulait
  */

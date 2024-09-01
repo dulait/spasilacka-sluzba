@@ -5,19 +5,8 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * The {@code IzvestajTableModel} class is a table model for displaying a list
- * of {@code Izvestaj} instances.
- * <p>
- * This class extends {@code AbstractTableModel} and provides the data and
- * column names required for displaying {@code Izvestaj} objects in a
- * {@code JTable}.
- * </p>
- *
- * <p>
- * It provides data for two columns: "Angazovanje" and "Opis", which correspond
- * to the engagement and description of the {@code Izvestaj} object,
- * respectively.
- * </p>
+ * Klasa {@code IzvestajTableModel} predstavlja model tabele za prikaz liste
+ * {@code Izvestaj} instanci.
  *
  * @author dulait
  */
@@ -27,23 +16,20 @@ public class IzvestajTableModel extends AbstractTableModel {
     private final String[] kolone = {"Angazovanje", "Opis"};
 
     /**
-     * Constructs a {@code IzvestajTableModel} with the specified list of
-     * {@code Izvestaj} instances.
+     * Konstruktor za {@code IzvestajTableModel} sa datom listom
+     * {@code Izvestaj} instanci.
      *
-     * @param izvestaji the list of {@code Izvestaj} instances to be displayed
-     * in the table
+     * @param izvestaji lista {@code Izvestaj} instanci koja se prikazuje u
+     * tabeli
      */
     public IzvestajTableModel(List<Izvestaj> izvestaji) {
         this.izvestaji = izvestaji;
     }
 
     /**
-     * Returns the number of rows in the table.
-     * <p>
-     * This method returns the size of the list of {@code Izvestaj} instances.
-     * </p>
+     * Vraća broj redova u tabeli.
      *
-     * @return the number of rows in the table
+     * @return broj redova u tabeli
      */
     @Override
     public int getRowCount() {
@@ -51,13 +37,9 @@ public class IzvestajTableModel extends AbstractTableModel {
     }
 
     /**
-     * Returns the number of columns in the table.
-     * <p>
-     * This method returns the length of the {@code kolone} array, which defines
-     * the column names.
-     * </p>
+     * Vraća broj kolona u tabeli.
      *
-     * @return the number of columns in the table
+     * @return broj kolona u tabeli
      */
     @Override
     public int getColumnCount() {
@@ -65,16 +47,12 @@ public class IzvestajTableModel extends AbstractTableModel {
     }
 
     /**
-     * Returns the value at the specified cell.
-     * <p>
-     * This method retrieves the value from the {@code Izvestaj} instance at the
-     * specified row and column index.
-     * </p>
+     * Vraća vrednost u zadatoj ćeliji.
      *
-     * @param rowIndex the row index of the cell
-     * @param columnIndex the column index of the cell
-     * @return the value at the specified cell, or {@code null} if the index is
-     * out of bounds
+     * @param rowIndex indeks reda ćelije
+     * @param columnIndex indeks kolone ćelije
+     * @return vrednost u zadatoj ćeliji, ili {@code null} ako je indeks van
+     * granica
      */
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
@@ -90,10 +68,10 @@ public class IzvestajTableModel extends AbstractTableModel {
     }
 
     /**
-     * Returns the name of the column at the specified index.
+     * Vraća naziv kolone na zadatom indeksu.
      *
-     * @param column the index of the column
-     * @return the name of the column at the specified index
+     * @param column indeks kolone
+     * @return naziv kolone na zadatom indeksu
      */
     @Override
     public String getColumnName(int column) {

@@ -8,7 +8,7 @@ import transfer.Odgovor;
 import transfer.Zahtev;
 
 /**
- * Handler class that opens IO streams between the Client and the Server
+ * Klasa koja predstavlja mediator za otvaranje komunikacije sa serverom
  *
  * @author dulait
  */

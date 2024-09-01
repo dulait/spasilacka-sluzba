@@ -8,10 +8,7 @@ import kontroler.IzvestajKontroler;
 import model.IzvestajTableModel;
 
 /**
- * Dialog that allows users to manipulate the Izvestaj instances.
- *
- * Upon loading it renders a list of Izvestaj instances using the
- * {@code IzvestajTableModel}
+ * Dialog za rad sa izveštajima
  *
  * @author dulait
  */

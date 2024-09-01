@@ -5,19 +5,8 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * The {@code AngazovanjeTableModel} class is a table model for displaying a
- * list of {@code Angazovanje} instances.
- * <p>
- * This class extends {@code AbstractTableModel} and provides the data and
- * column names required for displaying {@code Angazovanje} objects in a
- * {@code JTable}.
- * </p>
- *
- * <p>
- * It provides data for three columns: "Spasilac", "Smena", and "Raspored",
- * which correspond to the rescuer, shift, and schedule of the
- * {@code Angazovanje} object, respectively.
- * </p>
+ * Klasa {@code AngazovanjeTableModel} predstavlja model tabele za prikaz liste
+ * {@code Angazovanje} instanci.
  *
  * @author dulait
  */
@@ -27,24 +16,20 @@ public class AngazovanjeTableModel extends AbstractTableModel {
     private final String[] kolone = {"Spasilac", "Smena", "Raspored"};
 
     /**
-     * Constructs an {@code AngazovanjeTableModel} with the specified list of
-     * {@code Angazovanje} instances.
+     * Konstruktor za {@code AngazovanjeTableModel} sa datom listom
+     * {@code Angazovanje} instanci.
      *
-     * @param angazovanja the list of {@code Angazovanje} instances to be
-     * displayed in the table
+     * @param angazovanja lista {@code Angazovanje} instanci koja se prikazuje u
+     * tabeli
      */
     public AngazovanjeTableModel(List<Angazovanje> angazovanja) {
         this.angazovanja = angazovanja;
     }
 
     /**
-     * Returns the number of rows in the table.
-     * <p>
-     * This method returns the size of the list of {@code Angazovanje}
-     * instances.
-     * </p>
+     * Vraća broj redova u tabeli.
      *
-     * @return the number of rows in the table
+     * @return broj redova u tabeli
      */
     @Override
     public int getRowCount() {
@@ -52,13 +37,9 @@ public class AngazovanjeTableModel extends AbstractTableModel {
     }
 
     /**
-     * Returns the number of columns in the table.
-     * <p>
-     * This method returns the length of the {@code kolone} array, which defines
-     * the column names.
-     * </p>
+     * Vraća broj kolona u tabeli.
      *
-     * @return the number of columns in the table
+     * @return broj kolona u tabeli
      */
     @Override
     public int getColumnCount() {
@@ -66,37 +47,33 @@ public class AngazovanjeTableModel extends AbstractTableModel {
     }
 
     /**
-     * Returns the value at the specified cell.
-     * <p>
-     * This method retrieves the value from the {@code Angazovanje} instance at
-     * the specified row and column index.
-     * </p>
+     * Vraća vrednost u zadatoj ćeliji.
      *
-     * @param rowIndex the row index of the cell
-     * @param columnIndex the column index of the cell
-     * @return the value at the specified cell, or {@code null} if the index is
-     * out of bounds
+     * @param rowIndex indeks reda ćelije
+     * @param columnIndex indeks kolone ćelije
+     * @return vrednost u zadatoj ćeliji, ili {@code null} ako je indeks van
+     * granica
      */
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Angazovanje angazovanje = angazovanja.get(rowIndex);
-        switch (columnIndex) {
-            case 0:
-                return angazovanje.getSpasilac();
-            case 1:
-                return angazovanje.getSmena();
-            case 2:
-                return angazovanje.getRaspored();
-            default:
-                return null;
-        }
+        return switch (columnIndex) {
+            case 0 ->
+                angazovanje.getSpasilac();
+            case 1 ->
+                angazovanje.getSmena();
+            case 2 ->
+                angazovanje.getRaspored();
+            default ->
+                null;
+        };
     }
 
     /**
-     * Returns the name of the column at the specified index.
+     * Vraća naziv kolone na zadatom indeksu.
      *
-     * @param column the index of the column
-     * @return the name of the column at the specified index
+     * @param column indeks kolone
+     * @return naziv kolone na zadatom indeksu
      */
     @Override
     public String getColumnName(int column) {

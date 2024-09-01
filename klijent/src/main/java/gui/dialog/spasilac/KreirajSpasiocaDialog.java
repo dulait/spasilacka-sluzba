@@ -8,10 +8,7 @@ import javax.swing.JOptionPane;
 import kontroler.SpasilacKontroler;
 
 /**
- * Dialog that allows users to create a new Spasilac instance.
- *
- * Upon loading it renders the selected Spasilac instance from the
- * {@code SpasilacDialog}
+ * Dialog za kreiranje spasioca
  *
  * @author dulait
  */

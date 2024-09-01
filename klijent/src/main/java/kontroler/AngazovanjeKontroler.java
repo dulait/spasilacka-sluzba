@@ -7,8 +7,7 @@ import transfer.Odgovor;
 import transfer.Zahtev;
 
 /**
- * Handler class that sends and receives server requests and responses for CRUD
- * operations regarding the Angazovanje domain model
+ * Klasa koja predstavlja mediator za CRUD operacije nad angažovanjima
  *
  * @author dulait
  */

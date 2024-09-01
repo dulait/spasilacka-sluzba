@@ -10,10 +10,7 @@ import kontroler.AngazovanjeKontroler;
 import model.AngazovanjeTableModel;
 
 /**
- * Dialog that allows users to manipulate the Angazovanje instances.
- *
- * Upon loading it renders a list of Angazovanje instances using the
- * {@code AngazovanjeTableModel}
+ * Dialog za rad sa angažovanjima
  *
  * @author dulait
  */

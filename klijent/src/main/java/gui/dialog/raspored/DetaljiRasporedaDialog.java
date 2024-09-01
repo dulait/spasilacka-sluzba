@@ -9,10 +9,7 @@ import kontroler.AngazovanjeKontroler;
 import model.AngazovanjeTableModel;
 
 /**
- * Dialog that renders the details of a selected Raspored instance.
- *
- * Upon loading it renders the selected Raspored instance from the
- * {@code RasporedDialog}
+ * Dialog za prikaz detalja rasporeda.
  *
  * @author dulait
  */

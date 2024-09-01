@@ -11,7 +11,7 @@ import transfer.Odgovor;
 import transfer.Zahtev;
 
 /**
- * Thread that connects the Client and the Server using a predefined Socket port
+ * Nit koja se koristi za povezivanje sa serverskom aplikacijom.
  *
  * @author dulait
  */

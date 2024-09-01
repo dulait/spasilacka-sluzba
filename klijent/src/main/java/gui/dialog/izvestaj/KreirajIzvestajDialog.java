@@ -9,10 +9,7 @@ import kontroler.AngazovanjeKontroler;
 import kontroler.IzvestajKontroler;
 
 /**
- * Dialog that allows users to create a new Izvestaj instance.
- *
- * Upon loading it renders the selected Izvestaj instance from the
- * {@code IzvestajDialog}
+ * Dialog za kreiranje izveštaja.
  *
  * @author dulait
  */

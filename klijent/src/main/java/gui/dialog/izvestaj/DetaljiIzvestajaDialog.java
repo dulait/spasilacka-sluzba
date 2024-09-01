@@ -5,10 +5,7 @@ import javax.swing.JOptionPane;
 import kontroler.IzvestajKontroler;
 
 /**
- * Dialog that renders the details of a selected Izvestaj instance.
- *
- * Upon loading it renders the selected Izvestaj instance from the
- * {@code IzvestajDialog}
+ * Dialog za prikaz detalja izveštaja.
  *
  * @author dulait
  */

@@ -5,8 +5,7 @@ import transfer.Odgovor;
 import transfer.Zahtev;
 
 /**
- * Handler class that sends and receives server requests and responses for
- * exporting to JSON.
+ * Klasa koja predstavlja mediator za JSON operacije
  *
  * @author dulait
  */

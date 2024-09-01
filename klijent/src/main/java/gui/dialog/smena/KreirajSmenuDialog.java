@@ -6,10 +6,7 @@ import javax.swing.JOptionPane;
 import kontroler.SmenaKontroler;
 
 /**
- * Dialog that allows users to create a new Smena instance.
- *
- * Upon loading it renders the selected Smena instance from the
- * {@code SmenaDialog}
+ * Dialog za kreiranje smene.
  *
  * @author dulait
  */

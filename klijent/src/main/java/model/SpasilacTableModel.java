@@ -5,19 +5,8 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * The {@code SpasilacTableModel} class is a table model for displaying a list
- * of {@code Spasilac} instances.
- * <p>
- * This class extends {@code AbstractTableModel} and provides the data and
- * column names required for displaying {@code Spasilac} objects in a
- * {@code JTable}.
- * </p>
- *
- * <p>
- * It provides data for three columns: "Ime", "Prezime", and "JMBG", which
- * correspond to the first name, last name, and unique identification number of
- * the {@code Spasilac} object, respectively.
- * </p>
+ * Klasa {@code SpasilacTableModel} predstavlja model tabele za prikaz liste
+ * {@code Spasilac} instanci.
  *
  * @author dulait
  */
@@ -27,23 +16,20 @@ public class SpasilacTableModel extends AbstractTableModel {
     private final String[] kolone = {"Ime", "Prezime", "JMBG"};
 
     /**
-     * Constructs a {@code SpasilacTableModel} with the specified list of
-     * {@code Spasilac} instances.
+     * Konstruktor za {@code SpasilacTableModel} sa datom listom
+     * {@code Spasilac} instanci.
      *
-     * @param spasioci the list of {@code Spasilac} instances to be displayed in
-     * the table
+     * @param spasioci lista {@code Spasilac} instanci koja se prikazuje u
+     * tabeli
      */
     public SpasilacTableModel(List<Spasilac> spasioci) {
         this.spasioci = spasioci;
     }
 
     /**
-     * Returns the number of rows in the table.
-     * <p>
-     * This method returns the size of the list of {@code Spasilac} instances.
-     * </p>
+     * Vraća broj redova u tabeli.
      *
-     * @return the number of rows in the table
+     * @return broj redova u tabeli
      */
     @Override
     public int getRowCount() {
@@ -51,13 +37,9 @@ public class SpasilacTableModel extends AbstractTableModel {
     }
 
     /**
-     * Returns the number of columns in the table.
-     * <p>
-     * This method returns the length of the {@code kolone} array, which defines
-     * the column names.
-     * </p>
+     * Vraća broj kolona u tabeli.
      *
-     * @return the number of columns in the table
+     * @return broj kolona u tabeli
      */
     @Override
     public int getColumnCount() {
@@ -65,16 +47,12 @@ public class SpasilacTableModel extends AbstractTableModel {
     }
 
     /**
-     * Returns the value at the specified cell.
-     * <p>
-     * This method retrieves the value from the {@code Spasilac} instance at the
-     * specified row and column index.
-     * </p>
+     * Vraća vrednost u zadatoj ćeliji.
      *
-     * @param rowIndex the row index of the cell
-     * @param columnIndex the column index of the cell
-     * @return the value at the specified cell, or {@code null} if the index is
-     * out of bounds
+     * @param rowIndex indeks reda ćelije
+     * @param columnIndex indeks kolone ćelije
+     * @return vrednost u zadatoj ćeliji, ili {@code null} ako je indeks van
+     * granica
      */
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
@@ -92,10 +70,10 @@ public class SpasilacTableModel extends AbstractTableModel {
     }
 
     /**
-     * Returns the name of the column at the specified index.
+     * Vraća naziv kolone na zadatom indeksu.
      *
-     * @param column the index of the column
-     * @return the name of the column at the specified index
+     * @param column indeks kolone
+     * @return naziv kolone na zadatom indeksu
      */
     @Override
     public String getColumnName(int column) {

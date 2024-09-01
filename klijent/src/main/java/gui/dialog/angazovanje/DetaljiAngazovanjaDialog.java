@@ -5,10 +5,7 @@ import javax.swing.JOptionPane;
 import kontroler.AngazovanjeKontroler;
 
 /**
- * Dialog that renders the details of a selected Angazovanje instance.
- *
- * Upon loading it renders the selected Angazovanje instance from the
- * {@code AngazovanjeDialog}
+ * Dialog za prikaz detalja angažovanja
  *
  * @author dulait
  */

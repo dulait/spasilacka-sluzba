@@ -8,10 +8,7 @@ import kontroler.SmenaKontroler;
 import model.SmenaTableModel;
 
 /**
- * Dialog that allows users to manipulate the Smena instances.
- *
- * Upon loading it renders a list of Smena instances using the
- * {@code SmenaTableModel}
+ * Dialog za rad sa smenama.
  *
  * @author dulait
  */

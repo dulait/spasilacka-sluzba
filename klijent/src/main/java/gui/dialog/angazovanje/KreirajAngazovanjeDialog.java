@@ -13,10 +13,7 @@ import kontroler.SmenaKontroler;
 import kontroler.SpasilacKontroler;
 
 /**
- * Dialog that allows users to create a new Angazovanje instance.
- *
- * Upon loading it renders the selected Angazovanje instance from the
- * {@code AngazovanjeDialog}
+ * Dialog za kreiranje angažovanja
  *
  * @author dulait
  */
