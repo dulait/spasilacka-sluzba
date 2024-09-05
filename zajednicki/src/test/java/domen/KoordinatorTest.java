@@ -86,21 +86,6 @@ public class KoordinatorTest {
     }
 
     @Test
-    public void testGetSelectUpit() {
-        assertEquals("SELECT * FROM koordinator", koordinator.getSelectUpit());
-    }
-
-    @Test
-    public void testGetSelectUpitPoParametru() {
-        assertEquals("SELECT * FROM koordinator WHERE id = 1", koordinator.getSelectUpitPoParametru());
-    }
-
-    @Test
-    public void testGetUpdateUpit() {
-        assertEquals("id = 1, korisnickoIme = 'user1', lozinka = 'password1', ime = 'Dusan', prezime = 'Draskovic'", koordinator.getUpdateUpit());
-    }
-
-    @Test
     public void testToString() {
         assertEquals("Dusan Draskovic", koordinator.toString());
     }

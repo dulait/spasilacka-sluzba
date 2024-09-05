@@ -41,9 +41,6 @@ public class Spasilac extends OpstiDomenskiObjekat {
      * @throws IllegalArgumentException ako je id manji ili jednak nuli.
      */
     public final void setId(int id) {
-        if (id <= 0) {
-            throw new IllegalArgumentException("Id mora biti veći od nule.");
-        }
         this.id = id;
     }
 

@@ -28,7 +28,7 @@ public class IzvestajTest {
         smena = new Smena(1, 8, 16);
         raspored = new Raspored(1, LocalDate.now());
         angazovanje = new Angazovanje(spasilac, smena, raspored);
-        izvestaj = new Izvestaj(angazovanje, "Test description");
+        izvestaj = new Izvestaj(angazovanje, "Test opis");
     }
 
     @ParameterizedTest
@@ -130,7 +130,7 @@ public class IzvestajTest {
     @Test
     public void testGetUpdateUpit() {
         String expected = "UPDATE izvestaj SET spasilacId = " + spasilac.getId() + ", smenaId = " + smena.getId()
-                + ", rasporedId = " + raspored.getId() + ", opis = 'Test description' WHERE " + izvestaj.getSlozeniPrimarniKljuc();
+                + ", rasporedId = " + raspored.getId() + ", opis = 'Test opis' WHERE " + izvestaj.getSlozeniPrimarniKljuc();
         assertEquals(expected, izvestaj.getUpdateUpit());
     }
 
